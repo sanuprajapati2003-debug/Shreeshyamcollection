@@ -12,131 +12,173 @@
             --gold: #C5A059;
             --black: #1a1a1a;
             --white: #ffffff;
-            --light-gray: #f9f9f9;
+            --light-gray: #f4f4f4;
+            --border-color: #e0e0e0;
         }
 
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--black); scroll-behavior: smooth; }
 
-        /* --- Top Navigation Bar --- */
-        .nav-container {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: var(--white); border-bottom: 1px solid #eee;
-            position: sticky; top: 0; z-index: 1000;
+        /* --- Header & Small Logo Section --- */
+        header { 
+            text-align: center; 
+            padding: 20px 0 10px 0; 
+            background: var(--white);
         }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--black); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .main-logo { 
+            height: 80px; /* Small, elegant logo size */
+            width: auto; 
+            transition: 0.3s;
+        }
+
+        /* --- Downline Navigation (Below Logo) --- */
+        nav {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
         .nav-links a:hover { color: var(--gold); }
 
-        /* --- Header Logo Section --- */
-        header { text-align: center; padding: 40px 20px; background: var(--white); }
-        .main-logo { height: 120px; width: auto; }
-
-        /* --- Hero Banner (Large Professional Image) --- */
-        .hero-banner {
-            margin: 0 8%; height: 450px;
-            background: linear-gradient(to right, rgba(0,0,0,0.4), transparent), 
-                        url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1500') center/cover;
-            display: flex; align-items: center; padding: 60px; border-radius: 4px;
+        /* --- Designer Hero Section --- */
+        .hero {
+            height: 500px;
+            margin: 20px 5%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://images.unsplash.com/photo-1520006403909-838d6b92c22e?q=80&w=1500') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .hero-text { color: white; max-width: 400px; }
-        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 45px; margin-bottom: 10px; }
-        .shop-btn { background: var(--gold); color: white; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 2px; }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid var(--gold);
+        }
+        .hero-card h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 35px; }
 
-        /* --- Editor's Picks (Mega Grid) --- */
+        /* --- Pet Couture Section (The Dog Picture) --- */
+        .pet-section {
+            padding: 80px 10%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin: 40px 0;
+        }
+        .pet-image {
+            flex: 1;
+            border: 10px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .pet-image img { width: 100%; display: block; }
+        .pet-text { flex: 1; }
+        .pet-text h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--gold); }
+
+        /* --- Collection Mega Grid --- */
         .section-container { padding: 60px 8%; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 30px; border-left: 5px solid var(--gold); padding-left: 15px; }
-        
-        .mega-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { border-bottom: 1px solid #eee; padding-bottom: 20px; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-card img { width: 100%; height: 450px; object-fit: cover; border-radius: 4px; }
-        .product-info { margin-top: 15px; }
-        .product-info h3 { margin: 0; font-size: 18px; }
-        .product-info p { color: var(--gold); font-weight: bold; margin: 5px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .item-card { text-align: center; }
+        .item-card img { width: 100%; height: 450px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border-color); }
+        .item-card h3 { margin-top: 15px; font-family: 'Playfair Display', serif; }
 
-        /* --- Contact Form Section --- */
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 80px 8%; background: var(--light-gray); }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .submit-btn { background: var(--gold); color: white; border: none; padding: 15px 40px; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; }
-
-        /* --- Floating WhatsApp --- */
-        .whatsapp-btn {
-            position: fixed; bottom: 30px; right: 30px; background: #25D366; 
-            color: white; width: 65px; height: 65px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2000; text-decoration: none;
+        /* --- Footer --- */
+        footer { 
+            padding: 60px 8%; 
+            background: var(--black); 
+            color: white; 
+            text-align: center; 
         }
+        .footer-logo { font-size: 24px; color: var(--gold); margin-bottom: 10px; }
 
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .hero-banner { margin: 0; border-radius: 0; padding: 20px; height: 300px; }
+        /* --- WhatsApp --- */
+        .whatsapp {
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; 
+            color: white; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 2000; text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <nav class="nav-container">
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#collection">Picks</a>
-            <a href="#support">Support</a>
-        </div>
-        <div style="font-weight: bold; color: var(--gold);">AYODHYA STORE</div>
-    </nav>
-
     <header>
-        <img src="logo.png" class="main-logo" alt="Shree Shyam Collection Logo">
+        <img src="logo.png" class="main-logo" alt="Shree Shyam Collection">
     </header>
 
-    <section class="hero-banner" id="home">
-        <div class="hero-text">
-            <h1>Heritage Style</h1>
-            <p>Directly from the holy city of Ayodhya. Premium Ethnic Wear.</p><br>
-            <a href="#collection" class="shop-btn">View Collection</a>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#collection">Collection</a>
+            <a href="#pet">Pet Couture</a>
+            <a href="#contact">Support</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-card">
+            <h1>Premium Ayodhya Fashion</h1>
+            <p style="letter-spacing: 3px;">SINCE 2026</p>
+        </div>
+    </section>
+
+    <section class="pet-section" id="pet">
+        <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Stylish Pet Wear">
+        </div>
+        <div class="pet-text">
+            <h2>Luxury for Everyone</h2>
+            <p>At <b>Shree Shyam Collection</b>, fashion knows no bounds. Discover our exclusive range of attractive ethnic wear for your beloved pets, designed with the same gold-standard quality as our human collections.</p>
+            <a href="https://wa.me/919919717645" style="color: var(--gold); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--gold);">Enquire about Pet Wear &rarr;</a>
         </div>
     </section>
 
     <div class="section-container" id="collection">
-        <h2 class="section-title">Editor's Picks</h2>
-        <div class="mega-grid">
-            <div class="product-card">
+        <h2 style="text-align: center; font-family: 'Playfair Display'; font-size: 40px; margin-bottom: 50px;">The Mega Collection</h2>
+        <div class="grid">
+            <div class="item-card">
                 <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800">
-                <div class="product-info"><h3>Silk Saree Edition</h3><p>New Arrival</p></div>
+                <h3>Designer Sarees</h3>
             </div>
-            <div class="product-card">
+            <div class="item-card">
                 <img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=800">
-                <div class="product-info"><h3>Royal Men's Kurta</h3><p>Trending</p></div>
+                <h3>Royal Menswear</h3>
             </div>
-            <div class="product-card">
+            <div class="item-card">
                 <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800">
-                <div class="product-info"><h3>Wedding Sherwani</h3><p>Exclusive</p></div>
+                <h3>Wedding Special</h3>
             </div>
         </div>
     </div>
 
-    <section class="footer-grid" id="support">
-        <div>
-            <h2 style="font-family: 'Playfair Display';">Contact Us</h2>
-            <p>SHREE SHYAM COLLECTION</p>
-            <p>9919717645</p>
-            <p>Main Market, Ayodhya, Uttar Pradesh</p>
-            <p style="color: var(--gold); font-weight: bold; font-size: 20px; margin-top: 20px;">जय श्री श्याम</p>
-        </div>
-        <div class="contact-form">
-            <h3>Get a Callback</h3>
-            <form action="javascript:void(0);" onsubmit="alert('Thank you! We will call you at 9919717645.')">
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="Mobile Number" required>
-                <textarea placeholder="Your Requirement" rows="4"></textarea>
-                <button type="submit" class="submit-btn">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
+    <footer id="contact">
+        <div class="footer-logo">SHREE SHYAM COLLECTION</div>
+        <p>Contact: 9919717645 | Ayodhya, Uttar Pradesh</p>
+        <p style="color: var(--gold); font-size: 20px; font-weight: bold; margin-top: 20px;">जय श्री श्याम</p>
+    </footer>
 
-    <a href="https://wa.me/919919717645" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/919919717645" class="whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
 </body>
-</html>
+</html> 
