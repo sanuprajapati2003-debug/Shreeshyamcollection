@@ -1,231 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --gold: #C5A059;
-            --black: #1a1a1a;
-            --white: #ffffff;
-            --cream: #fdfaf5;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--black); padding-bottom: 70px; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* --- Tight Logo Header (No Empty Space) --- */
-        header { 
-            text-align: center; 
-            padding: 10px 0; /* Minimal padding to remove white space */
-            background: var(--white);
-            border-bottom: 1px solid #eee;
-        }
-        .main-logo { 
-            height: 90px; /* Professional size */
-            width: auto;
-            display: block;
-            margin: 0 auto;
-        }
+<style>
+:root{
+--gold:#C5A059;
+--black:#1a1a1a;
+--white:#ffffff;
+--cream:#fdfaf5;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#111;
+padding-bottom:70px;
+}
 
-        /* --- Hero Slider Style --- */
-        .hero-banner {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1500') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 45px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+/* HEADER */
+header{
+text-align:center;
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+.main-logo{
+height:90px;
+}
 
-        /* --- Category Quick Links --- */
-        .cat-scroll {
-            display: flex;
-            overflow-x: auto;
-            padding: 20px 5%;
-            gap: 15px;
-            background: var(--cream);
-        }
-        .cat-bubble {
-            flex: 0 0 auto;
-            padding: 8px 20px;
-            background: white;
-            border: 1px solid var(--gold);
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+/* CATEGORY SCROLL */
+.cat-scroll{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:20px 5%;
+background:var(--cream);
+}
+.cat-bubble{
+padding:8px 20px;
+border:1px solid var(--gold);
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+cursor:pointer;
+background:#fff;
+}
 
-        /* --- Mega Grid System --- */
-        .section-wrap { padding: 50px 5%; }
-        .section-title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 32px; 
-            margin-bottom: 30px; 
-            text-align: center;
-            position: relative;
-        }
-        .section-title::after {
-            content: ""; display: block; width: 50px; height: 2px; background: var(--gold); margin: 10px auto;
-        }
+/* HERO SLIDER */
+.hero-banner{
+height:400px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+text-align:center;
+animation:slider 12s infinite;
+background-size:cover;
+background-position:center;
+}
+.hero-banner h1{
+font-family:'Playfair Display';
+font-size:45px;
+text-shadow:2px 2px 10px rgba(0,0,0,.4);
+}
+@keyframes slider{
+0%{background-image:url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1500')}
+33%{background-image:url('https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=1500')}
+66%{background-image:url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1500')}
+}
 
-        .mega-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); 
-            gap: 20px; 
-        }
+/* SECTION */
+.section-wrap{padding:50px 5%;}
+.section-title{
+text-align:center;
+font-family:'Playfair Display';
+font-size:32px;
+margin-bottom:30px;
+}
+.section-title::after{
+content:"";
+width:50px;
+height:2px;
+background:var(--gold);
+display:block;
+margin:10px auto;
+}
 
-        .product-card { 
-            background: white;
-            transition: 0.3s;
-            position: relative;
-        }
-        .img-holder { overflow: hidden; border-radius: 4px; }
-        .product-card img { 
-            width: 100%; 
-            height: 350px; 
-            object-fit: cover; 
-            transition: 0.5s;
-        }
-        .product-card:hover img { transform: scale(1.08); }
-        .product-card h3 { font-size: 16px; margin-top: 12px; font-weight: 600; }
-        .product-card p { font-size: 13px; color: var(--gold); margin-bottom: 20px; }
+/* GRID */
+.mega-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+gap:20px;
+}
+.product-card{
+position:relative;
+background:#fff;
+}
+.img-holder{overflow:hidden;}
+.product-card img{
+width:100%;
+height:350px;
+object-fit:cover;
+transition:.4s;
+}
+.product-card:hover img{transform:scale(1.08);}
+.product-card h3{
+font-size:16px;
+margin-top:10px;
+}
+.product-card p{
+color:var(--gold);
+font-size:13px;
+}
 
-        /* --- Banner Ads --- */
-        .promo-banner {
-            background: var(--black);
-            color: var(--gold);
-            padding: 40px;
-            text-align: center;
-            margin: 20px 5%;
-            border-radius: 8px;
-        }
+/* PRICE */
+.price-tag{
+position:absolute;
+top:15px;
+right:15px;
+background:var(--gold);
+color:#fff;
+padding:5px 10px;
+font-size:12px;
+border-radius:4px;
+}
 
-        /* --- Support Section --- */
-        .support-area { background: var(--cream); padding: 60px 5%; text-align: center; }
-        .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
-        .support-box i { font-size: 30px; color: var(--gold); margin-bottom: 10px; }
+/* WHATSAPP BUTTON */
+.enquiry-btn{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+background:#25D366;
+color:#fff;
+padding:8px 16px;
+font-size:12px;
+border-radius:20px;
+text-decoration:none;
+opacity:0;
+transition:.3s;
+}
+.product-card:hover .enquiry-btn{opacity:1;}
 
-        /* --- BOTTOM NAVIGATION --- */
-        .nav-bottom {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: white; display: flex; justify-content: space-around;
-            padding: 10px 0; border-top: 1px solid #eee; z-index: 1000;
-        }
-        .nav-link { text-decoration: none; color: #555; text-align: center; font-size: 10px; text-transform: uppercase; font-weight: 600; }
-        .nav-link i { display: block; font-size: 20px; margin-bottom: 3px; color: var(--black); }
-        .nav-link:hover { color: var(--gold); }
+/* PROMO */
+.promo-banner{
+background:#111;
+color:var(--gold);
+padding:40px;
+text-align:center;
+margin:20px 5%;
+border-radius:8px;
+}
 
-        /* --- Floating WhatsApp --- */
-        .wa-float {
-            position: fixed; bottom: 80px; right: 20px; background: #25D366; 
-            color: white; width: 55px; height: 55px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 28px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 999;
-        }
-    </style>
+/* SUPPORT */
+.support-area{
+background:var(--cream);
+padding:60px 5%;
+text-align:center;
+}
+.support-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:30px;
+}
+.support-box i{
+font-size:30px;
+color:var(--gold);
+}
+
+/* BOTTOM NAV */
+.nav-bottom{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:#fff;
+padding:10px 0;
+border-top:1px solid #eee;
+}
+.nav-link{
+font-size:10px;
+text-align:center;
+text-decoration:none;
+color:#555;
+}
+.nav-link i{
+display:block;
+font-size:20px;
+}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+position:fixed;
+bottom:80px;
+right:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <img src="logo.png" class="main-logo" alt="Shree Shyam Collection">
-    </header>
+<header>
+<img src="logo.png" class="main-logo">
+</header>
 
-    <div class="cat-scroll">
-        <div class="cat-bubble">Sarees</div>
-        <div class="cat-bubble">Lehenga</div>
-        <div class="cat-bubble">Western</div>
-        <div class="cat-bubble">Menswear</div>
-        <div class="cat-bubble">Winter</div>
-        <div class="cat-bubble">Footwear</div>
-        <div class="cat-bubble">Sports</div>
-    </div>
+<!-- CATEGORY FILTER -->
+<div class="cat-scroll">
+<div class="cat-bubble" onclick="filterProducts('all')">All</div>
+<div class="cat-bubble" onclick="filterProducts('saree')">Sarees</div>
+<div class="cat-bubble" onclick="filterProducts('lehenga')">Lehenga</div>
+<div class="cat-bubble" onclick="filterProducts('sherwani')">Sherwani</div>
+<div class="cat-bubble" onclick="filterProducts('men')">Menswear</div>
+</div>
 
-    <section class="hero-banner">
-        <h1>New Season Arrivals</h1>
-    </section>
+<section class="hero-banner">
+<h1>New Season Arrivals</h1>
+</section>
 
-    <div class="section-wrap">
-        <h2 class="section-title">Trending Fashion</h2>
-        <div class="mega-grid">
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=500"></div>
-                <h3>Heritage Silk Saree</h3>
-                <p>Premium Collection</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=500"></div>
-                <h3>Bridal Lehenga</h3>
-                <p>Royal Collection</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=500"></div>
-                <h3>Modern Western Gown</h3>
-                <p>Partywear Exclusive</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=500"></div>
-                <h3>Designer Sherwani</h3>
-                <p>Men's Wedding Wear</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=500"></div>
-                <h3>Premium Winter Coats</h3>
-                <p>Cozy & Stylish</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500"></div>
-                <h3>Athleisure Set</h3>
-                <p>Sports Wear</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=500"></div>
-                <h3>Designer Heels</h3>
-                <p>Luxury Footwear</p>
-            </div>
-            <div class="product-card">
-                <div class="img-holder"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=500"></div>
-                <h3>Kundan Jewelry</h3>
-                <p>Traditional Sets</p>
-            </div>
-        </div>
-    </div>
+<div class="section-wrap">
+<h2 class="section-title">Trending Fashion</h2>
 
-    <div class="promo-banner">
-        <h3>FLAT 20% OFF ON YOUR FIRST ORDER</h3>
-        <p>Use Code: SHYAM20 | Only at Ayodhya Store</p>
-    </div>
+<div class="mega-grid">
 
-    <section class="support-area">
-        <h2>Customer Excellence</h2>
-        <div class="support-grid">
-            <div class="support-box"><i class="fas fa-truck"></i><h4>Fast Shipping</h4></div>
-            <div class="support-box"><i class="fas fa-undo"></i><h4>Easy Returns</h4></div>
-            <div class="support-box"><i class="fas fa-headset"></i><h4>24/7 Support</h4></div>
-        </div>
-        <p style="margin-top: 40px; font-weight: bold;">Support: 9919717645</p>
-        <p style="color: var(--gold); font-size: 24px; margin-top: 10px;">जय श्री श्याम</p>
-    </section>
+<!-- PRODUCT -->
+<div class="product-card" data-category="sherwani">
+<span class="price-tag">₹12,999</span>
+<div class="img-holder">
+<img src="https://images.unsplash.com/photo-1623609163859-3f96f6f82a5e?q=80&w=500">
+</div>
+<h3>Royal Sherwani</h3>
+<p>Wedding Wear</p>
+<a class="enquiry-btn" target="_blank"
+href="https://wa.me/919919717645?text=Interested%20in%20Royal%20Sherwani">
+Enquiry Now
+</a>
+</div>
 
-    <nav class="nav-bottom">
-        <a href="#" class="nav-link"><i class="fas fa-home"></i>Home</a>
-        <a href="#" class="nav-link"><i class="fas fa-search"></i>Search</a>
-        <a href="#" class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
-        <a href="tel:9919717645" class="nav-link"><i class="fas fa-user"></i>Account</a>
-    </nav>
+<div class="product-card" data-category="lehenga">
+<span class="price-tag">₹18,999</span>
+<div class="img-holder">
+<img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=500">
+</div>
+<h3>Bridal Lehenga</h3>
+<p>Exclusive</p>
+<a class="enquiry-btn" target="_blank"
+href="https://wa.me/919919717645?text=Interested%20in%20Bridal%20Lehenga">
+Enquiry Now
+</a>
+</div>
 
-    <a href="https://wa.me/919919717645" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<div class="product-card" data-category="men">
+<span class="price-tag">₹6,499</span>
+<div class="img-holder">
+<img src="https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?q=80&w=500">
+</div>
+<h3>Men Formal Suit</h3>
+<p>Premium</p>
+<a class="enquiry-btn" target="_blank"
+href="https://wa.me/919919717645?text=Interested%20in%20Men%20Suit">
+Enquiry Now
+</a>
+</div>
+
+</div>
+</div>
+
+<div class="promo-banner">
+<h3>FLAT 20% OFF – FIRST ORDER</h3>
+<p>Use Code: SHYAM20</p>
+</div>
+
+<section class="support-area">
+<h2>Customer Excellence</h2>
+<div class="support-grid">
+<div class="support-box"><i class="fas fa-truck"></i><h4>Fast Delivery</h4></div>
+<div class="support-box"><i class="fas fa-undo"></i><h4>Easy Return</h4></div>
+<div class="support-box"><i class="fas fa-headset"></i><h4>24x7 Support</h4></div>
+</div>
+<p style="margin-top:30px;font-weight:bold;">📞 9919717645</p>
+<p style="color:var(--gold);font-size:24px;">जय श्री श्याम</p>
+</section>
+
+<nav class="nav-bottom">
+<a class="nav-link"><i class="fas fa-home"></i>Home</a>
+<a class="nav-link"><i class="fas fa-search"></i>Search</a>
+<a class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
+<a class="nav-link" href="tel:9919717645"><i class="fas fa-user"></i>Account</a>
+</nav>
+
+<a class="wa-float" href="https://wa.me/919919717645" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function filterProducts(category){
+let products=document.querySelectorAll('.product-card');
+products.forEach(p=>{
+if(category==='all'||p.dataset.category===category){
+p.style.display='block';
+}else{
+p.style.display='none';
+}
+});
+}
+</script>
 
 </body>
 </html>
-  
