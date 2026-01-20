@@ -5,277 +5,238 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shree Shyam Collection</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --gold:#D4AF37;
+  --gold:#d4af37;
   --black:#0b0b0b;
   --white:#ffffff;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Poppins',sans-serif;
   background:#fff;
   color:#111;
 }
 
-/* TOP BAR */
-.top-banner{
+/* Top strip */
+.top-bar{
   background:var(--gold);
-  color:#000;
   text-align:center;
   font-size:12px;
   font-weight:600;
-  padding:6px 0;
   letter-spacing:2px;
+  padding:6px;
 }
 
-/* HEADER + LOGO */
-header{
-  background:#fff;
-  padding:15px 0;
-  text-align:center;
-  border-bottom:1px solid #ddd;
-}
-
+/* Logo */
 .logo-box{
-  display:inline-block;
-  padding:10px 18px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 4px 15px rgba(0,0,0,.2);
-}
-
-.main-logo{
-  width:120px;
-  height:auto;
-  display:block;
-}
-
-/* NAV */
-nav{
   display:flex;
-  justify-content:space-around;
-  align-items:center;
-  padding:14px 10px;
-  background:#000;
-  position:sticky;
-  top:0;
-  z-index:999;
+  justify-content:center;
+  padding:20px;
+  background:#fff;
+}
+.logo-box img{
+  max-width:180px;
 }
 
+/* Navigation */
+nav{
+  background:#000;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px 0;
+}
 nav a{
   color:#fff;
   text-decoration:none;
   font-size:13px;
   letter-spacing:2px;
 }
+nav a:hover{color:var(--gold)}
 
-nav a:hover{
-  color:var(--gold);
-}
-
-/* HERO */
+/* Hero */
 .hero{
-  height:55vh;
-  background:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-    url("https://images.unsplash.com/photo-1602810318660-d2c46c5c2c81?auto=format&fit=crop&w=1600&q=80");
-  background-size:cover;
-  background-position:center;
+  position:relative;
+  height:65vh;
+}
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hero-text{
+  position:absolute;
+  inset:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  background:rgba(0,0,0,.45);
   text-align:center;
 }
-
-.hero h1{
+.hero-text h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(36px,7vw,64px);
   color:var(--gold);
+  font-size:clamp(36px,7vw,64px);
 }
-
-.hero p{
+.hero-text p{
   color:#fff;
   letter-spacing:3px;
   margin-top:10px;
-  font-size:14px;
 }
 
-/* COLLECTION */
-.section-title{
+/* Section */
+.section{
+  padding:60px 6%;
+}
+.section h2{
   text-align:center;
   font-family:'Playfair Display',serif;
-  font-size:34px;
-  margin:45px 0 25px;
   color:var(--gold);
+  font-size:36px;
+  margin-bottom:40px;
 }
 
+/* Product Grid */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
-  padding:0 6% 70px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
-
 .card{
-  background:#fff;
   border:1px solid #ddd;
+  overflow:hidden;
+  background:#fff;
 }
-
 .card img{
   width:100%;
-  height:360px;
+  height:380px;
   object-fit:cover;
 }
-
-.card-info{
-  padding:14px;
+.card .info{
+  padding:15px;
   text-align:center;
 }
+.card h3{
+  font-size:18px;
+  margin-bottom:5px;
+}
+.card p{
+  font-size:14px;
+  color:#666;
+}
 
-/* FOOTER */
+/* Footer */
 footer{
   background:#000;
-  color:#aaa;
-  text-align:center;
-  padding:40px 20px 25px;
-}
-
-footer p{
-  margin-top:8px;
-}
-
-.social-links a{
   color:#fff;
-  font-size:20px;
-  margin:0 10px;
+  text-align:center;
+  padding:40px 20px;
+}
+footer p{
+  font-size:13px;
+  margin-top:15px;
+  color:#aaa;
 }
 
-.social-links a:hover{
-  color:var(--gold);
-}
-
-/* WHATSAPP */
+/* WhatsApp */
 .whatsapp{
   position:fixed;
-  bottom:22px;
-  right:22px;
-  background:#25D366;
-  color:#fff;
-  width:58px;
-  height:58px;
+  bottom:25px;
+  right:25px;
+  background:#25d366;
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:28px;
-  z-index:1000;
+  align-items:center;
+  font-size:30px;
+  color:#fff;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-banner">
+<div class="top-bar">
   JAI SHREE SHYAM | WORLDWIDE SHIPPING AVAILABLE
 </div>
 
-<header>
-  <div class="logo-box">
-    <img src="logo.png" class="main-logo" alt="Shree Shyam Collection">
-  </div>
-</header>
+<div class="logo-box">
+  <img src="logo.png" alt="Shree Shyam Collection">
+</div>
 
 <nav>
   <a href="#">Home</a>
-  <a href="#shop">Shop</a>
+  <a href="#">Shop</a>
   <a href="#">Customer Support</a>
   <a href="tel:+919919717645">Call Now</a>
 </nav>
 
+<!-- HERO IMAGE -->
 <section class="hero">
-  <h1>Timeless Elegance</h1>
-  <p>DIRECTLY FROM THE HEART OF AYODHYA</p>
+  <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a29c3?auto=format&fit=crop&w=1600&q=80">
+  <div class="hero-text">
+    <h1>Timeless Elegance</h1>
+    <p>DIRECTLY FROM THE HEART OF AYODHYA</p>
+  </div>
 </section>
 
-<section id="shop">
-<h2 class="section-title">Exclusive Arrivals</h2>
+<!-- PRODUCTS -->
+<section class="section">
+  <h2>Our Collections</h2>
+  <div class="grid">
 
-<div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80">
+      <div class="info">
+        <h3>Royal Lehengas</h3>
+        <p>Wedding & Bridal Wear</p>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1618354691373-6b8c1f6fef36?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Royal Lehengas</h3>
-<p>Wedding & Bridal Wear</p>
-</div>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?auto=format&fit=crop&w=800&q=80">
+      <div class="info">
+        <h3>Designer Sarees</h3>
+        <p>Traditional Elegance</p>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Bridal Collection</h3>
-<p>Exclusive Wedding Designs</p>
-</div>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1607344645866-009c3203c047?auto=format&fit=crop&w=800&q=80">
+      <div class="info">
+        <h3>Stylish Kurtas</h3>
+        <p>Festive & Daily Wear</p>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600180758895-1d55c2e6e2c2?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Heritage Sarees</h3>
-<p>Pure Silk Collection</p>
-</div>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80">
+      <div class="info">
+        <h3>Men’s Ethnic Wear</h3>
+        <p>Premium Collection</p>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1623066592304-7f9c8c77c1c8?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Designer Kurtas</h3>
-<p>Festive & Daily Wear</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Indo-Western Wear</h3>
-<p>Modern Party Style</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?auto=format&fit=crop&w=900&q=80">
-<div class="card-info">
-<h3>Gents Ethnic Wear</h3>
-<p>Sherwani & Kurta Pajama</p>
-</div>
-</div>
-
-</div>
+  </div>
 </section>
 
 <footer>
-<div class="social-links">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-</div>
-<p>&copy; 2026 SHREE SHYAM COLLECTION | AYODHYA</p>
-<p style="color:var(--gold);font-size:18px;">जय श्री श्याम</p>
+  <h3 style="color:var(--gold)">Shree Shyam Collection</h3>
+  <p>Ayodhya, Uttar Pradesh</p>
+  <p>© 2026 All Rights Reserved</p>
 </footer>
 
-<a href="https://wa.me/919919717645" class="whatsapp">
-<i class="fab fa-whatsapp"></i>
+<a class="whatsapp" href="https://wa.me/919919717645" target="_blank">
+  <i class="fab fa-whatsapp"></i>
 </a>
 
 </body>
