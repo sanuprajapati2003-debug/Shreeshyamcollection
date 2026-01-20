@@ -1,161 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Premium Ayodhya Fashion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --deep-black: #0a0a0a;
-            --soft-white: #f4f4f4;
-            --accent-gray: #1a1a1a;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Shyam Collection | Premium Ayodhya Fashion</title>
 
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--deep-black); color: var(--soft-white); scroll-behavior: smooth; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* --- Logo & Top Bar --- */
-        .top-banner { background: var(--gold); color: black; text-align: center; font-size: 12px; font-weight: bold; padding: 5px 0; letter-spacing: 2px; }
-        
-        header { text-align: center; padding: 30px 20px; background: var(--soft-white); }
-        .main-logo { max-width: 360px; width: 100%; height: auto; }
+<style>
+:root{
+--gold:#D4AF37;
+--black:#0a0a0a;
+--white:#ffffff;
+--gray:#1a1a1a;
+}
 
-        /* --- Premium Navigation --- */
-        nav {
-            display: flex; justify-content: center; gap: 40px; padding: 20px;
-            background: rgba(10, 10, 10, 0.95); border-top: 1px solid #222; border-bottom: 1px solid #222;
-            position: sticky; top: 0; z-index: 1000;
-        }
-        nav a { text-decoration: none; color: var(--soft-white); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        nav a:hover { color: var(--gold); }
+*{box-sizing:border-box;margin:0;padding:0;}
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 75vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1800') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
-        }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 70px); color: var(--gold); margin: 0; font-style: italic; }
-        .hero p { font-size: 18px; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+body{
+font-family:'Poppins',sans-serif;
+background:#ffffff;
+color:#111;
+scroll-behavior:smooth;
+}
 
-        /* --- Features Section --- */
-        .features { display: flex; justify-content: space-around; padding: 50px 5%; background: var(--accent-gray); text-align: center; border-bottom: 1px solid #333; }
-        .feature-item i { color: var(--gold); font-size: 30px; margin-bottom: 15px; }
-        .feature-item p { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+/* TOP STRIP */
+.top-banner{
+background:var(--gold);
+color:#000;
+text-align:center;
+font-size:12px;
+font-weight:bold;
+padding:6px 0;
+letter-spacing:2px;
+}
 
-        /* --- Collection Grid --- */
-        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 40px; margin: 60px 0 30px; color: var(--gold); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 0 5% 80px; }
-        .card { position: relative; overflow: hidden; border: 1px solid #222; transition: 0.4s; }
-        .card:hover { border-color: var(--gold); }
-        .card img { width: 100%; height: 500px; object-fit: cover; transition: 0.5s; opacity: 0.8; }
-        .card:hover img { transform: scale(1.05); opacity: 1; }
-        .card-info { padding: 20px; text-align: center; background: var(--deep-black); }
+/* HEADER + LOGO */
+header{
+background:linear-gradient(135deg,#ffffff,#f7f7f7);
+padding:10px 0;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
 
-        /* --- Contact & Support Form --- */
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; padding: 80px 10%; background: #050505; }
-        .support-info h2 { font-family: 'Playfair Display', serif; color: var(--gold); }
-        .callback-form { background: var(--accent-gray); padding: 30px; border-radius: 4px; border: 1px solid #333; }
-        .callback-form input, .callback-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; }
-        .btn { background: var(--gold); color: black; border: none; padding: 15px 40px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background: #b8952d; }
+.logo-box{
+display:inline-block;
+background:#fff;
+padding:6px 14px;
+border-radius:8px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
 
-        /* --- Footer --- */
-        footer { padding: 60px 5% 30px; text-align: center; background: var(--deep-black); border-top: 1px solid #222; }
-        .social-links a { color: var(--soft-white); font-size: 20px; margin: 0 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold); }
-        .copyright { margin-top: 40px; font-size: 12px; color: #555; letter-spacing: 1px; }
+.main-logo{
+max-width:110px;
+height:auto;
+display:block;
+margin:auto;
+}
 
-        /* --- Floating WhatsApp --- */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 2000; text-decoration: none;
-        }
-    </style>
+@media(max-width:600px){
+.main-logo{max-width:95px;}
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:16px;
+background:#000;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:13px;
+letter-spacing:2px;
+transition:.3s;
+}
+
+nav a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{
+height:75vh;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.4)),
+url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1800') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(40px,8vw,70px);
+color:var(--gold);
+font-style:italic;
+}
+
+.hero p{
+font-size:16px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#fff;
+margin-top:10px;
+}
+
+/* FEATURES */
+.features{
+display:flex;
+justify-content:space-around;
+padding:45px 5%;
+background:#111;
+text-align:center;
+}
+
+.feature-item i{
+color:var(--gold);
+font-size:30px;
+margin-bottom:10px;
+}
+
+.feature-item p{
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#eee;
+}
+
+/* COLLECTION */
+.section-title{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:38px;
+margin:60px 0 30px;
+color:var(--gold);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+padding:0 6% 80px;
+}
+
+.card{
+border:1px solid #ddd;
+transition:.3s;
+}
+
+.card:hover{border-color:var(--gold);}
+
+.card img{
+width:100%;
+height:420px;
+object-fit:cover;
+}
+
+.card-info{
+padding:20px;
+text-align:center;
+background:#fff;
+}
+
+/* CONTACT */
+.contact-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+padding:80px 8%;
+background:#f8f8f8;
+}
+
+.support-info h2{
+font-family:'Playfair Display',serif;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.callback-form{
+background:#fff;
+padding:30px;
+border-radius:6px;
+box-shadow:0 6px 20px rgba(0,0,0,.1);
+}
+
+.callback-form input,
+.callback-form textarea{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border:1px solid #ccc;
+}
+
+.btn{
+background:var(--gold);
+border:none;
+padding:14px;
+font-weight:bold;
+width:100%;
+cursor:pointer;
+}
+
+.btn:hover{background:#b8952d;}
+
+/* FOOTER */
+footer{
+background:#000;
+color:#aaa;
+text-align:center;
+padding:50px 20px 25px;
+}
+
+.social-links a{
+color:#fff;
+font-size:20px;
+margin:0 12px;
+}
+
+.social-links a:hover{color:var(--gold);}
+
+/* WHATSAPP */
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:#fff;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+z-index:1000;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="top-banner">JAI SHREE SHYAM | WORLDWIDE SHIPPING AVAILABLE</div>
+<div class="top-banner">JAI SHREE SHYAM | WORLDWIDE SHIPPING AVAILABLE</div>
 
-    <header>
-        <img src="logo-transparent.png.png" class="main-logo" alt="Shree Shyam Collection">
-    </header>
+<header>
+<div class="logo-box">
+<img src="logo-transparent.png.png" class="main-logo" alt="Shree Shyam Collection">
+</div>
+</header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#support">Customer Support</a>
-        <a href="tel:+919919717645">Call Now</a>
-    </nav>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#support">Customer Support</a>
+<a href="tel:+919919717645">Call Now</a>
+</nav>
 
-    <section class="hero" id="home">
-        <h1>Timeless Elegance</h1>
-        <p>Directly from the Heart of Ayodhya</p>
-    </section>
+<section class="hero" id="home">
+<h1>Timeless Elegance</h1>
+<p>Directly from the Heart of Ayodhya</p>
+</section>
 
-    <div class="features">
-        <div class="feature-item"><i class="fas fa-gem"></i><p>Premium Quality</p></div>
-        <div class="feature-item"><i class="fas fa-truck"></i><p>Fast Delivery</p></div>
-        <div class="feature-item"><i class="fas fa-shield-alt"></i><p>Secure Payment</p></div>
-        <div class="feature-item"><i class="fas fa-headset"></i><p>24/7 Support</p></div>
-    </div>
+<div class="features">
+<div class="feature-item"><i class="fas fa-gem"></i><p>Premium Quality</p></div>
+<div class="feature-item"><i class="fas fa-truck"></i><p>Fast Delivery</p></div>
+<div class="feature-item"><i class="fas fa-shield-alt"></i><p>Secure Payment</p></div>
+<div class="feature-item"><i class="fas fa-headset"></i><p>24/7 Support</p></div>
+</div>
 
-    <section id="shop">
-        <h2 class="section-title">Exclusive Arrivals</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600">
-                <div class="card-info"><h3>Heritage Sarees</h3><p>Starting from ₹4,999</p></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=600">
-                <div class="card-info"><h3>Designer Kurtas</h3><p>Starting from ₹2,499</p></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600">
-                <div class="card-info"><h3>Royal Lehengas</h3><p>Limited Edition</p></div>
-            </div>
-        </div>
-    </section>
+<section id="shop">
+<h2 class="section-title">Exclusive Arrivals</h2>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600">
+<div class="card-info"><h3>Heritage Sarees</h3><p>Starting from ₹4,999</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=600">
+<div class="card-info"><h3>Designer Kurtas</h3><p>Starting from ₹2,499</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600">
+<div class="card-info"><h3>Royal Lehengas</h3><p>Limited Edition</p></div>
+</div>
+</div>
+</section>
 
-    <section class="contact-container" id="support">
-        <div class="support-info">
-            <h2>Customer Support</h2>
-            <p>At <b>Shree Shyam Collection</b>, we value your experience. Whether you need styling advice or order tracking, our team in Ayodhya is ready to help.</p>
-            <p><i class="fas fa-phone-alt" style="color:var(--gold)"></i> +91 9919717645</p>
-            <p><i class="fas fa-envelope" style="color:var(--gold)"></i> support@shreeshyam.com</p>
-            <p><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> Ayodhya, Uttar Pradesh, India</p>
-        </div>
-        <div class="callback-form">
-            <h3 style="color:var(--gold); margin-top:0;">Request a Callback</h3>
-            <form action="javascript:void(0);" onsubmit="alert('Thank you! Our support team will call you at 9919717645 shortly.')">
-                <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Mobile Number" required>
-                <textarea placeholder="Tell us your requirement..." rows="4"></textarea>
-                <button type="submit" class="btn">Submit Request</button>
-            </form>
-        </div>
-    </section>
+<footer>
+<div class="social-links">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+<p>&copy; 2026 SHREE SHYAM COLLECTION | AYODHYA</p>
+<p style="color:var(--gold);font-size:18px;">जय श्री श्याम</p>
+</footer>
 
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p class="copyright">&copy; 2026 SHREE SHYAM COLLECTION - AYODHYA. ALL RIGHTS RESERVED.</p>
-        <p style="color: var(--gold); font-weight: bold; font-size: 20px; margin-top: 10px;">जय श्री श्याम</p>
-    </footer>
-
-    <a href="https://wa.me/919919717645?text=Hello%20Shree%20Shyam%20Collection,%20I%20am%20interested%20in%20your%20collection." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<a href="https://wa.me/919919717645" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
