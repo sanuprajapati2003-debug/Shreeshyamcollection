@@ -14,7 +14,6 @@
 --black:#111;
 --cream:#fdfaf5;
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 body{
 font-family:'Poppins',sans-serif;
@@ -22,224 +21,106 @@ background:#fff;
 color:#111;
 padding-bottom:70px;
 }
-
-/* HEADER */
-header{
-text-align:center;
-padding:10px 0;
-border-bottom:1px solid #eee;
-}
+header{text-align:center;padding:10px 0;border-bottom:1px solid #eee;}
 .main-logo{height:90px}
 
 /* CATEGORY */
 .cat-scroll{
-display:flex;
-gap:12px;
-padding:18px 5%;
-overflow-x:auto;
-background:var(--cream);
+display:flex;gap:12px;padding:18px 5%;
+overflow-x:auto;background:var(--cream);
 }
 .cat-bubble{
-padding:8px 18px;
-border:1px solid var(--gold);
-border-radius:20px;
-font-size:12px;
-font-weight:600;
-cursor:pointer;
+padding:8px 18px;border:1px solid var(--gold);
+border-radius:20px;font-size:12px;
+font-weight:600;cursor:pointer;background:#fff;
 white-space:nowrap;
-background:#fff;
 }
 
-/* HERO SLIDER */
+/* HERO */
 .hero-banner{
-height:420px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff;
-position:relative;
-animation:slider 15s infinite;
-background-size:cover;
-background-position:center;
+height:420px;display:flex;align-items:center;
+justify-content:center;color:#fff;text-align:center;
+position:relative;animation:slider 15s infinite;
+background-size:cover;background-position:center;
 }
 .hero-banner::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.45);
+content:"";position:absolute;inset:0;
+background:rgba(0,0,0,.45);
 }
-.hero-content{
-position:relative;
-z-index:2;
-}
+.hero-content{position:relative;z-index:2}
 .hero-content h1{
-font-family:'Playfair Display';
-font-size:44px;
-margin-bottom:10px;
+font-family:'Playfair Display';font-size:44px;
 }
 .hero-content p{
-font-size:15px;
-letter-spacing:2px;
-color:#f1e7d0;
+letter-spacing:2px;color:#f1e7d0;
 }
-
 @keyframes slider{
 0%{background-image:url('https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg')}
 33%{background-image:url('https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg')}
 66%{background-image:url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg')}
 }
 
-/* SECTION */
+/* GRID */
 .section-wrap{padding:50px 5%}
 .section-title{
-font-family:'Playfair Display';
-text-align:center;
-font-size:32px;
-margin-bottom:30px;
+text-align:center;font-family:'Playfair Display';
+font-size:32px;margin-bottom:30px;
 }
 .section-title::after{
-content:"";
-width:50px;
-height:2px;
-background:var(--gold);
-display:block;
-margin:10px auto;
+content:"";width:50px;height:2px;
+background:var(--gold);display:block;margin:10px auto;
 }
-
-/* GRID */
 .mega-grid{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
 gap:22px;
 }
-.product-card{
-position:relative;
-background:#fff;
-}
-.img-holder{
-overflow:hidden;
-border-radius:6px;
-}
+.product-card{position:relative}
+.img-holder{overflow:hidden;border-radius:6px}
 .product-card img{
-width:100%;
-height:340px;
-object-fit:cover;
+width:100%;height:340px;object-fit:cover;
 transition:.4s;
 }
-.product-card:hover img{transform:scale(1.1)}
-
-.product-card h3{
-font-size:16px;
-margin-top:10px;
-}
-.product-card p{
-font-size:13px;
-color:var(--gold);
-}
-
-/* TAGS */
+.product-card:hover img{transform:scale(1.08)}
+.product-card h3{margin-top:10px;font-size:16px}
+.product-card p{font-size:13px;color:var(--gold)}
 .design-tag{
-position:absolute;
-top:15px;
-left:15px;
-background:#000;
-color:#fff;
-font-size:11px;
-padding:4px 10px;
+position:absolute;top:15px;left:15px;
+background:#000;color:#fff;
+font-size:11px;padding:4px 10px;
 border-radius:20px;
 }
 .price-tag{
-position:absolute;
-top:15px;
-right:15px;
-background:var(--gold);
-color:#fff;
-padding:5px 10px;
-font-size:12px;
+position:absolute;top:15px;right:15px;
+background:var(--gold);color:#fff;
+padding:5px 10px;font-size:12px;
 border-radius:4px;
 }
-
-/* WHATSAPP */
 .enquiry-btn{
-position:absolute;
-bottom:15px;
-left:50%;
+position:absolute;bottom:15px;left:50%;
 transform:translateX(-50%);
-background:#25D366;
-color:#fff;
-padding:8px 18px;
-font-size:12px;
-border-radius:20px;
-text-decoration:none;
-opacity:0;
-transition:.3s;
+background:#25D366;color:#fff;
+padding:8px 18px;font-size:12px;
+border-radius:20px;text-decoration:none;
+opacity:0;transition:.3s;
 }
 .product-card:hover .enquiry-btn{opacity:1}
 
-/* PROMO */
-.promo-banner{
-background:#111;
-color:var(--gold);
-padding:40px;
-margin:25px 5%;
-text-align:center;
-border-radius:10px;
-}
-
-/* SUPPORT */
-.support-area{
-background:var(--cream);
-padding:60px 5%;
-text-align:center;
-}
-.support-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-margin-top:30px;
-}
-.support-box i{
-font-size:30px;
-color:var(--gold);
-}
-
-/* NAV */
+/* NAV + FLOAT */
 .nav-bottom{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:#fff;
-border-top:1px solid #eee;
+position:fixed;bottom:0;width:100%;
+display:flex;justify-content:space-around;
+background:#fff;border-top:1px solid #eee;
 padding:10px 0;
 }
-.nav-link{
-font-size:10px;
-color:#555;
-text-align:center;
-text-decoration:none;
-}
-.nav-link i{
-display:block;
-font-size:20px;
-}
-
-/* FLOAT */
+.nav-link{font-size:10px;color:#555;text-align:center;text-decoration:none}
+.nav-link i{display:block;font-size:20px}
 .wa-float{
-position:fixed;
-bottom:80px;
-right:20px;
-width:55px;
-height:55px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-color:#fff;
+position:fixed;bottom:80px;right:20px;
+width:55px;height:55px;background:#25D366;
+border-radius:50%;display:flex;
+align-items:center;justify-content:center;
+font-size:28px;color:#fff;
 }
 </style>
 </head>
@@ -254,6 +135,8 @@ color:#fff;
 <div class="cat-bubble" onclick="filterProducts('all')">All</div>
 <div class="cat-bubble" onclick="filterProducts('sherwani')">Sherwani</div>
 <div class="cat-bubble" onclick="filterProducts('lehenga')">Lehenga</div>
+<div class="cat-bubble" onclick="filterProducts('saree')">Saree</div>
+<div class="cat-bubble" onclick="filterProducts('gown')">Gown</div>
 <div class="cat-bubble" onclick="filterProducts('men')">Menswear</div>
 </div>
 
@@ -269,66 +152,74 @@ color:#fff;
 
 <div class="mega-grid">
 
+<!-- SHERWANI -->
 <div class="product-card" data-category="sherwani">
 <span class="design-tag">ROYAL</span>
-<span class="price-tag">₹12,999</span>
+<span class="price-tag">₹14,999</span>
 <div class="img-holder">
-<img loading="lazy" src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg">
+<img src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg">
 </div>
-<h3>Royal Groom Sherwani</h3>
-<p>Wedding Signature</p>
-<a class="enquiry-btn" target="_blank"
-href="https://wa.me/919919717645?text=Royal%20Sherwani%20Enquiry">Enquiry Now</a>
+<h3>Wedding Groom Sherwani</h3>
+<p>Heavy Embroidery</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645" target="_blank">Enquiry Now</a>
 </div>
 
+<!-- LEHENGA -->
 <div class="product-card" data-category="lehenga">
 <span class="design-tag">NEW</span>
-<span class="price-tag">₹18,999</span>
+<span class="price-tag">₹19,999</span>
 <div class="img-holder">
-<img loading="lazy" src="https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg">
+<img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg">
 </div>
-<h3>Bridal Designer Lehenga</h3>
-<p>Wedding Exclusive</p>
-<a class="enquiry-btn" target="_blank"
-href="https://wa.me/919919717645?text=Lehenga%20Enquiry">Enquiry Now</a>
+<h3>Bridal Red Lehenga</h3>
+<p>Wedding Collection</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645" target="_blank">Enquiry Now</a>
 </div>
 
-<div class="product-card" data-category="men">
+<!-- SAREE -->
+<div class="product-card" data-category="saree">
 <span class="design-tag">TRENDING</span>
-<span class="price-tag">₹6,499</span>
+<span class="price-tag">₹8,999</span>
 <div class="img-holder">
-<img loading="lazy" src="https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg">
+<img src="https://images.pexels.com/photos/13923519/pexels-photo-13923519.jpeg">
+</div>
+<h3>Banarasi Silk Saree</h3>
+<p>Traditional Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645" target="_blank">Enquiry Now</a>
+</div>
+
+<!-- GOWN -->
+<div class="product-card" data-category="gown">
+<span class="design-tag">ROYAL</span>
+<span class="price-tag">₹12,499</span>
+<div class="img-holder">
+<img src="https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg">
+</div>
+<h3>Designer Party Gown</h3>
+<p>Luxury Collection</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645" target="_blank">Enquiry Now</a>
+</div>
+
+<!-- MENSWEAR -->
+<div class="product-card" data-category="men">
+<span class="design-tag">NEW</span>
+<span class="price-tag">₹6,999</span>
+<div class="img-holder">
+<img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg">
 </div>
 <h3>Premium Men Suit</h3>
-<p>Formal Collection</p>
-<a class="enquiry-btn" target="_blank"
-href="https://wa.me/919919717645?text=Men%20Suit%20Enquiry">Enquiry Now</a>
+<p>Formal & Party Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645" target="_blank">Enquiry Now</a>
 </div>
 
 </div>
 </div>
-
-<div class="promo-banner">
-<h3>FLAT 20% OFF – FIRST ORDER</h3>
-<p>Use Code: SHYAM20</p>
-</div>
-
-<section class="support-area">
-<h2>Customer Excellence</h2>
-<div class="support-grid">
-<div class="support-box"><i class="fas fa-truck"></i><h4>Fast Delivery</h4></div>
-<div class="support-box"><i class="fas fa-undo"></i><h4>Easy Returns</h4></div>
-<div class="support-box"><i class="fas fa-headset"></i><h4>24×7 Support</h4></div>
-</div>
-<p style="margin-top:30px;font-weight:bold;">📞 9919717645</p>
-<p style="color:var(--gold);font-size:24px;">जय श्री श्याम</p>
-</section>
 
 <nav class="nav-bottom">
 <a class="nav-link"><i class="fas fa-home"></i>Home</a>
 <a class="nav-link"><i class="fas fa-search"></i>Search</a>
 <a class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
-<a class="nav-link" href="tel:9919717645"><i class="fas fa-user"></i>Account</a>
+<a class="nav-link"><i class="fas fa-user"></i>Account</a>
 </nav>
 
 <a class="wa-float" href="https://wa.me/919919717645" target="_blank">
