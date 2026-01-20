@@ -3,102 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Mega Luxury Boutique</title>
+    <title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --gold: #C5A059;
-            --black: #111111;
+            --black: #1a1a1a;
             --white: #ffffff;
-            --light-gray: #f8f8f8;
+            --cream: #fdfaf5;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--black); padding-bottom: 70px; }
 
-        /* --- Minimal Header (Fixed White Space Issue) --- */
+        /* --- Tight Logo Header (No Empty Space) --- */
         header { 
             text-align: center; 
-            padding: 5px 0; /* Tightest padding */
+            padding: 10px 0; /* Minimal padding to remove white space */
             background: var(--white);
             border-bottom: 1px solid #eee;
         }
         .main-logo { 
-            height: 80px; /* Precise professional height */
+            height: 90px; /* Professional size */
             width: auto;
             display: block;
             margin: 0 auto;
         }
 
-        /* --- Horizontal Category Bar --- */
+        /* --- Hero Slider Style --- */
+        .hero-banner {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1500') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 45px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+
+        /* --- Category Quick Links --- */
         .cat-scroll {
-            display: flex; overflow-x: auto; padding: 15px 5%; gap: 10px;
-            background: var(--light-gray); border-bottom: 1px solid #eee;
-            scrollbar-width: none; /* Hides scrollbar for clean look */
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 5%;
+            gap: 15px;
+            background: var(--cream);
         }
-        .cat-tag {
-            flex: 0 0 auto; padding: 6px 15px; background: white;
-            border: 1px solid var(--gold); border-radius: 20px;
-            font-size: 11px; font-weight: 600; text-transform: uppercase;
+        .cat-bubble {
+            flex: 0 0 auto;
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--gold);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
-        /* --- Mega Design Grid --- */
-        .main-container { padding: 40px 5%; }
+        /* --- Mega Grid System --- */
+        .section-wrap { padding: 50px 5%; }
         .section-title { 
-            font-family: 'Playfair Display', serif; font-size: 34px; 
-            text-align: center; margin-bottom: 40px; color: var(--black);
+            font-family: 'Playfair Display', serif; 
+            font-size: 32px; 
+            margin-bottom: 30px; 
+            text-align: center;
+            position: relative;
         }
-        .section-title span { color: var(--gold); }
+        .section-title::after {
+            content: ""; display: block; width: 50px; height: 2px; background: var(--gold); margin: 10px auto;
+        }
 
-        .design-grid { 
+        .mega-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); 
+            gap: 20px; 
         }
 
-        .design-card { 
-            background: white; border: 1px solid #f0f0f0; 
-            transition: transform 0.3s ease; overflow: hidden;
+        .product-card { 
+            background: white;
+            transition: 0.3s;
+            position: relative;
         }
-        .design-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-
-        .img-box { height: 450px; overflow: hidden; }
-        .design-card img { 
-            width: 100%; height: 100%; object-fit: cover; 
+        .img-holder { overflow: hidden; border-radius: 4px; }
+        .product-card img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
             transition: 0.5s;
         }
-        .design-card:hover img { transform: scale(1.08); }
+        .product-card:hover img { transform: scale(1.08); }
+        .product-card h3 { font-size: 16px; margin-top: 12px; font-weight: 600; }
+        .product-card p { font-size: 13px; color: var(--gold); margin-bottom: 20px; }
 
-        .design-meta { padding: 15px; text-align: center; }
-        .design-meta h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .design-meta p { font-size: 12px; color: var(--gold); font-weight: 600; }
-
-        /* --- Customer Service Footer --- */
-        .footer-cta {
-            background: var(--black); color: white;
-            padding: 60px 5%; text-align: center; margin-top: 40px;
+        /* --- Banner Ads --- */
+        .promo-banner {
+            background: var(--black);
+            color: var(--gold);
+            padding: 40px;
+            text-align: center;
+            margin: 20px 5%;
+            border-radius: 8px;
         }
-        .footer-cta h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 20px; }
-        .footer-links { margin-bottom: 30px; font-size: 14px; opacity: 0.8; }
-        .shyam-tag { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 24px; font-weight: bold; }
 
-        /* --- Bottom Fixed Nav --- */
-        .bottom-navbar {
+        /* --- Support Section --- */
+        .support-area { background: var(--cream); padding: 60px 5%; text-align: center; }
+        .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
+        .support-box i { font-size: 30px; color: var(--gold); margin-bottom: 10px; }
+
+        /* --- BOTTOM NAVIGATION --- */
+        .nav-bottom {
             position: fixed; bottom: 0; left: 0; width: 100%;
             background: white; display: flex; justify-content: space-around;
-            padding: 12px 0; border-top: 1px solid #eee; z-index: 2000;
+            padding: 10px 0; border-top: 1px solid #eee; z-index: 1000;
         }
-        .nav-link { text-decoration: none; color: #444; text-align: center; font-size: 10px; font-weight: 600; }
+        .nav-link { text-decoration: none; color: #555; text-align: center; font-size: 10px; text-transform: uppercase; font-weight: 600; }
         .nav-link i { display: block; font-size: 20px; margin-bottom: 3px; color: var(--black); }
+        .nav-link:hover { color: var(--gold); }
 
-        /* --- WhatsApp Support --- */
+        /* --- Floating WhatsApp --- */
         .wa-float {
-            position: fixed; bottom: 85px; right: 20px; background: #25D366; 
+            position: fixed; bottom: 80px; right: 20px; background: #25D366; 
             color: white; width: 55px; height: 55px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; font-size: 28px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 999;
         }
     </style>
 </head>
@@ -109,68 +140,86 @@
     </header>
 
     <div class="cat-scroll">
-        <div class="cat-tag">Bridal</div>
-        <div class="cat-tag">Lehenga</div>
-        <div class="cat-tag">Suits</div>
-        <div class="cat-tag">Gowns</div>
-        <div class="cat-tag">Oversized</div>
-        <div class="cat-tag">Sarees</div>
-        <div class="cat-tag">Western</div>
+        <div class="cat-bubble">Sarees</div>
+        <div class="cat-bubble">Lehenga</div>
+        <div class="cat-bubble">Western</div>
+        <div class="cat-bubble">Menswear</div>
+        <div class="cat-bubble">Winter</div>
+        <div class="cat-bubble">Footwear</div>
+        <div class="cat-bubble">Sports</div>
     </div>
 
-    <div class="main-container">
-        <h2 class="section-title">Luxury <span>Designs</span></h2>
-        
-        <div class="design-grid">
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800" alt="Bridal Wear"></div>
-                <div class="design-meta"><h3>Royal Bridal Collection</h3><p>Pure Luxury</p></div>
+    <section class="hero-banner">
+        <h1>New Season Arrivals</h1>
+    </section>
+
+    <div class="section-wrap">
+        <h2 class="section-title">Trending Fashion</h2>
+        <div class="mega-grid">
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=500"></div>
+                <h3>Heritage Silk Saree</h3>
+                <p>Premium Collection</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=800" alt="Lehenga"></div>
-                <div class="design-meta"><h3>Designer Silk Lehenga</h3><p>New Arrival</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1599552683573-9dc48255fe85?q=80&w=500"></div>
+                <h3>Bridal Lehenga</h3>
+                <p>Royal Collection</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800" alt="Suit"></div>
-                <div class="design-meta"><h3>Anarkali Suit Edition</h3><p>Festive Choice</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=500"></div>
+                <h3>Modern Western Gown</h3>
+                <p>Partywear Exclusive</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800" alt="Party Gown"></div>
-                <div class="design-meta"><h3>Celebrity Party Gown</h3><p>Evening Wear</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=500"></div>
+                <h3>Designer Sherwani</h3>
+                <p>Men's Wedding Wear</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Modern Wear"></div>
-                <div class="design-meta"><h3>Oversized Modern Chic</h3><p>Streetwear</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=500"></div>
+                <h3>Premium Winter Coats</h3>
+                <p>Cozy & Stylish</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1610030469668-935142b96fe4?q=80&w=800" alt="Saree"></div>
-                <div class="design-meta"><h3>Banarasi Heritage Saree</h3><p>Timeless Tradition</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500"></div>
+                <h3>Athleisure Set</h3>
+                <p>Sports Wear</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt="Casual"></div>
-                <div class="design-meta"><h3>Chic Casual Set</h3><p>Daily Elegance</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=500"></div>
+                <h3>Designer Heels</h3>
+                <p>Luxury Footwear</p>
             </div>
-            <div class="design-card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800" alt="Athleisure"></div>
-                <div class="design-meta"><h3>Elite Sports Collection</h3><p>Active Wear</p></div>
+            <div class="product-card">
+                <div class="img-holder"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=500"></div>
+                <h3>Kundan Jewelry</h3>
+                <p>Traditional Sets</p>
             </div>
         </div>
     </div>
 
-    <footer class="footer-cta">
-        <h2>Customer Service</h2>
-        <div class="footer-links">
-            <p><i class="fas fa-phone-alt"></i> 9919717645</p>
-            <p><i class="fas fa-map-marker-alt"></i> Main Market, Ayodhya, UP</p>
-        </div>
-        <div class="shyam-tag">जय श्री श्याम</div>
-    </footer>
+    <div class="promo-banner">
+        <h3>FLAT 20% OFF ON YOUR FIRST ORDER</h3>
+        <p>Use Code: SHYAM20 | Only at Ayodhya Store</p>
+    </div>
 
-    <nav class="bottom-navbar">
-        <a href="#" class="nav-link"><i class="fas fa-home"></i>HOME</a>
-        <a href="#" class="nav-link"><i class="fas fa-search"></i>SEARCH</a>
-        <a href="#" class="nav-link"><i class="fas fa-heart"></i>SAVED</a>
-        <a href="tel:9919717645" class="nav-link"><i class="fas fa-headset"></i>SUPPORT</a>
+    <section class="support-area">
+        <h2>Customer Excellence</h2>
+        <div class="support-grid">
+            <div class="support-box"><i class="fas fa-truck"></i><h4>Fast Shipping</h4></div>
+            <div class="support-box"><i class="fas fa-undo"></i><h4>Easy Returns</h4></div>
+            <div class="support-box"><i class="fas fa-headset"></i><h4>24/7 Support</h4></div>
+        </div>
+        <p style="margin-top: 40px; font-weight: bold;">Support: 9919717645</p>
+        <p style="color: var(--gold); font-size: 24px; margin-top: 10px;">जय श्री श्याम</p>
+    </section>
+
+    <nav class="nav-bottom">
+        <a href="#" class="nav-link"><i class="fas fa-home"></i>Home</a>
+        <a href="#" class="nav-link"><i class="fas fa-search"></i>Search</a>
+        <a href="#" class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
+        <a href="tel:9919717645" class="nav-link"><i class="fas fa-user"></i>Account</a>
     </nav>
 
     <a href="https://wa.me/919919717645" class="wa-float" target="_blank">
