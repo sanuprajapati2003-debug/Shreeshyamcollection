@@ -13,7 +13,6 @@
             --gold: #C5A059;
             --black: #111;
             --cream: #fdfaf5;
-            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -22,13 +21,13 @@
             font-family: 'Poppins', sans-serif;
             background: #fff;
             color: #111;
-            padding-bottom: 70px;
+            padding-bottom: 80px;
         }
 
-        /* HEADER & SEARCH */
+        /* STICKY HEADER & SEARCH */
         header {
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
             background: #fff;
             position: sticky;
             top: 0;
@@ -36,136 +35,123 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .main-logo { height: 70px; margin-bottom: 10px; }
+        .main-logo { height: 60px; margin-bottom: 5px; }
 
-        .search-container {
+        .search-bar-container {
             width: 90%;
-            max-width: 500px;
-            margin: 10px auto;
+            max-width: 400px;
+            margin: 5px auto;
             position: relative;
         }
 
-        .search-container input {
+        .search-bar-container input {
             width: 100%;
-            padding: 10px 40px 10px 15px;
+            padding: 8px 35px 8px 15px;
             border: 1px solid #ddd;
-            border-radius: 25px;
+            border-radius: 20px;
             outline: none;
+            font-size: 14px;
         }
 
-        .search-container i {
+        .search-bar-container i {
             position: absolute;
-            right: 15px;
-            top: 12px;
+            right: 12px;
+            top: 10px;
             color: var(--gold);
         }
 
         /* CATEGORY SCROLL */
         .cat-scroll {
-            display: flex; gap: 12px; padding: 15px 5%;
+            display: flex; gap: 10px; padding: 15px 5%;
             overflow-x: auto; background: var(--cream);
-            scrollbar-width: none;
+            white-space: nowrap;
         }
         .cat-scroll::-webkit-scrollbar { display: none; }
 
         .cat-bubble {
-            padding: 8px 20px; border: 1px solid var(--gold);
-            border-radius: 20px; font-size: 13px;
+            padding: 6px 15px; border: 1px solid var(--gold);
+            border-radius: 20px; font-size: 12px;
             font-weight: 600; cursor: pointer; background: #fff;
-            white-space: nowrap; transition: 0.3s;
+            transition: 0.3s;
         }
         .cat-bubble:hover { background: var(--gold); color: #fff; }
 
         /* HERO */
         .hero-banner {
-            height: 450px; display: flex; align-items: center;
+            height: 350px; display: flex; align-items: center;
             justify-content: center; color: #fff; text-align: center;
             position: relative; animation: slider 15s infinite;
             background-size: cover; background-position: center;
         }
         .hero-banner::before {
             content: ""; position: absolute; inset: 0;
-            background: rgba(0,0,0,0.45);
+            background: rgba(0,0,0,0.4);
         }
-        .hero-content { position: relative; z-index: 2; padding: 20px; }
-        .hero-content h1 { font-family: 'Playfair Display'; font-size: 40px; }
-        .hero-content p { letter-spacing: 2px; color: #f1e7d0; margin-bottom: 20px; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-content h1 { font-family: 'Playfair Display'; font-size: 36px; }
+        .hero-content p { letter-spacing: 2px; color: #f1e7d0; font-size: 12px; }
 
-        .btn-contact {
-            padding: 10px 25px; background: var(--gold); color: #fff;
-            text-decoration: none; border-radius: 5px; font-weight: 600;
-        }
-
-        /* GRID & SECTIONS */
-        .section-wrap { padding: 40px 5%; }
+        /* GRID SYSTEM */
+        .section-wrap { padding: 30px 5%; }
         .section-title {
             text-align: center; font-family: 'Playfair Display';
-            font-size: 28px; margin-top: 20px;
+            font-size: 26px; margin-top: 20px; margin-bottom: 20px;
         }
         .section-title::after {
-            content: ""; width: 50px; height: 2px;
-            background: var(--gold); display: block; margin: 10px auto;
+            content: ""; width: 40px; height: 2px;
+            background: var(--gold); display: block; margin: 8px auto;
         }
 
         .mega-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px; margin-bottom: 40px;
+            gap: 15px;
         }
 
-        .product-card { position: relative; background: #fff; }
-        .img-holder { overflow: hidden; border-radius: 8px; position: relative; }
+        .product-card { position: relative; margin-bottom: 10px; }
+        .img-holder { overflow: hidden; border-radius: 8px; }
         .product-card img {
-            width: 100%; height: 250px; object-fit: cover;
-            transition: .4s; display: block;
+            width: 100%; height: 240px; object-fit: cover;
+            transition: .4s;
         }
-        .product-card:hover img { transform: scale(1.05); }
-        
-        .product-info { padding: 10px 5px; }
-        .product-card h3 { font-size: 14px; font-weight: 600; }
+        .product-card h3 { margin-top: 8px; font-size: 14px; }
         .product-card p { font-size: 12px; color: var(--gold); }
 
         .design-tag {
             position: absolute; top: 10px; left: 10px;
-            background: rgba(0,0,0,0.7); color: #fff;
-            font-size: 9px; padding: 3px 8px; border-radius: 3px; z-index: 5;
+            background: #000; color: #fff;
+            font-size: 9px; padding: 3px 8px; border-radius: 10px; z-index: 2;
         }
         .price-tag {
             position: absolute; top: 10px; right: 10px;
             background: var(--gold); color: #fff;
-            padding: 3px 8px; font-size: 11px; border-radius: 3px; z-index: 5;
+            padding: 3px 8px; font-size: 10px; border-radius: 4px; z-index: 2;
         }
 
         .enquiry-btn {
             display: block; width: 100%; background: #25D366;
-            color: #fff; text-align: center; padding: 8px;
-            font-size: 12px; border-radius: 5px; text-decoration: none;
-            margin-top: 8px; font-weight: 600;
+            color: #fff; text-align: center; padding: 7px;
+            font-size: 11px; border-radius: 5px; text-decoration: none;
+            margin-top: 5px; font-weight: 600;
         }
 
-        /* FOOTER NAV */
+        /* NAVIGATION */
         .nav-bottom {
             position: fixed; bottom: 0; width: 100%;
             display: flex; justify-content: space-around;
             background: #fff; border-top: 1px solid #eee;
-            padding: 10px 0; z-index: 1000;
+            padding: 10px 0; z-index: 1001;
         }
-        .nav-link { font-size: 10px; color: #555; text-align: center; text-decoration: none; cursor: pointer; }
-        .nav-link i { display: block; font-size: 20px; margin-bottom: 3px; }
+        .nav-link { font-size: 10px; color: #555; text-align: center; text-decoration: none; }
+        .nav-link i { display: block; font-size: 18px; margin-bottom: 2px; }
 
         .wa-float {
-            position: fixed; bottom: 80px; right: 20px;
-            width: 55px; height: 55px; background: #25D366;
+            position: fixed; bottom: 75px; right: 15px;
+            width: 50px; height: 50px; background: #25D366;
             border-radius: 50%; display: flex;
             align-items: center; justify-content: center;
-            font-size: 28px; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 999;
-        }
-
-        /* DESKTOP OPTIMIZATION */
-        @media (min-width: 768px) {
-            .mega-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-            .product-card img { height: 350px; }
+            font-size: 24px; color: #fff; z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         @keyframes slider {
@@ -173,84 +159,146 @@
             33% { background-image: url('https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg') }
             66% { background-image: url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg') }
         }
+
+        @media (min-width: 768px) {
+            .mega-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+            .product-card img { height: 340px; }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <img src="logo.png" class="main-logo" alt="Shree Shyam Collection">
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search for Saree, Lehenga..." onkeyup="searchProducts()">
+    <img src="logo.png" class="main-logo">
+    <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="Search for Sherwani, Lehenga, Saree..." onkeyup="searchFn()">
         <i class="fas fa-search"></i>
     </div>
 </header>
 
 <div class="cat-scroll">
-    <div class="cat-bubble" onclick="filterProducts('all')">All</div>
-    <div class="cat-bubble" onclick="scrollToSection('sherwani-sec')">Sherwani</div>
-    <div class="cat-bubble" onclick="scrollToSection('lehenga-sec')">Lehenga</div>
-    <div class="cat-bubble" onclick="scrollToSection('saree-sec')">Saree</div>
-    <div class="cat-bubble" onclick="scrollToSection('gown-sec')">Gown</div>
-    <div class="cat-bubble" onclick="scrollToSection('men-sec')">Menswear</div>
+    <div class="cat-bubble" onclick="showAll()">All</div>
+    <div class="cat-bubble" onclick="scrollToSec('sherwani-section')">Sherwani</div>
+    <div class="cat-bubble" onclick="scrollToSec('lehenga-section')">Lehenga</div>
+    <div class="cat-bubble" onclick="scrollToSec('saree-section')">Saree</div>
+    <div class="cat-bubble" onclick="scrollToSec('gown-section')">Gown</div>
+    <div class="cat-bubble" onclick="scrollToSec('men-section')">Menswear</div>
 </div>
 
 <section class="hero-banner">
     <div class="hero-content">
-        <h1>Luxury Fashion</h1>
+        <h1>Luxury Fashion Redefined</h1>
         <p>ROYAL • TRENDY • EXCLUSIVE</p>
-        <a href="https://wa.me/919919717645?text=Hello, I want to know more about your collection." class="btn-contact">Contact Designer</a>
     </div>
 </section>
 
 <div class="section-wrap">
 
-    <div id="sherwani-sec">
-        <h2 class="section-title">Royal Sherwani</h2>
+    <div id="sherwani-section">
+        <h2 class="section-title">Sherwani Collection</h2>
         <div class="mega-grid">
-            <div class="product-card" data-category="sherwani" data-name="Wedding Groom Sherwani">
+            <div class="product-card" data-name="Wedding Groom Sherwani">
                 <span class="design-tag">ROYAL</span><span class="price-tag">₹14,999</span>
                 <div class="img-holder"><img src="images/sherwani1.jpg"></div>
-                <div class="product-info">
-                    <h3>Wedding Groom Sherwani</h3><p>Heavy Embroidery</p>
-                    <a class="enquiry-btn" href="#" onclick="sendEnquiry('Wedding Groom Sherwani', '₹14,999')">Enquiry Now</a>
-                </div>
+                <h3>Wedding Groom Sherwani</h3><p>Heavy Embroidery</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Wedding Groom Sherwani', '₹14,999')">Enquiry Now</a>
             </div>
-            <div class="product-card" data-category="sherwani" data-name="Designer Royal Sherwani">
+            <div class="product-card" data-name="Designer Royal Sherwani">
                 <span class="design-tag">NEW</span><span class="price-tag">₹16,999</span>
                 <div class="img-holder"><img src="images/sherwani2.jpg"></div>
-                <div class="product-info">
-                    <h3>Designer Royal Sherwani</h3><p>Wedding Special</p>
-                    <a class="enquiry-btn" href="#" onclick="sendEnquiry('Designer Royal Sherwani', '₹16,999')">Enquiry Now</a>
-                </div>
+                <h3>Designer Royal Sherwani</h3><p>Wedding Special</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Designer Royal Sherwani', '₹16,999')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Classic Cream Sherwani">
+                <span class="design-tag">TRENDING</span><span class="price-tag">₹12,499</span>
+                <div class="img-holder"><img src="images/sherwani3.jpg"></div>
+                <h3>Classic Cream Sherwani</h3><p>Traditional Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Classic Cream Sherwani', '₹12,499')">Enquiry Now</a>
             </div>
         </div>
     </div>
 
-    <div id="lehenga-sec">
-        <h2 class="section-title">Bridal Lehenga</h2>
+    <div id="lehenga-section">
+        <h2 class="section-title">Lehenga Collection</h2>
         <div class="mega-grid">
-            <div class="product-card" data-category="lehenga" data-name="Bridal Red Lehenga">
+            <div class="product-card" data-name="Bridal Red Lehenga">
                 <span class="design-tag">ROYAL</span><span class="price-tag">₹19,999</span>
                 <div class="img-holder"><img src="images/lehenga1.jpg"></div>
-                <div class="product-info">
-                    <h3>Bridal Red Lehenga</h3><p>Wedding Collection</p>
-                    <a class="enquiry-btn" href="#" onclick="sendEnquiry('Bridal Red Lehenga', '₹19,999')">Enquiry Now</a>
-                </div>
+                <h3>Bridal Red Lehenga</h3><p>Wedding Collection</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Bridal Red Lehenga', '₹19,999')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Designer Bridal Lehenga">
+                <span class="design-tag">NEW</span><span class="price-tag">₹17,499</span>
+                <div class="img-holder"><img src="images/lehenga2.jpg"></div>
+                <h3>Designer Bridal Lehenga</h3><p>Premium Look</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Designer Bridal Lehenga', '₹17,499')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Pastel Party Lehenga">
+                <span class="design-tag">TRENDING</span><span class="price-tag">₹15,999</span>
+                <div class="img-holder"><img src="images/lehenga3.jpg"></div>
+                <h3>Pastel Party Lehenga</h3><p>Engagement Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Pastel Party Lehenga', '₹15,999')">Enquiry Now</a>
             </div>
         </div>
     </div>
 
-    <div id="saree-sec">
-        <h2 class="section-title">Designer Saree</h2>
+    <div id="saree-section">
+        <h2 class="section-title">Saree Collection</h2>
         <div class="mega-grid">
-            <div class="product-card" data-category="saree" data-name="Banarasi Silk Saree">
+            <div class="product-card" data-name="Banarasi Silk Saree">
                 <span class="design-tag">ROYAL</span><span class="price-tag">₹9,999</span>
                 <div class="img-holder"><img src="images/saree1.jpg"></div>
-                <div class="product-info">
-                    <h3>Banarasi Silk Saree</h3><p>Traditional Wear</p>
-                    <a class="enquiry-btn" href="#" onclick="sendEnquiry('Banarasi Silk Saree', '₹9,999')">Enquiry Now</a>
-                </div>
+                <h3>Banarasi Silk Saree</h3><p>Traditional Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Banarasi Silk Saree', '₹9,999')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Designer Party Saree">
+                <span class="design-tag">NEW</span><span class="price-tag">₹7,999</span>
+                <div class="img-holder"><img src="images/saree2.jpg"></div>
+                <h3>Designer Party Saree</h3><p>Modern Look</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Designer Party Saree', '₹7,999')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Kanjivaram Silk Saree">
+                <span class="design-tag">TRENDING</span><span class="price-tag">₹11,499</span>
+                <div class="img-holder"><img src="images/saree3.jpg"></div>
+                <h3>Kanjivaram Silk Saree</h3><p>Wedding Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Kanjivaram Silk Saree', '₹11,499')">Enquiry Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="gown-section">
+        <h2 class="section-title">Gown Collection</h2>
+        <div class="mega-grid">
+            <div class="product-card" data-name="Designer Party Gown">
+                <span class="design-tag">ROYAL</span><span class="price-tag">₹12,499</span>
+                <div class="img-holder"><img src="images/gown1.jpg"></div>
+                <h3>Designer Party Gown</h3><p>Luxury Collection</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Designer Party Gown', '₹12,499')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Evening Long Gown">
+                <span class="design-tag">TRENDING</span><span class="price-tag">₹10,999</span>
+                <div class="img-holder"><img src="images/gown2.jpg"></div>
+                <h3>Evening Long Gown</h3><p>Party Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Evening Long Gown', '₹10,999')">Enquiry Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="men-section">
+        <h2 class="section-title">Menswear</h2>
+        <div class="mega-grid">
+            <div class="product-card" data-name="Premium Men Formal Suit">
+                <span class="design-tag">NEW</span><span class="price-tag">₹6,999</span>
+                <div class="img-holder"><img src="images/men1.jpg"></div>
+                <h3>Premium Men Formal Suit</h3><p>Office Wear</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Premium Men Formal Suit', '₹6,999')">Enquiry Now</a>
+            </div>
+            <div class="product-card" data-name="Indo-Western Men Suit">
+                <span class="design-tag">TRENDING</span><span class="price-tag">₹7,999</span>
+                <div class="img-holder"><img src="images/men2.jpg"></div>
+                <h3>Indo-Western Men Suit</h3><p>Festive Collection</p>
+                <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Indo-Western Men Suit', '₹7,999')">Enquiry Now</a>
             </div>
         </div>
     </div>
@@ -260,8 +308,8 @@
 <nav class="nav-bottom">
     <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
     <a class="nav-link" onclick="document.getElementById('searchInput').focus()"><i class="fas fa-search"></i>Search</a>
-    <a class="nav-link" href="https://wa.me/919919717645?text=I want to see more designs."><i class="fas fa-heart"></i>Wishlist</a>
-    <a class="nav-link" href="tel:+919919717645"><i class="fas fa-phone"></i>Contact</a>
+    <a class="nav-link" href="https://wa.me/919919717645?text=Hello, I want to see your latest collection catalogs."><i class="fas fa-heart"></i>Wishlist</a>
+    <a class="nav-link" href="tel:+919919717645"><i class="fas fa-user"></i>Contact</a>
 </nav>
 
 <a class="wa-float" href="https://wa.me/919919717645" target="_blank">
@@ -270,22 +318,34 @@
 
 <script>
     // 1. WhatsApp Enquiry Logic
-    function sendEnquiry(productName, price) {
+    function waEnquiry(name, price) {
         let phone = "919919717645";
-        let message = `Hello Shree Shyam Collection, I am interested in: \n\n*Product:* ${productName} \n*Price:* ${price} \n\nPlease share more details.`;
-        let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        let text = `Hello Shree Shyam Collection, I am interested in this product:\n\n*Product:* ${name}\n*Price:* ${price}\n\nPlease share more details.`;
+        let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank');
     }
 
-    // 2. Search Functionality
-    function searchProducts() {
+    // 2. Smooth Scroll to Sections
+    function scrollToSec(id) {
+        const element = document.getElementById(id);
+        const headerOffset = 130;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+
+    // 3. Search Functionality
+    function searchFn() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.querySelectorAll('.product-card');
-
+        
         cards.forEach(card => {
             let name = card.getAttribute('data-name').toLowerCase();
-            let cat = card.getAttribute('data-category').toLowerCase();
-            if (name.includes(input) || cat.includes(input)) {
+            if (name.includes(input)) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
@@ -293,29 +353,9 @@
         });
     }
 
-    // 3. Smooth Scroll to Section
-    function scrollToSection(id) {
-        const element = document.getElementById(id);
-        if(element) {
-            const offset = 140; // Header height adjustment
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    // 4. Filter logic (optional for 'All' button)
-    function filterProducts(category) {
-        if(category === 'all') {
-            document.querySelectorAll('.product-card').forEach(p => p.style.display = 'block');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+    function showAll() {
+        document.querySelectorAll('.product-card').forEach(c => c.style.display = "block");
+        window.scrollTo({top: 0, behavior: "smooth"});
     }
 </script>
 
