@@ -3,62 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Shopping Cart</title>
+    <title>Shree Shyam Collection | Mega Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { 
-            --flipkart-blue: #2874f0; 
-            --flipkart-yellow: #ff9f00; 
-            --flipkart-orange: #fb641b;
-            --text-gray: #878787;
+            --fk-blue: #2874f0; 
+            --fk-yellow: #ff9f00; 
+            --fk-orange: #fb641b;
+            --bg: #f1f3f6;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { background: #f1f3f6; padding-bottom: 70px; }
+        body { background: var(--bg); padding-bottom: 70px; }
 
         /* HEADER */
-        header { background: var(--flipkart-blue); padding: 10px 15px; position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--fk-blue); padding: 10px 15px; position: sticky; top: 0; z-index: 1000; }
         .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-        .logo-area img { height: 28px; }
-        
+        .logo-area img { height: 28px; filter: brightness(0) invert(1); }
         .search-container { background: #fff; display: flex; align-items: center; padding: 8px 12px; border-radius: 2px; }
         .search-container input { border: none; outline: none; width: 100%; font-size: 14px; margin-left: 8px; }
 
-        /* PAGES CONTROL */
-        .page { display: none; }
-        .page.active { display: block; }
+        /* HERO BANNER SLIDER */
+        .banner-container { width: 100%; height: 180px; overflow: hidden; position: relative; background: #fff; }
+        .slider { display: flex; width: 200%; animation: slide 10s infinite; }
+        .slider img { width: 50%; height: 180px; object-fit: cover; }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            45% { transform: translateX(0); }
+            50% { transform: translateX(-50%); }
+            95% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
 
-        /* PRODUCT GRID */
-        .section-title { background: #fff; padding: 15px; font-size: 16px; font-weight: 500; border-bottom: 1px solid #f0f0f0; margin-top: 5px; }
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #e0e0e0; }
-        .product-card { background: #fff; padding: 10px; display: flex; flex-direction: column; }
-        .img-box { height: 170px; text-align: center; margin-bottom: 10px; }
+        /* QUICK CATEGORIES */
+        .cat-strip { display: flex; overflow-x: auto; background: #fff; padding: 15px 5px; gap: 15px; margin-bottom: 8px; }
+        .cat-strip::-webkit-scrollbar { display: none; }
+        .cat-circle { text-align: center; min-width: 70px; text-decoration: none; color: #333; }
+        .cat-circle .img-wrapper { width: 55px; height: 55px; background: #f0f0f0; border-radius: 50%; margin: 0 auto 5px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .cat-circle .img-wrapper i { font-size: 24px; color: var(--fk-blue); }
+        .cat-circle span { font-size: 11px; font-weight: 500; }
+
+        /* SECTION STYLING */
+        .section-header { background: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; margin-top: 8px; }
+        .section-header h2 { font-size: 16px; font-weight: 700; color: #212121; }
+        .view-all { background: var(--fk-blue); color: #fff; padding: 5px 12px; border-radius: 2px; font-size: 12px; text-decoration: none; }
+
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #e0e0e0; border-bottom: 2px solid #e0e0e0; }
+        .product-card { background: #fff; padding: 12px; display: flex; flex-direction: column; }
+        .img-box { height: 160px; text-align: center; margin-bottom: 8px; }
         .img-box img { max-width: 100%; height: 100%; object-fit: contain; }
-        .p-name { font-size: 13px; color: #212121; height: 32px; overflow: hidden; margin-bottom: 5px; }
-        .p-price { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
-        .curr-price { font-size: 14px; font-weight: 700; }
-        .off-tag { font-size: 12px; color: #388e3c; font-weight: 500; }
+        .p-name { font-size: 13px; color: #212121; height: 32px; overflow: hidden; margin-bottom: 4px; }
+        .p-price { font-size: 14px; font-weight: 700; color: #212121; margin-bottom: 8px; }
+        .off-tag { color: #388e3c; font-size: 12px; font-weight: 500; }
 
         /* BUTTONS */
         .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-        .btn { border: none; padding: 8px 2px; font-size: 10px; font-weight: 500; border-radius: 2px; cursor: pointer; text-transform: uppercase; text-align: center; }
-        .btn-cart { background: var(--flipkart-yellow); color: #fff; }
-        .btn-buy { background: var(--flipkart-orange); color: #fff; }
+        .btn { border: none; padding: 8px 0; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; cursor: pointer; }
+        .btn-cart { background: var(--fk-yellow); color: #fff; }
+        .btn-buy { background: var(--fk-orange); color: #fff; }
+
+        /* PAGES */
+        .page { display: none; }
+        .page.active { display: block; }
 
         /* CART PAGE STYLES */
-        .cart-item { background: #fff; padding: 15px; display: flex; gap: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd; }
-        .cart-img { width: 80px; height: 80px; object-fit: cover; }
-        .cart-details { flex: 1; }
-        .cart-empty { text-align: center; padding: 50px 20px; background: #fff; }
-        .total-box { background: #fff; padding: 20px; position: sticky; bottom: 60px; border-top: 1px solid #ddd; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-        .checkout-btn { width: 100%; background: var(--flipkart-orange); color: #fff; border: none; padding: 12px; font-size: 16px; font-weight: 700; border-radius: 3px; cursor: pointer; }
+        .cart-item { background: #fff; padding: 15px; display: flex; gap: 15px; margin-bottom: 5px; }
+        .cart-img { width: 70px; height: 70px; object-fit: cover; }
+        .total-sticky { position: fixed; bottom: 56px; width: 100%; background: #fff; padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; z-index: 100; }
 
         /* BOTTOM NAV */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #dbdbdb; z-index: 1001; }
-        .nav-tab { text-align: center; color: #666; text-decoration: none; font-size: 10px; background: none; border: none; cursor: pointer; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 8px 0; border-top: 1px solid #dbdbdb; z-index: 1001; }
+        .nav-tab { text-align: center; color: #666; font-size: 10px; border: none; background: none; }
         .nav-tab i { font-size: 18px; display: block; margin-bottom: 2px; }
-        .nav-tab.active { color: var(--flipkart-blue); }
-        .cart-count { position: absolute; background: #ff0000; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 10px; top: -5px; right: -10px; }
+        .nav-tab.active { color: var(--fk-blue); }
+        .cart-badge { position: absolute; top: -5px; right: -8px; background: #ff0000; color: #fff; border-radius: 50%; padding: 2px 5px; font-size: 10px; }
     </style>
 </head>
 <body>
@@ -70,56 +88,101 @@
     </div>
     <div class="search-container">
         <i class="fas fa-search" style="color: #999;"></i>
-        <input type="text" id="searchInput" placeholder="Search for Products..." onkeyup="searchFn()">
+        <input type="text" id="searchInput" placeholder="Search for Products, Brands..." onkeyup="searchFn()">
     </div>
 </header>
 
 <div id="homePage" class="page active">
-    <h2 class="section-title">Ladies Collection</h2>
+    
+    <div class="banner-container">
+        <div class="slider">
+            <img src="images/banner1.jpg" onerror="this.src='https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/ed6a5f36e84da18c.jpg?q=20'">
+            <img src="images/banner2.jpg" onerror="this.src='https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/3396559779268388.jpg?q=20'">
+        </div>
+    </div>
+
+    <div class="cat-strip">
+        <a href="javascript:void(0)" onclick="scrollToSec('wedding-sec')" class="cat-circle"><div class="img-wrapper"><i class="fas fa-crown"></i></div><span>Wedding</span></a>
+        <a href="javascript:void(0)" onclick="scrollToSec('party-sec')" class="cat-circle"><div class="img-wrapper"><i class="fas fa-glass-cheers"></i></div><span>Party</span></a>
+        <a href="javascript:void(0)" onclick="scrollToSec('men-sec')" class="cat-circle"><div class="img-wrapper"><i class="fas fa-male"></i></div><span>Mens</span></a>
+        <a href="javascript:void(0)" onclick="scrollToSec('homePage')" class="cat-circle"><div class="img-wrapper"><i class="fas fa-female"></i></div><span>Womens</span></a>
+        <a href="javascript:void(0)" onclick="scrollToSec('kids-sec')" class="cat-circle"><div class="img-wrapper"><i class="fas fa-child"></i></div><span>Kids</span></a>
+    </div>
+
+    <div class="section-header" id="wedding-sec">
+        <h2>Wedding Collection</h2>
+        <a href="#" class="view-all">View All</a>
+    </div>
     <div class="product-grid">
-        <div class="product-card" data-name="blue anarkali suit">
-            <div class="img-box"><img src="images/suit1.jpg"></div>
-            <p class="p-name">Teal Blue Anarkali Set</p>
-            <div class="p-price"><span class="curr-price">₹2,499</span><span class="off-tag">50% off</span></div>
+        <div class="product-card" data-name="bridal lehenga red">
+            <div class="img-box"><img src="images/wedding_lehenga.jpg" onerror="this.src='https://rukminim2.flixcart.com/image/612/612/xif0q/lehenga-choli/g/g/v/free-short-sleeve-fiona-maroon-shree-shubh-original-imahf39uphb8jnhd.jpeg?q=70'"></div>
+            <p class="p-name">Royal Bridal Lehenga Maroon</p>
+            <p class="p-price">₹14,999 <span class="off-tag">60% Off</span></p>
             <div class="action-btns">
-                <button class="btn btn-cart" onclick="addToCart('Teal Blue Anarkali', 2499, 'images/suit1.jpg')">Add to Cart</button>
-                <button class="btn btn-buy" onclick="buyNow('Teal Blue Anarkali', '₹2,499')">Buy Now</button>
+                <button class="btn btn-cart" onclick="addToCart('Bridal Lehenga', 14999, 'images/wedding_lehenga.jpg')">Add Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Bridal Lehenga', '14,999')">Buy Now</button>
             </div>
         </div>
-        <div class="product-card" data-name="white chikankari kurta">
-            <div class="img-box"><img src="images/kurta1.jpg"></div>
-            <p class="p-name">Chikankari Kurta Set</p>
-            <div class="p-price"><span class="curr-price">₹1,850</span><span class="off-tag">20% off</span></div>
+        <div class="product-card" data-name="wedding sherwani men">
+            <div class="img-box"><img src="images/sherwani.jpg" onerror="this.src='https://rukminim2.flixcart.com/image/612/612/xif0q/sherwani/n/o/d/l-sh-101-sh-luxury-original-imahfnyxhshzsh8z.jpeg?q=70'"></div>
+            <p class="p-name">Embroidered Groom Sherwani</p>
+            <p class="p-price">₹11,499 <span class="off-tag">40% Off</span></p>
             <div class="action-btns">
-                <button class="btn btn-cart" onclick="addToCart('Chikankari Kurta', 1850, 'images/kurta1.jpg')">Add to Cart</button>
-                <button class="btn btn-buy" onclick="buyNow('Chikankari Kurta', '₹1,850')">Buy Now</button>
+                <button class="btn btn-cart" onclick="addToCart('Sherwani', 11499, 'images/sherwani.jpg')">Add Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Sherwani', '11,499')">Buy Now</button>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title">Special Sarees</h2>
+    <div class="section-header" id="party-sec">
+        <h2>Trending Party Wear</h2>
+        <a href="#" class="view-all">View All</a>
+    </div>
     <div class="product-grid">
-        <div class="product-card" data-name="banarasi silk saree">
-            <div class="img-box"><img src="images/saree1.jpg"></div>
-            <p class="p-name">Banarasi Silk Saree</p>
-            <div class="p-price"><span class="curr-price">₹9,999</span><span class="off-tag">New</span></div>
+        <div class="product-card" data-name="sequin saree black">
+            <div class="img-box"><img src="images/party_women.jpg" onerror="this.src='https://rukminim2.flixcart.com/image/612/612/xif0q/saree/r/v/z/free-sk-black-sequin-saree-manohari-original-imagpghvghgzghgh.jpeg?q=70'"></div>
+            <p class="p-name">Black Sequin Party Saree</p>
+            <p class="p-price">₹2,199 <span class="off-tag">70% Off</span></p>
             <div class="action-btns">
-                <button class="btn btn-cart" onclick="addToCart('Banarasi Saree', 9999, 'images/saree1.jpg')">Add to Cart</button>
-                <button class="btn btn-buy" onclick="buyNow('Banarasi Saree', '₹9,999')">Buy Now</button>
+                <button class="btn btn-cart" onclick="addToCart('Sequin Saree', 2199, 'images/party_women.jpg')">Add Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Sequin Saree', '2,199')">Buy Now</button>
+            </div>
+        </div>
+        <div class="product-card" data-name="men blazer suit">
+            <div class="img-box"><img src="images/suit_men.jpg" onerror="this.src='https://rukminim2.flixcart.com/image/612/612/xif0q/suit/f/o/x/38-suit-black-p-m-original-imagzhshshshshsh.jpeg?q=70'"></div>
+            <p class="p-name">Premium Slim Fit Blazer</p>
+            <p class="p-price">₹4,500 <span class="off-tag">55% Off</span></p>
+            <div class="action-btns">
+                <button class="btn btn-cart" onclick="addToCart('Blazer', 4500, 'images/suit_men.jpg')">Add Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Blazer', '4,500')">Buy Now</button>
             </div>
         </div>
     </div>
+
+    <div class="section-header" id="kids-sec">
+        <h2>Kids Collection</h2>
+        <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" data-name="kids frock">
+            <div class="img-box"><img src="images/kid1.jpg" onerror="this.src='https://rukminim2.flixcart.com/image/612/612/xif0q/frock/y/g/i/6-7-years-kids-frock-pink-original-imagzhshshshshsh.jpeg?q=70'"></div>
+            <p class="p-name">Girl's Net Princess Frock</p>
+            <p class="p-price">₹899</p>
+            <div class="action-btns">
+                <button class="btn btn-cart" onclick="addToCart('Kids Frock', 899, 'images/kid1.jpg')">Add Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Kids Frock', '899')">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div id="cartPage" class="page">
-    <h2 class="section-title">My Cart (<span id="cartCountTitle">0</span>)</h2>
-    <div id="cartItemsContainer">
-        </div>
-    <div id="cartFooter" style="display:none;">
-        <div class="total-box">
-            <p style="font-size: 16px; margin-bottom: 10px;">Total Amount: <strong id="totalPrice">₹0</strong></p>
-            <button class="checkout-btn" onclick="checkoutCart()">Place Order via WhatsApp</button>
-        </div>
+    <div class="section-header"><h2>Shopping Cart</h2></div>
+    <div id="cartItemsContainer"></div>
+    <div id="cartFooter" class="total-sticky" style="display:none;">
+        <div><p style="font-size:12px;color:#666">Total Price</p><strong id="totalPrice" style="font-size:18px">₹0</strong></div>
+        <button class="btn btn-buy" style="padding: 12px 30px;" onclick="checkoutCart()">Place Order</button>
     </div>
 </div>
 
@@ -127,7 +190,7 @@
     <button class="nav-tab active" onclick="showPage('homePage', this)"><i class="fas fa-home"></i>Home</button>
     <button class="nav-tab" style="position:relative;" onclick="showPage('cartPage', this)">
         <i class="fas fa-shopping-cart"></i>Cart
-        <span class="cart-count" id="badgeCount">0</span>
+        <span class="cart-badge" id="badgeCount">0</span>
     </button>
     <button class="nav-tab" onclick="window.location.href='tel:+919919717645'"><i class="fas fa-phone-alt"></i>Call</button>
 </nav>
@@ -135,7 +198,6 @@
 <script>
     let cart = [];
 
-    // Navigation Logic
     function showPage(pageId, btn) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
@@ -144,44 +206,30 @@
         if(pageId === 'cartPage') renderCart();
     }
 
-    // Add to Cart Logic
     function addToCart(name, price, img) {
         cart.push({ name, price, img });
-        updateBadge();
+        document.getElementById('badgeCount').innerText = cart.length;
         alert(name + " added to cart!");
     }
 
-    function updateBadge() {
-        document.getElementById('badgeCount').innerText = cart.length;
-        document.getElementById('cartCountTitle').innerText = cart.length;
-    }
-
-    // Render Cart Items
     function renderCart() {
         const container = document.getElementById('cartItemsContainer');
         const footer = document.getElementById('cartFooter');
-        container.innerHTML = "";
+        container.innerHTML = cart.length === 0 ? '<div style="padding:50px; text-align:center;"><i class="fas fa-shopping-basket" style="font-size:50px;color:#ddd;"></i><p>Empty Cart</p></div>' : "";
+        footer.style.display = cart.length === 0 ? "none" : "flex";
         
-        if (cart.length === 0) {
-            container.innerHTML = `<div class="cart-empty"><img src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/empty-cart_ee6143.png" width="150"><p>Your cart is empty!</p></div>`;
-            footer.style.display = "none";
-            return;
-        }
-
-        footer.style.display = "block";
         let total = 0;
         cart.forEach((item, index) => {
             total += item.price;
             container.innerHTML += `
                 <div class="cart-item">
-                    <img src="${item.img}" class="cart-img">
-                    <div class="cart-details">
-                        <p style="font-weight:500;">${item.name}</p>
-                        <p style="font-size:14px; margin-top:5px;">Price: <strong>₹${item.price}</strong></p>
-                        <button onclick="removeItem(${index})" style="color:red; border:none; background:none; margin-top:10px; font-size:12px;">Remove</button>
+                    <img src="${item.img}" class="cart-img" onerror="this.src='https://via.placeholder.com/70'">
+                    <div>
+                        <p style="font-size:14px;">${item.name}</p>
+                        <p><strong>₹${item.price}</strong></p>
+                        <button onclick="removeItem(${index})" style="color:red;border:none;background:none;font-size:12px;margin-top:5px;">Remove</button>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
         document.getElementById('totalPrice').innerText = "₹" + total;
     }
@@ -189,20 +237,21 @@
     function removeItem(index) {
         cart.splice(index, 1);
         renderCart();
-        updateBadge();
+        document.getElementById('badgeCount').innerText = cart.length;
     }
 
-    // Order Logic
     function buyNow(name, price) {
-        let text = `*New Order*\nProduct: ${name}\nPrice: ${price}`;
-        window.open(`https://wa.me/919919717645?text=${encodeURIComponent(text)}`);
+        window.open(`https://wa.me/919919717645?text=*Direct Order*%0AProduct: ${name}%0APrice: ${price}`);
     }
 
     function checkoutCart() {
-        let itemsList = cart.map(i => `${i.name} (₹${i.price})`).join('\n');
-        let total = cart.reduce((sum, i) => sum + i.price, 0);
-        let text = `*ORDER FROM CART*\n\nItems:\n${itemsList}\n\n*Total Amount: ₹${total}*`;
-        window.open(`https://wa.me/919919717645?text=${encodeURIComponent(text)}`);
+        let list = cart.map(i => i.name + " (₹" + i.price + ")").join("%0A");
+        let total = cart.reduce((s, i) => s + i.price, 0);
+        window.open(`https://wa.me/919919717645?text=*Cart Order*%0A${list}%0A*Total: ₹${total}*`);
+    }
+
+    function scrollToSec(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
     function searchFn() {
@@ -210,7 +259,7 @@
         let cards = document.querySelectorAll('.product-card');
         cards.forEach(card => {
             let name = card.getAttribute('data-name').toLowerCase();
-            card.style.display = name.includes(input) ? "block" : "none";
+            card.style.display = name.includes(input) ? "flex" : "none";
         });
     }
 </script>
