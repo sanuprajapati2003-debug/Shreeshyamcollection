@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
+    <title>Shree Shyam Collection | Boutique Ayodhya</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -12,7 +12,6 @@
         :root {
             --gold: #C5A059;
             --black: #111;
-            --cream: #fdfaf5;
             --gray: #f5f5f5;
         }
 
@@ -25,7 +24,6 @@
             padding-bottom: 80px;
         }
 
-        /* STICKY HEADER & SEARCH */
         header {
             background: #fff;
             position: sticky;
@@ -58,15 +56,12 @@
             border-radius: 8px;
             outline: none;
             font-size: 14px;
-            transition: 0.3s;
         }
-        .search-bar-container input:focus { background: #fff; border-color: var(--gold); }
 
         .search-bar-container i {
             position: absolute; right: 15px; top: 12px; color: #888;
         }
 
-        /* CATEGORY SCROLL */
         .cat-scroll {
             display: flex; gap: 10px; padding: 15px;
             overflow-x: auto; background: #fff;
@@ -78,105 +73,59 @@
             padding: 8px 16px; border: 1px solid #eee;
             border-radius: 5px; font-size: 12px;
             color: #555; cursor: pointer; background: #fff;
-            transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-        }
-        .cat-bubble.active, .cat-bubble:hover {
-            background: var(--gold); color: #fff; border-color: var(--gold);
         }
 
-        /* HERO */
-        .hero-banner {
-            height: 250px; display: flex; align-items: center;
-            justify-content: center; color: #fff; text-align: center;
-            position: relative; margin: 15px; border-radius: 10px; overflow: hidden;
-            background-size: cover; background-position: center;
-            animation: slider 15s infinite;
-        }
-        .hero-banner::before {
-            content: ""; position: absolute; inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-content h1 { font-family: 'Playfair Display'; font-size: 28px; margin-bottom: 5px; }
-        .hero-content p { font-size: 12px; opacity: 0.9; }
-
-        /* GRID SYSTEM */
         .section-wrap { padding: 10px 15px 30px; }
-        .section-head {
-            display: flex; justify-content: space-between; align-items: center;
-            margin: 25px 0 15px;
-        }
-        .section-title {
-            font-family: 'Playfair Display'; font-size: 20px; color: #222;
-        }
-        .view-all { font-size: 12px; color: var(--gold); text-decoration: none; font-weight: 600; }
+        .section-title { font-family: 'Playfair Display'; font-size: 22px; margin: 25px 0 15px; border-left: 4px solid var(--gold); padding-left: 10px; }
 
         .mega-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 Columns like Myntra App */
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
         .product-card {
             background: #fff; border: 1px solid #f0f0f0;
             border-radius: 8px; overflow: hidden;
+            display: block;
         }
         
-        .img-holder { position: relative; height: 200px; overflow: hidden; }
+        .img-holder { position: relative; height: 220px; background: #f9f9f9; }
         .product-card img {
             width: 100%; height: 100%; object-fit: cover;
         }
 
         .product-details { padding: 10px; }
         .brand-name { font-size: 10px; color: #888; font-weight: 600; text-transform: uppercase; }
-        .product-name {
-            font-size: 12px; color: #333; margin: 2px 0;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .price-row { display: flex; align-items: center; gap: 5px; margin-top: 5px; }
-        .current-price { font-size: 13px; font-weight: 700; color: #000; }
+        .product-name { font-size: 13px; font-weight: 400; color: #333; margin: 2px 0; }
+        .price-row { margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+        .current-price { font-size: 14px; font-weight: 700; color: #000; }
         .mrp { font-size: 11px; color: #999; text-decoration: line-through; }
-        .discount { font-size: 10px; color: #ff905a; font-weight: 600; }
 
         .enquiry-btn {
             display: block; width: 100%; background: #fff;
             color: var(--gold); border: 1px solid var(--gold);
-            text-align: center; padding: 6px; margin-top: 10px;
-            font-size: 11px; border-radius: 4px; text-decoration: none;
-            font-weight: 600; transition: 0.3s;
+            text-align: center; padding: 8px; margin-top: 10px;
+            font-size: 12px; border-radius: 4px; text-decoration: none;
+            font-weight: 600;
         }
-        .enquiry-btn:hover { background: var(--gold); color: #fff; }
 
-        /* NAVIGATION */
         .nav-bottom {
             position: fixed; bottom: 0; width: 100%;
             display: flex; justify-content: space-around;
             background: #fff; border-top: 1px solid #eee;
             padding: 12px 0; z-index: 1001;
         }
-        .nav-link { font-size: 10px; color: #888; text-align: center; text-decoration: none; }
-        .nav-link.active { color: var(--gold); }
-        .nav-link i { display: block; font-size: 18px; margin-bottom: 4px; }
+        .nav-link { font-size: 11px; color: #888; text-align: center; text-decoration: none; }
+        .nav-link i { display: block; font-size: 20px; margin-bottom: 4px; }
 
         .wa-float {
-            position: fixed; bottom: 75px; right: 15px;
-            width: 50px; height: 50px; background: #25D366;
+            position: fixed; bottom: 85px; right: 20px;
+            width: 55px; height: 55px; background: #25D366;
             border-radius: 50%; display: flex;
             align-items: center; justify-content: center;
-            font-size: 24px; color: #fff; z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        @keyframes slider {
-            0% { background-image: url('https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg') }
-            33% { background-image: url('https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg') }
-            66% { background-image: url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg') }
-        }
-
-        /* Desktop Adjustments */
-        @media (min-width: 768px) {
-            .mega-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-            .hero-banner { height: 400px; }
+            font-size: 28px; color: #fff; z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -185,7 +134,7 @@
 
 <header>
     <div class="top-bar">
-        <img src="logo.png" class="main-logo" alt="Logo">
+        <img src="logo.png" class="main-logo" alt="Shree Shyam Logo">
         <div class="header-icons">
             <i class="far fa-heart"></i>
             <i class="fas fa-shopping-bag"></i>
@@ -193,212 +142,81 @@
     </div>
     <div class="search-wrapper">
         <div class="search-bar-container">
-            <input type="text" id="searchInput" placeholder="Search for Kurtas, Sarees, Jeans..." onkeyup="searchFn()">
+            <input type="text" id="searchInput" placeholder="Search for Kurtas, Sarees, Mens..." onkeyup="searchFn()">
             <i class="fas fa-search"></i>
         </div>
     </div>
 </header>
 
 <div class="cat-scroll">
-    <div class="cat-bubble active" onclick="showAll()">All</div>
-    <div class="cat-bubble" onclick="scrollToSec('new-arrivals')">New In</div>
-    <div class="cat-bubble" onclick="scrollToSec('kurti-sec')">Kurtis & Suits</div>
+    <div class="cat-bubble" onclick="showAll()">All</div>
+    <div class="cat-bubble" onclick="scrollToSec('kurti-sec')">Kurtis</div>
     <div class="cat-bubble" onclick="scrollToSec('saree-sec')">Sarees</div>
-    <div class="cat-bubble" onclick="scrollToSec('lehenga-sec')">Lehengas</div>
-    <div class="cat-bubble" onclick="scrollToSec('western-sec')">Western Wear</div>
+    <div class="cat-bubble" onclick="scrollToSec('western-sec')">Western</div>
     <div class="cat-bubble" onclick="scrollToSec('men-sec')">Menswear</div>
     <div class="cat-bubble" onclick="scrollToSec('kids-sec')">Kids</div>
 </div>
 
-<section class="hero-banner">
-    <div class="hero-content">
-        <h1>Mega Sale Live</h1>
-        <p>Flat 20% Off on New Arrivals</p>
-    </div>
-</section>
-
 <div class="section-wrap">
 
-    <div id="new-arrivals">
-        <div class="section-head">
-            <h2 class="section-title">Trending Now</h2>
-            <a href="#" class="view-all">View All</a>
-        </div>
+    <div id="kurti-sec">
+        <h2 class="section-title">Kurtis & Suits</h2>
         <div class="mega-grid">
-            <div class="product-card" data-name="Teal Blue Anarkali Set">
-                <div class="img-holder"><img src="images/suit1.jpg" alt="Suit"></div>
+            <div class="product-card" data-name="teal blue anarkali suit">
+                <div class="img-holder"><img src="images/suit1.jpg" alt="suit"></div>
                 <div class="product-details">
                     <div class="brand-name">Shree Shyam</div>
-                    <div class="product-name">Teal Blue Anarkali Set</div>
-                    <div class="price-row">
-                        <span class="current-price">₹2,499</span>
-                        <span class="mrp">₹4,999</span>
-                        <span class="discount">(50% OFF)</span>
-                    </div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Teal Blue Anarkali Set', '₹2,499')">Enquiry</a>
+                    <p class="product-name">Teal Blue Anarkali Set</p>
+                    <div class="price-row"><span class="current-price">₹2,499</span><span class="mrp">₹4,999</span></div>
+                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Teal Blue Anarkali', '₹2,499')">Enquiry</a>
                 </div>
             </div>
-            <div class="product-card" data-name="Floral Georgette Saree">
-                <div class="img-holder"><img src="images/saree_new.jpg" alt="Saree"></div>
+            <div class="product-card" data-name="chikankari kurta">
+                <div class="img-holder"><img src="images/kurta1.jpg" alt="kurta"></div>
                 <div class="product-details">
-                    <div class="brand-name">Designer</div>
-                    <div class="product-name">Floral Georgette Saree</div>
-                    <div class="price-row">
-                        <span class="current-price">₹1,299</span>
-                        <span class="mrp">₹2,599</span>
-                        <span class="discount">(50% OFF)</span>
-                    </div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Floral Georgette Saree', '₹1,299')">Enquiry</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="kurti-sec">
-        <div class="section-head">
-            <h2 class="section-title">Kurtis & Suit Sets</h2>
-            <a href="#" class="view-all">View All</a>
-        </div>
-        <div class="mega-grid">
-            <div class="product-card" data-name="Cotton Printed Kurta">
-                <div class="img-holder"><img src="images/kurta1.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Daily Wear</div>
-                    <div class="product-name">Cotton Printed Kurta</div>
-                    <div class="price-row"><span class="current-price">₹699</span><span class="mrp">₹1299</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Cotton Printed Kurta', '₹699')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Chikankari Kurta Set">
-                <div class="img-holder"><img src="images/kurta2.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Lucknowi</div>
-                    <div class="product-name">Chikankari Kurta Set</div>
-                    <div class="price-row"><span class="current-price">₹1,850</span><span class="mrp">₹2500</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Chikankari Kurta Set', '₹1,850')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Party Wear Sharara Set">
-                <div class="img-holder"><img src="images/sharara.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Festive</div>
-                    <div class="product-name">Party Wear Sharara Set</div>
-                    <div class="price-row"><span class="current-price">₹2,999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Party Wear Sharara Set', '₹2,999')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Yellow Haldi Suit">
-                <div class="img-holder"><img src="images/haldi.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Wedding</div>
-                    <div class="product-name">Yellow Haldi Special Suit</div>
-                    <div class="price-row"><span class="current-price">₹1,599</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Yellow Haldi Suit', '₹1,599')">Enquiry</a>
+                    <div class="brand-name">Shree Shyam</div>
+                    <p class="product-name">Chikankari Kurta Set</p>
+                    <div class="price-row"><span class="current-price">₹1,850</span></div>
+                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Chikankari Kurta', '₹1,850')">Enquiry</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="saree-sec">
-        <div class="section-head"><h2 class="section-title">Sarees</h2></div>
+        <h2 class="section-title">Sarees</h2>
         <div class="mega-grid">
-            <div class="product-card" data-name="Banarasi Silk Saree">
-                <div class="img-holder"><img src="images/saree1.jpg"></div>
+            <div class="product-card" data-name="banarasi silk saree">
+                <div class="img-holder"><img src="images/saree1.jpg" alt="saree"></div>
                 <div class="product-details">
-                    <div class="brand-name">Silk Mark</div>
-                    <div class="product-name">Banarasi Silk Saree</div>
+                    <div class="brand-name">Banaras Special</div>
+                    <p class="product-name">Banarasi Silk Saree</p>
                     <div class="price-row"><span class="current-price">₹9,999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Banarasi Silk Saree', '₹9,999')">Enquiry</a>
+                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Banarasi Saree', '₹9,999')">Enquiry</a>
                 </div>
             </div>
-            <div class="product-card" data-name="Daily Wear Chiffon">
-                <div class="img-holder"><img src="images/saree_daily.jpg"></div>
+            <div class="product-card" data-name="floral chiffon saree">
+                <div class="img-holder"><img src="images/saree_daily.jpg" alt="saree"></div>
                 <div class="product-details">
-                    <div class="brand-name">Casual</div>
-                    <div class="product-name">Daily Wear Chiffon</div>
+                    <div class="brand-name">Designer</div>
+                    <p class="product-name">Floral Chiffon Saree</p>
                     <div class="price-row"><span class="current-price">₹899</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Daily Wear Chiffon', '₹899')">Enquiry</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="western-sec">
-        <div class="section-head"><h2 class="section-title">Western Wear</h2></div>
-        <div class="mega-grid">
-            <div class="product-card" data-name="Floral Maxi Dress">
-                <div class="img-holder"><img src="images/western1.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Trendy</div>
-                    <div class="product-name">Floral Maxi Dress</div>
-                    <div class="price-row"><span class="current-price">₹1,199</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Floral Maxi Dress', '₹1,199')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="High Waist Jeans">
-                <div class="img-holder"><img src="images/jeans1.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Denim</div>
-                    <div class="product-name">High Waist Jeans</div>
-                    <div class="price-row"><span class="current-price">₹999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('High Waist Jeans', '₹999')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Crop Top & Skirt">
-                <div class="img-holder"><img src="images/topskirt.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Party</div>
-                    <div class="product-name">Crop Top & Skirt Set</div>
-                    <div class="price-row"><span class="current-price">₹1,499</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Crop Top & Skirt', '₹1,499')">Enquiry</a>
+                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Floral Saree', '₹899')">Enquiry</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="men-sec">
-        <div class="section-head"><h2 class="section-title">Mens Collection</h2></div>
+        <h2 class="section-title">Menswear</h2>
         <div class="mega-grid">
-            <div class="product-card" data-name="Cotton Linen Shirt">
-                <div class="img-holder"><img src="images/shirt1.jpg"></div>
+            <div class="product-card" data-name="cotton shirt">
+                <div class="img-holder"><img src="images/shirt1.jpg" alt="shirt"></div>
                 <div class="product-details">
-                    <div class="brand-name">Casual</div>
-                    <div class="product-name">Cotton Linen Shirt</div>
+                    <div class="brand-name">Casuals</div>
+                    <p class="product-name">Cotton Linen Shirt</p>
                     <div class="price-row"><span class="current-price">₹899</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Cotton Linen Shirt', '₹899')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Wedding Sherwani">
-                <div class="img-holder"><img src="images/sherwani1.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Royal</div>
-                    <div class="product-name">Wedding Sherwani</div>
-                    <div class="price-row"><span class="current-price">₹14,999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Wedding Sherwani', '₹14,999')">Enquiry</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="kids-sec">
-        <div class="section-head"><h2 class="section-title">Kids Wear</h2></div>
-        <div class="mega-grid">
-            <div class="product-card" data-name="Princess Frock">
-                <div class="img-holder"><img src="images/kid1.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Girls</div>
-                    <div class="product-name">Pink Princess Frock</div>
-                    <div class="price-row"><span class="current-price">₹1,299</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Princess Frock', '₹1,299')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="Boys Indo Western">
-                <div class="img-holder"><img src="images/kid2.jpg"></div>
-                <div class="product-details">
-                    <div class="brand-name">Boys</div>
-                    <div class="product-name">Boys Indo Western</div>
-                    <div class="price-row"><span class="current-price">₹1,499</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Boys Indo Western', '₹1,499')">Enquiry</a>
+                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Cotton Shirt', '₹899')">Enquiry</a>
                 </div>
             </div>
         </div>
@@ -407,9 +225,9 @@
 </div>
 
 <nav class="nav-bottom">
-    <a class="nav-link active" href="#"><i class="fas fa-home"></i>Home</a>
+    <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
     <a class="nav-link" href="#"><i class="fas fa-list"></i>Categories</a>
-    <a class="nav-link" href="https://wa.me/919919717645"><i class="fas fa-heart"></i>Wishlist</a>
+    <a class="nav-link" href="#"><i class="fas fa-heart"></i>Wishlist</a>
     <a class="nav-link" href="tel:+919919717645"><i class="fas fa-phone-alt"></i>Contact</a>
 </nav>
 
@@ -418,40 +236,30 @@
 </a>
 
 <script>
-    // 1. WhatsApp Enquiry Logic
+    // WhatsApp Enquiry
     function waEnquiry(name, price) {
         let phone = "919919717645";
-        let text = `Hello Shree Shyam Collection, I found this on your website:\n\n*Product:* ${name}\n*Price:* ${price}\n\nIs this available?`;
-        let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+        let text = `Hello Shree Shyam Collection, I'm interested in:\n*Product:* ${name}\n*Price:* ${price}`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
     }
 
-    // 2. Smooth Scroll to Sections
-    function scrollToSec(id) {
-        const element = document.getElementById(id);
-        if(element){
-            const headerOffset = 180;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-        }
-    }
-
-    // 3. Search Functionality (Live Search)
+    // Live Search
     function searchFn() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.querySelectorAll('.product-card');
-        
         cards.forEach(card => {
             let name = card.getAttribute('data-name').toLowerCase();
-            // Search in name or brand (if you want to add brand logic)
-            if (name.includes(input)) {
-                card.parentElement.style.display = "grid"; // Ensure grid container shows
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
+            card.style.display = name.includes(input) ? "block" : "none";
         });
+    }
+
+    // Smooth Scroll
+    function scrollToSec(id) {
+        const element = document.getElementById(id);
+        const headerOffset = 150;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
 
     function showAll() {
