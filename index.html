@@ -3,247 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection | Boutique Ayodhya</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Shree Shyam Collection | Shopping Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
-        :root {
-            --gold: #C5A059;
-            --black: #111;
-            --gray: #f5f5f5;
+        :root { 
+            --flipkart-blue: #2874f0; 
+            --flipkart-yellow: #ff9f00; 
+            --flipkart-orange: #fb641b;
+            --text-gray: #878787;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        body { background: #f1f3f6; padding-bottom: 70px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #fff;
-            color: #111;
-            padding-bottom: 80px;
-        }
-
-        header {
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding-bottom: 10px;
-        }
-
-        .top-bar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 15px;
-        }
-
-        .main-logo { height: 50px; }
+        /* HEADER */
+        header { background: var(--flipkart-blue); padding: 10px 15px; position: sticky; top: 0; z-index: 1000; }
+        .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .logo-area img { height: 28px; }
         
-        .header-icons { font-size: 20px; color: #333; gap: 15px; display: flex; }
+        .search-container { background: #fff; display: flex; align-items: center; padding: 8px 12px; border-radius: 2px; }
+        .search-container input { border: none; outline: none; width: 100%; font-size: 14px; margin-left: 8px; }
 
-        .search-wrapper { padding: 0 15px; }
-        .search-bar-container {
-            width: 100%;
-            position: relative;
-        }
+        /* PAGES CONTROL */
+        .page { display: none; }
+        .page.active { display: block; }
 
-        .search-bar-container input {
-            width: 100%;
-            padding: 10px 40px 10px 15px;
-            border: 1px solid #eee;
-            background: var(--gray);
-            border-radius: 8px;
-            outline: none;
-            font-size: 14px;
-        }
+        /* PRODUCT GRID */
+        .section-title { background: #fff; padding: 15px; font-size: 16px; font-weight: 500; border-bottom: 1px solid #f0f0f0; margin-top: 5px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #e0e0e0; }
+        .product-card { background: #fff; padding: 10px; display: flex; flex-direction: column; }
+        .img-box { height: 170px; text-align: center; margin-bottom: 10px; }
+        .img-box img { max-width: 100%; height: 100%; object-fit: contain; }
+        .p-name { font-size: 13px; color: #212121; height: 32px; overflow: hidden; margin-bottom: 5px; }
+        .p-price { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+        .curr-price { font-size: 14px; font-weight: 700; }
+        .off-tag { font-size: 12px; color: #388e3c; font-weight: 500; }
 
-        .search-bar-container i {
-            position: absolute; right: 15px; top: 12px; color: #888;
-        }
+        /* BUTTONS */
+        .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+        .btn { border: none; padding: 8px 2px; font-size: 10px; font-weight: 500; border-radius: 2px; cursor: pointer; text-transform: uppercase; text-align: center; }
+        .btn-cart { background: var(--flipkart-yellow); color: #fff; }
+        .btn-buy { background: var(--flipkart-orange); color: #fff; }
 
-        .cat-scroll {
-            display: flex; gap: 10px; padding: 15px;
-            overflow-x: auto; background: #fff;
-            white-space: nowrap; border-bottom: 1px solid #eee;
-        }
-        .cat-scroll::-webkit-scrollbar { display: none; }
+        /* CART PAGE STYLES */
+        .cart-item { background: #fff; padding: 15px; display: flex; gap: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd; }
+        .cart-img { width: 80px; height: 80px; object-fit: cover; }
+        .cart-details { flex: 1; }
+        .cart-empty { text-align: center; padding: 50px 20px; background: #fff; }
+        .total-box { background: #fff; padding: 20px; position: sticky; bottom: 60px; border-top: 1px solid #ddd; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+        .checkout-btn { width: 100%; background: var(--flipkart-orange); color: #fff; border: none; padding: 12px; font-size: 16px; font-weight: 700; border-radius: 3px; cursor: pointer; }
 
-        .cat-bubble {
-            padding: 8px 16px; border: 1px solid #eee;
-            border-radius: 5px; font-size: 12px;
-            color: #555; cursor: pointer; background: #fff;
-        }
-
-        .section-wrap { padding: 10px 15px 30px; }
-        .section-title { font-family: 'Playfair Display'; font-size: 22px; margin: 25px 0 15px; border-left: 4px solid var(--gold); padding-left: 10px; }
-
-        .mega-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .product-card {
-            background: #fff; border: 1px solid #f0f0f0;
-            border-radius: 8px; overflow: hidden;
-            display: block;
-        }
-        
-        .img-holder { position: relative; height: 220px; background: #f9f9f9; }
-        .product-card img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-
-        .product-details { padding: 10px; }
-        .brand-name { font-size: 10px; color: #888; font-weight: 600; text-transform: uppercase; }
-        .product-name { font-size: 13px; font-weight: 400; color: #333; margin: 2px 0; }
-        .price-row { margin-top: 5px; display: flex; align-items: center; gap: 5px; }
-        .current-price { font-size: 14px; font-weight: 700; color: #000; }
-        .mrp { font-size: 11px; color: #999; text-decoration: line-through; }
-
-        .enquiry-btn {
-            display: block; width: 100%; background: #fff;
-            color: var(--gold); border: 1px solid var(--gold);
-            text-align: center; padding: 8px; margin-top: 10px;
-            font-size: 12px; border-radius: 4px; text-decoration: none;
-            font-weight: 600;
-        }
-
-        .nav-bottom {
-            position: fixed; bottom: 0; width: 100%;
-            display: flex; justify-content: space-around;
-            background: #fff; border-top: 1px solid #eee;
-            padding: 12px 0; z-index: 1001;
-        }
-        .nav-link { font-size: 11px; color: #888; text-align: center; text-decoration: none; }
-        .nav-link i { display: block; font-size: 20px; margin-bottom: 4px; }
-
-        .wa-float {
-            position: fixed; bottom: 85px; right: 20px;
-            width: 55px; height: 55px; background: #25D366;
-            border-radius: 50%; display: flex;
-            align-items: center; justify-content: center;
-            font-size: 28px; color: #fff; z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+        /* BOTTOM NAV */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #dbdbdb; z-index: 1001; }
+        .nav-tab { text-align: center; color: #666; text-decoration: none; font-size: 10px; background: none; border: none; cursor: pointer; }
+        .nav-tab i { font-size: 18px; display: block; margin-bottom: 2px; }
+        .nav-tab.active { color: var(--flipkart-blue); }
+        .cart-count { position: absolute; background: #ff0000; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 10px; top: -5px; right: -10px; }
     </style>
 </head>
-
 <body>
 
 <header>
-    <div class="top-bar">
-        <img src="logo.png" class="main-logo" alt="Shree Shyam Logo">
-        <div class="header-icons">
-            <i class="far fa-heart"></i>
-            <i class="fas fa-shopping-bag"></i>
-        </div>
+    <div class="header-top">
+        <div class="logo-area"><img src="logo.png" alt="Shree Shyam"></div>
+        <div style="color: #fff; font-size: 18px;"><i class="fas fa-shopping-cart"></i></div>
     </div>
-    <div class="search-wrapper">
-        <div class="search-bar-container">
-            <input type="text" id="searchInput" placeholder="Search for Kurtas, Sarees, Mens..." onkeyup="searchFn()">
-            <i class="fas fa-search"></i>
-        </div>
+    <div class="search-container">
+        <i class="fas fa-search" style="color: #999;"></i>
+        <input type="text" id="searchInput" placeholder="Search for Products..." onkeyup="searchFn()">
     </div>
 </header>
 
-<div class="cat-scroll">
-    <div class="cat-bubble" onclick="showAll()">All</div>
-    <div class="cat-bubble" onclick="scrollToSec('kurti-sec')">Kurtis</div>
-    <div class="cat-bubble" onclick="scrollToSec('saree-sec')">Sarees</div>
-    <div class="cat-bubble" onclick="scrollToSec('western-sec')">Western</div>
-    <div class="cat-bubble" onclick="scrollToSec('men-sec')">Menswear</div>
-    <div class="cat-bubble" onclick="scrollToSec('kids-sec')">Kids</div>
+<div id="homePage" class="page active">
+    <h2 class="section-title">Ladies Collection</h2>
+    <div class="product-grid">
+        <div class="product-card" data-name="blue anarkali suit">
+            <div class="img-box"><img src="images/suit1.jpg"></div>
+            <p class="p-name">Teal Blue Anarkali Set</p>
+            <div class="p-price"><span class="curr-price">₹2,499</span><span class="off-tag">50% off</span></div>
+            <div class="action-btns">
+                <button class="btn btn-cart" onclick="addToCart('Teal Blue Anarkali', 2499, 'images/suit1.jpg')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Teal Blue Anarkali', '₹2,499')">Buy Now</button>
+            </div>
+        </div>
+        <div class="product-card" data-name="white chikankari kurta">
+            <div class="img-box"><img src="images/kurta1.jpg"></div>
+            <p class="p-name">Chikankari Kurta Set</p>
+            <div class="p-price"><span class="curr-price">₹1,850</span><span class="off-tag">20% off</span></div>
+            <div class="action-btns">
+                <button class="btn btn-cart" onclick="addToCart('Chikankari Kurta', 1850, 'images/kurta1.jpg')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Chikankari Kurta', '₹1,850')">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Special Sarees</h2>
+    <div class="product-grid">
+        <div class="product-card" data-name="banarasi silk saree">
+            <div class="img-box"><img src="images/saree1.jpg"></div>
+            <p class="p-name">Banarasi Silk Saree</p>
+            <div class="p-price"><span class="curr-price">₹9,999</span><span class="off-tag">New</span></div>
+            <div class="action-btns">
+                <button class="btn btn-cart" onclick="addToCart('Banarasi Saree', 9999, 'images/saree1.jpg')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('Banarasi Saree', '₹9,999')">Buy Now</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="section-wrap">
-
-    <div id="kurti-sec">
-        <h2 class="section-title">Kurtis & Suits</h2>
-        <div class="mega-grid">
-            <div class="product-card" data-name="teal blue anarkali suit">
-                <div class="img-holder"><img src="images/suit1.jpg" alt="suit"></div>
-                <div class="product-details">
-                    <div class="brand-name">Shree Shyam</div>
-                    <p class="product-name">Teal Blue Anarkali Set</p>
-                    <div class="price-row"><span class="current-price">₹2,499</span><span class="mrp">₹4,999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Teal Blue Anarkali', '₹2,499')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="chikankari kurta">
-                <div class="img-holder"><img src="images/kurta1.jpg" alt="kurta"></div>
-                <div class="product-details">
-                    <div class="brand-name">Shree Shyam</div>
-                    <p class="product-name">Chikankari Kurta Set</p>
-                    <div class="price-row"><span class="current-price">₹1,850</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Chikankari Kurta', '₹1,850')">Enquiry</a>
-                </div>
-            </div>
+<div id="cartPage" class="page">
+    <h2 class="section-title">My Cart (<span id="cartCountTitle">0</span>)</h2>
+    <div id="cartItemsContainer">
+        </div>
+    <div id="cartFooter" style="display:none;">
+        <div class="total-box">
+            <p style="font-size: 16px; margin-bottom: 10px;">Total Amount: <strong id="totalPrice">₹0</strong></p>
+            <button class="checkout-btn" onclick="checkoutCart()">Place Order via WhatsApp</button>
         </div>
     </div>
-
-    <div id="saree-sec">
-        <h2 class="section-title">Sarees</h2>
-        <div class="mega-grid">
-            <div class="product-card" data-name="banarasi silk saree">
-                <div class="img-holder"><img src="images/saree1.jpg" alt="saree"></div>
-                <div class="product-details">
-                    <div class="brand-name">Banaras Special</div>
-                    <p class="product-name">Banarasi Silk Saree</p>
-                    <div class="price-row"><span class="current-price">₹9,999</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Banarasi Saree', '₹9,999')">Enquiry</a>
-                </div>
-            </div>
-            <div class="product-card" data-name="floral chiffon saree">
-                <div class="img-holder"><img src="images/saree_daily.jpg" alt="saree"></div>
-                <div class="product-details">
-                    <div class="brand-name">Designer</div>
-                    <p class="product-name">Floral Chiffon Saree</p>
-                    <div class="price-row"><span class="current-price">₹899</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Floral Saree', '₹899')">Enquiry</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="men-sec">
-        <h2 class="section-title">Menswear</h2>
-        <div class="mega-grid">
-            <div class="product-card" data-name="cotton shirt">
-                <div class="img-holder"><img src="images/shirt1.jpg" alt="shirt"></div>
-                <div class="product-details">
-                    <div class="brand-name">Casuals</div>
-                    <p class="product-name">Cotton Linen Shirt</p>
-                    <div class="price-row"><span class="current-price">₹899</span></div>
-                    <a class="enquiry-btn" href="javascript:void(0)" onclick="waEnquiry('Cotton Shirt', '₹899')">Enquiry</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
-<nav class="nav-bottom">
-    <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
-    <a class="nav-link" href="#"><i class="fas fa-list"></i>Categories</a>
-    <a class="nav-link" href="#"><i class="fas fa-heart"></i>Wishlist</a>
-    <a class="nav-link" href="tel:+919919717645"><i class="fas fa-phone-alt"></i>Contact</a>
+<nav class="bottom-nav">
+    <button class="nav-tab active" onclick="showPage('homePage', this)"><i class="fas fa-home"></i>Home</button>
+    <button class="nav-tab" style="position:relative;" onclick="showPage('cartPage', this)">
+        <i class="fas fa-shopping-cart"></i>Cart
+        <span class="cart-count" id="badgeCount">0</span>
+    </button>
+    <button class="nav-tab" onclick="window.location.href='tel:+919919717645'"><i class="fas fa-phone-alt"></i>Call</button>
 </nav>
 
-<a class="wa-float" href="https://wa.me/919919717645" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
 <script>
-    // WhatsApp Enquiry
-    function waEnquiry(name, price) {
-        let phone = "919919717645";
-        let text = `Hello Shree Shyam Collection, I'm interested in:\n*Product:* ${name}\n*Price:* ${price}`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+    let cart = [];
+
+    // Navigation Logic
+    function showPage(pageId, btn) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if(pageId === 'cartPage') renderCart();
     }
 
-    // Live Search
+    // Add to Cart Logic
+    function addToCart(name, price, img) {
+        cart.push({ name, price, img });
+        updateBadge();
+        alert(name + " added to cart!");
+    }
+
+    function updateBadge() {
+        document.getElementById('badgeCount').innerText = cart.length;
+        document.getElementById('cartCountTitle').innerText = cart.length;
+    }
+
+    // Render Cart Items
+    function renderCart() {
+        const container = document.getElementById('cartItemsContainer');
+        const footer = document.getElementById('cartFooter');
+        container.innerHTML = "";
+        
+        if (cart.length === 0) {
+            container.innerHTML = `<div class="cart-empty"><img src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/empty-cart_ee6143.png" width="150"><p>Your cart is empty!</p></div>`;
+            footer.style.display = "none";
+            return;
+        }
+
+        footer.style.display = "block";
+        let total = 0;
+        cart.forEach((item, index) => {
+            total += item.price;
+            container.innerHTML += `
+                <div class="cart-item">
+                    <img src="${item.img}" class="cart-img">
+                    <div class="cart-details">
+                        <p style="font-weight:500;">${item.name}</p>
+                        <p style="font-size:14px; margin-top:5px;">Price: <strong>₹${item.price}</strong></p>
+                        <button onclick="removeItem(${index})" style="color:red; border:none; background:none; margin-top:10px; font-size:12px;">Remove</button>
+                    </div>
+                </div>
+            `;
+        });
+        document.getElementById('totalPrice').innerText = "₹" + total;
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        renderCart();
+        updateBadge();
+    }
+
+    // Order Logic
+    function buyNow(name, price) {
+        let text = `*New Order*\nProduct: ${name}\nPrice: ${price}`;
+        window.open(`https://wa.me/919919717645?text=${encodeURIComponent(text)}`);
+    }
+
+    function checkoutCart() {
+        let itemsList = cart.map(i => `${i.name} (₹${i.price})`).join('\n');
+        let total = cart.reduce((sum, i) => sum + i.price, 0);
+        let text = `*ORDER FROM CART*\n\nItems:\n${itemsList}\n\n*Total Amount: ₹${total}*`;
+        window.open(`https://wa.me/919919717645?text=${encodeURIComponent(text)}`);
+    }
+
     function searchFn() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.querySelectorAll('.product-card');
@@ -251,20 +212,6 @@
             let name = card.getAttribute('data-name').toLowerCase();
             card.style.display = name.includes(input) ? "block" : "none";
         });
-    }
-
-    // Smooth Scroll
-    function scrollToSec(id) {
-        const element = document.getElementById(id);
-        const headerOffset = 150;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
-
-    function showAll() {
-        document.querySelectorAll('.product-card').forEach(c => c.style.display = "block");
-        window.scrollTo({top: 0, behavior: "smooth"});
     }
 </script>
 
