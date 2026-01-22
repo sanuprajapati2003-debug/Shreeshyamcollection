@@ -1,268 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam | The Elite Boutique</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --myntra-pink: #ff3f6c;
-            --gold: #d4af37;
-            --bg: #ffffff;
-            --text: #282c3f;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Assistant', sans-serif; }
-        body { background: #fff; color: var(--text); overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
 
-        /* HEADER & SEARCH WITH MORPANKH */
-        header { 
-            padding: 12px 15px; 
-            background: #fff; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .morpankh-logo { width: 35px; height: 35px; background: url('logo.png') no-repeat center; background-size: contain; flex-shrink: 0; }
-        
-        .search-wrapper { 
-            background: #f5f5f6; 
-            display: flex; 
-            align-items: center; 
-            flex-grow: 1; 
-            padding: 8px 12px; 
-            border-radius: 4px;
-        }
-        .search-wrapper i { color: #696e79; font-size: 14px; margin-right: 8px; }
-        .search-wrapper input { border: none; background: transparent; width: 100%; font-size: 14px; color: #282c3f; outline: none; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        /* MYNTRA STYLE CATEGORY SLIDER */
-        .cat-slider { display: flex; overflow-x: auto; padding: 15px 10px; gap: 15px; background: #fff; }
-        .cat-slider::-webkit-scrollbar { display: none; }
-        .cat-item { text-align: center; min-width: 75px; cursor: pointer; }
-        .cat-img { width: 65px; height: 65px; border-radius: 50%; overflow: hidden; margin-bottom: 5px; border: 1px solid #eee; }
-        .cat-img img { width: 100%; height: 100%; object-fit: cover; }
-        .cat-item span { font-size: 11px; font-weight: 700; color: #282c3f; }
+<style>
+:root{
+--gold:#C5A059;
+--black:#111;
+--cream:#fdfaf5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#111;
+padding-bottom:70px;
+}
+header{text-align:center;padding:10px 0;border-bottom:1px solid #eee;}
+.main-logo{height:90px}
 
-        /* SLIDING HERO BANNER */
-        .banner-container { width: 100%; overflow: hidden; position: relative; height: 200px; }
-        .banner-track { display: flex; width: 300%; animation: slide 12s infinite ease-in-out; }
-        .banner-track img { width: 33.33%; height: 200px; object-fit: cover; }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            33% { transform: translateX(-33.33%); }
-            66% { transform: translateX(-66.66%); }
-            100% { transform: translateX(0); }
-        }
+/* CATEGORY */
+.cat-scroll{
+display:flex;gap:12px;padding:18px 5%;
+overflow-x:auto;background:var(--cream);
+}
+.cat-bubble{
+padding:8px 18px;border:1px solid var(--gold);
+border-radius:20px;font-size:12px;
+font-weight:600;cursor:pointer;background:#fff;
+white-space:nowrap;
+}
 
-        /* PRODUCT SECTIONS */
-        .section-header { padding: 20px 15px 10px; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3e4152; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0px; border-top: 1px solid #f5f5f6; }
-        .product-card { 
-            padding: 15px; 
-            border-right: 1px solid #f5f5f6; 
-            border-bottom: 1px solid #f5f5f6; 
-            position: relative;
-            background: #fff;
-        }
-        .product-img { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; }
-        .product-info { padding-top: 10px; }
-        .brand-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-        .product-desc { font-size: 12px; color: #535766; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .price-box { display: flex; align-items: center; gap: 5px; margin-top: 5px; }
-        .curr-price { font-weight: 700; font-size: 14px; }
-        .old-price { text-decoration: line-through; color: #7e818c; font-size: 12px; }
-        .discount { color: #ff905a; font-size: 12px; font-weight: 700; }
+/* HERO */
+.hero-banner{
+height:420px;display:flex;align-items:center;
+justify-content:center;color:#fff;text-align:center;
+position:relative;animation:slider 15s infinite;
+background-size:cover;background-position:center;
+}
+.hero-banner::before{
+content:"";position:absolute;inset:0;
+background:rgba(0,0,0,.45);
+}
+.hero-content{position:relative;z-index:2}
+.hero-content h1{
+font-family:'Playfair Display';font-size:44px;
+}
+.hero-content p{
+letter-spacing:2px;color:#f1e7d0;
+}
+@keyframes slider{
+0%{background-image:url('https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg')}
+33%{background-image:url('https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg')}
+66%{background-image:url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg')}
+}
 
-        .enquiry-btn { 
-            width: 100%; 
-            padding: 8px; 
-            margin-top: 10px; 
-            background: #fff; 
-            border: 1px solid #d4d5d9; 
-            border-radius: 4px; 
-            font-size: 12px; 
-            font-weight: 700; 
-            color: #282c3f;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+/* GRID */
+.section-wrap{padding:50px 5%}
+.section-title{
+text-align:center;font-family:'Playfair Display';
+font-size:32px;margin-bottom:30px;
+}
+.section-title::after{
+content:"";width:50px;height:2px;
+background:var(--gold);display:block;margin:10px auto;
+}
+.mega-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+gap:22px;
+}
+.product-card{position:relative}
+.img-holder{overflow:hidden;border-radius:6px}
+.product-card img{
+width:100%;height:340px;object-fit:cover;
+transition:.4s;
+}
+.product-card:hover img{transform:scale(1.08)}
+.product-card h3{margin-top:10px;font-size:16px}
+.product-card p{font-size:13px;color:var(--gold)}
+.design-tag{
+position:absolute;top:15px;left:15px;
+background:#000;color:#fff;
+font-size:11px;padding:4px 10px;
+border-radius:20px;
+}
+.price-tag{
+position:absolute;top:15px;right:15px;
+background:var(--gold);color:#fff;
+padding:5px 10px;font-size:12px;
+border-radius:4px;
+}
+.enquiry-btn{
+position:absolute;bottom:15px;left:50%;
+transform:translateX(-50%);
+background:#25D366;color:#fff;
+padding:8px 18px;font-size:12px;
+border-radius:20px;text-decoration:none;
+opacity:0;transition:.3s;
+}
+.product-card:hover .enquiry-btn{opacity:1}
 
-        /* CART SIDEBAR (FIXED) */
-        .cart-sidebar { 
-            position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
-            background: #fff; z-index: 2000; transition: 0.4s; 
-            display: flex; flex-direction: column;
-        }
-        .cart-sidebar.active { right: 0; }
-        .cart-top { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-        .cart-items { flex-grow: 1; overflow-y: auto; padding: 15px; }
-
-        /* BOTTOM NAV WITH BRAND ICON */
-        .bottom-nav { 
-            position: fixed; bottom: 0; width: 100%; background: #fff; 
-            display: flex; justify-content: space-around; padding: 8px 0; 
-            border-top: 1px solid #eaeaec; z-index: 1001; 
-        }
-        .nav-item { text-align: center; color: #282c3f; text-decoration: none; position: relative; cursor: pointer; border:none; background:none; }
-        .nav-item i { font-size: 20px; display: block; margin-bottom: 2px; }
-        .nav-item span { font-size: 10px; font-weight: 700; }
-        .nav-item.active { color: var(--myntra-pink); }
-        
-        /* BRAND CENTER BUTTON (Like Myntra 'M') */
-        .brand-center { 
-            width: 50px; height: 50px; background: #fff; border-radius: 50%; 
-            margin-top: -25px; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .brand-center img { width: 30px; }
-
-    </style>
+/* NAV + FLOAT */
+.nav-bottom{
+position:fixed;bottom:0;width:100%;
+display:flex;justify-content:space-around;
+background:#fff;border-top:1px solid #eee;
+padding:10px 0;
+}
+.nav-link{font-size:10px;color:#555;text-align:center;text-decoration:none}
+.nav-link i{display:block;font-size:20px}
+.wa-float{
+position:fixed;bottom:80px;right:20px;
+width:55px;height:55px;background:#25D366;
+border-radius:50%;display:flex;
+align-items:center;justify-content:center;
+font-size:28px;color:#fff;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <div class="morpankh-logo"></div>
-    <div class="search-wrapper">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search for suits, sarees and more...">
-    </div>
-    <div style="font-size: 20px; color: #282c3f;" onclick="openCart()">
-        <i class="fas fa-shopping-bag"></i>
-    </div>
+<img src="logo.png" class="main-logo">
 </header>
 
-<div class="cat-slider">
-    <div class="cat-item"><div class="cat-img"><img src="images/fashion.jpg" onerror="this.src='https://images.unsplash.com/photo-1445205170230-053b83016050?w=200'"></div><span>Fashion</span></div>
-    <div class="cat-item"><div class="cat-img"><img src="images/suit_cat.jpg" onerror="this.src='https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=200'"></div><span>Suit Sets</span></div>
-    <div class="cat-item"><div class="cat-img"><img src="images/saree_cat.jpg" onerror="this.src='https://images.unsplash.com/photo-1610030469668-935109680f71?w=200'"></div><span>Sarees</span></div>
-    <div class="cat-item"><div class="cat-img"><img src="images/men_cat.jpg" onerror="this.src='https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?w=200'"></div><span>Mens</span></div>
-    <div class="cat-item"><div class="cat-img"><img src="images/kids_cat.jpg" onerror="this.src='https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=200'"></div><span>Kids</span></div>
+<div class="cat-scroll">
+<div class="cat-bubble" onclick="filterProducts('all')">All</div>
+<div class="cat-bubble" onclick="filterProducts('sherwani')">Sherwani</div>
+<div class="cat-bubble" onclick="filterProducts('lehenga')">Lehenga</div>
+<div class="cat-bubble" onclick="filterProducts('saree')">Saree</div>
+<div class="cat-bubble" onclick="filterProducts('gown')">Gown</div>
+<div class="cat-bubble" onclick="filterProducts('men')">Menswear</div>
 </div>
 
-<div class="banner-container">
-    <div class="banner-track">
-        <img src="images/banner1.jpg" onerror="this.src='https://bit.ly/3S8Vv1Z'">
-        <img src="images/banner2.jpg" onerror="this.src='https://bit.ly/421xVvU'">
-        <img src="images/banner3.jpg" onerror="this.src='https://bit.ly/3S8Vv1Z'">
-    </div>
+<section class="hero-banner">
+<div class="hero-content">
+<h1>Luxury Fashion Redefined</h1>
+<p>ROYAL • TRENDY • EXCLUSIVE</p>
+</div>
+</section>
+
+<div class="section-wrap">
+<h2 class="section-title">Trending Designs</h2>
+
+<div class="mega-grid">
+
+<!-- ================= SHERWANI ================= -->
+<div class="product-card" data-category="sherwani">
+<span class="design-tag">ROYAL</span><span class="price-tag">₹14,999</span>
+<div class="img-holder"><img src="images/sherwani1.jpg"></div>
+<h3>Wedding Groom Sherwani</h3><p>Heavy Embroidery</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
 </div>
 
-<div class="section-header">Trending Now</div>
-<div class="product-grid">
-    <div class="product-card">
-        <img src="images/suit1.jpg" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1583391733958-377596b86001?w=400'">
-        <div class="product-info">
-            <p class="brand-name">SHREE SHYAM</p>
-            <p class="product-desc">Teal Blue Anarkali Set</p>
-            <div class="price-box">
-                <span class="curr-price">₹2,499</span>
-                <span class="old-price">₹4,999</span>
-                <span class="discount">(50% OFF)</span>
-            </div>
-            <button class="enquiry-btn" onclick="addToCart('Teal Blue Anarkali', 2499)">Add to Bag</button>
-        </div>
-    </div>
-    <div class="product-card">
-        <img src="images/saree1.jpg" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400'">
-        <div class="product-info">
-            <p class="brand-name">DESIGNER</p>
-            <p class="product-desc">Floral Georgette Saree</p>
-            <div class="price-box">
-                <span class="curr-price">₹1,299</span>
-                <span class="old-price">₹2,599</span>
-                <span class="discount">(50% OFF)</span>
-            </div>
-            <button class="enquiry-btn" onclick="addToCart('Floral Saree', 1299)">Add to Bag</button>
-        </div>
-    </div>
+<div class="product-card" data-category="sherwani">
+<span class="design-tag">NEW</span><span class="price-tag">₹16,999</span>
+<div class="img-holder"><img src="images/sherwani2.jpg"></div>
+<h3>Designer Royal Sherwani</h3><p>Wedding Special</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
 </div>
 
-<div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-top">
-        <h3 style="text-transform: uppercase; font-size: 16px;">Shopping Bag</h3>
-        <i class="fas fa-times" onclick="closeCart()" style="font-size: 20px;"></i>
-    </div>
-    <div class="cart-items" id="cartItems">
-        <p style="text-align: center; color: #888; margin-top: 50px;">Your bag is empty</p>
-    </div>
-    <div style="padding: 20px; border-top: 1px solid #eee;">
-        <button class="enquiry-btn" style="background: var(--myntra-pink); color: #fff; border: none; padding: 15px;" onclick="checkout()">Place Order via WhatsApp</button>
-    </div>
+<div class="product-card" data-category="sherwani">
+<span class="design-tag">TRENDING</span><span class="price-tag">₹12,499</span>
+<div class="img-holder"><img src="images/sherwani3.jpg"></div>
+<h3>Classic Cream Sherwani</h3><p>Traditional Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
 </div>
 
-<nav class="bottom-nav">
-    <button class="nav-item active" onclick="location.reload()">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
-    </button>
-    <button class="nav-item">
-        <i class="fas fa-th-large"></i>
-        <span>Categories</span>
-    </button>
-    <div class="brand-center">
-        <img src="morpankh_icon.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3211/3211367.png'">
-    </div>
-    <button class="nav-item">
-        <i class="fas fa-heart"></i>
-        <span>Wishlist</span>
-    </button>
-    <button class="nav-item" onclick="window.location.href='tel:+919919717645'">
-        <i class="fas fa-phone-alt"></i>
-        <span>Contact</span>
-    </button>
+<!-- ================= LEHENGA ================= -->
+<div class="product-card" data-category="lehenga">
+<span class="design-tag">ROYAL</span><span class="price-tag">₹19,999</span>
+<div class="img-holder"><img src="images/lehenga1.jpg"></div>
+<h3>Bridal Red Lehenga</h3><p>Wedding Collection</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="lehenga">
+<span class="design-tag">NEW</span><span class="price-tag">₹17,499</span>
+<div class="img-holder"><img src="images/lehenga2.jpg"></div>
+<h3>Designer Bridal Lehenga</h3><p>Premium Look</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="lehenga">
+<span class="design-tag">TRENDING</span><span class="price-tag">₹15,999</span>
+<div class="img-holder"><img src="images/lehenga3.jpg"></div>
+<h3>Pastel Party Lehenga</h3><p>Engagement Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<!-- ================= SAREE ================= -->
+<div class="product-card" data-category="saree">
+<span class="design-tag">ROYAL</span><span class="price-tag">₹9,999</span>
+<div class="img-holder"><img src="images/saree1.jpg"></div>
+<h3>Banarasi Silk Saree</h3><p>Traditional Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="saree">
+<span class="design-tag">NEW</span><span class="price-tag">₹7,999</span>
+<div class="img-holder"><img src="images/saree2.jpg"></div>
+<h3>Designer Party Saree</h3><p>Modern Look</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="saree">
+<span class="design-tag">TRENDING</span><span class="price-tag">₹11,499</span>
+<div class="img-holder"><img src="images/saree3.jpg"></div>
+<h3>Kanjivaram Silk Saree</h3><p>Wedding Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<!-- ================= GOWN ================= -->
+<div class="product-card" data-category="gown">
+<span class="design-tag">ROYAL</span><span class="price-tag">₹12,499</span>
+<div class="img-holder"><img src="images/gown1.jpg"></div>
+<h3>Designer Party Gown</h3><p>Luxury Collection</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="gown">
+<span class="design-tag">TRENDING</span><span class="price-tag">₹10,999</span>
+<div class="img-holder"><img src="images/gown2.jpg"></div>
+<h3>Evening Long Gown</h3><p>Party Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<!-- ================= MENSWEAR ================= -->
+<div class="product-card" data-category="men">
+<span class="design-tag">NEW</span><span class="price-tag">₹6,999</span>
+<div class="img-holder"><img src="images/men1.jpg"></div>
+<h3>Premium Men Formal Suit</h3><p>Office Wear</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+
+<div class="product-card" data-category="men">
+<span class="design-tag">TRENDING</span><span class="price-tag">₹7,999</span>
+<div class="img-holder"><img src="images/men2.jpg"></div>
+<h3>Indo-Western Men Suit</h3><p>Festive Collection</p>
+<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+</div>
+  
+</div>
+</div>
+
+<nav class="nav-bottom">
+<a class="nav-link"><i class="fas fa-home"></i>Home</a>
+<a class="nav-link"><i class="fas fa-search"></i>Search</a>
+<a class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
+<a class="nav-link"><i class="fas fa-user"></i>Account</a>
 </nav>
 
+<a class="wa-float" href="https://wa.me/919919717645" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 <script>
-    let cart = [];
-
-    function openCart() {
-        document.getElementById('cartSidebar').classList.add('active');
-    }
-
-    function closeCart() {
-        document.getElementById('cartSidebar').classList.remove('active');
-    }
-
-    function addToCart(name, price) {
-        cart.push({ name, price });
-        renderCart();
-        alert(name + " added to bag!");
-    }
-
-    function renderCart() {
-        const container = document.getElementById('cartItems');
-        if(cart.length === 0) {
-            container.innerHTML = '<p style="text-align: center; color: #888; margin-top: 50px;">Your bag is empty</p>';
-            return;
-        }
-        container.innerHTML = cart.map((item, index) => `
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #f5f5f6; padding-bottom:10px;">
-                <div>
-                    <p style="font-weight:700; font-size:14px;">${item.name}</p>
-                    <p style="font-size:14px; color:var(--myntra-pink)">₹${item.price}</p>
-                </div>
-                <i class="fas fa-trash" style="color:#7e818c" onclick="removeItem(${index})"></i>
-            </div>
-        `).join('');
-    }
-
-    function removeItem(index) {
-        cart.splice(index, 1);
-        renderCart();
-    }
-
-    function checkout() {
-        if(cart.length === 0) return alert("Bag is empty!");
-        let text = "Order Details:%0A" + cart.map(i => `- ${i.name} (₹${i.price})`).join('%0A');
-        window.open(`https://wa.me/919919717645?text=${text}`);
-    }
+function filterProducts(category){
+document.querySelectorAll('.product-card').forEach(p=>{
+p.style.display=(category==='all'||p.dataset.category===category)?'block':'none';
+});
+}
 </script>
 
 </body>
