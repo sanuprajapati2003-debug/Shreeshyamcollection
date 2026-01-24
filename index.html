@@ -3,271 +3,607 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shree Shyam Collection | Mega Boutique Ayodhya</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Shree Shyam Collection | Premium Fashion Ayodhya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-:root{
---gold:#C5A059;
---black:#111;
---cream:#fdfaf5;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:'Poppins',sans-serif;
-background:#fff;
-color:#111;
-padding-bottom:70px;
-}
-header{text-align:center;padding:10px 0;border-bottom:1px solid #eee;}
-.main-logo{height:90px}
+    :root {
+        --primary: #1a1a1a;
+        --secondary: #C5A059; /* Gold */
+        --light: #f8f8f8;
+        --white: #ffffff;
+        --text-gray: #666;
+        --border: #e5e5e5;
+        --shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
 
-/* CATEGORY */
-.cat-scroll{
-display:flex;gap:12px;padding:18px 5%;
-overflow-x:auto;background:var(--cream);
-}
-.cat-bubble{
-padding:8px 18px;border:1px solid var(--gold);
-border-radius:20px;font-size:12px;
-font-weight:600;cursor:pointer;background:#fff;
-white-space:nowrap;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+        font-family: 'Jost', sans-serif;
+        color: var(--primary);
+        background: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-/* HERO */
-.hero-banner{
-height:420px;display:flex;align-items:center;
-justify-content:center;color:#fff;text-align:center;
-position:relative;animation:slider 15s infinite;
-background-size:cover;background-position:center;
-}
-.hero-banner::before{
-content:"";position:absolute;inset:0;
-background:rgba(0,0,0,.45);
-}
-.hero-content{position:relative;z-index:2}
-.hero-content h1{
-font-family:'Playfair Display';font-size:44px;
-}
-.hero-content p{
-letter-spacing:2px;color:#f1e7d0;
-}
-@keyframes slider{
-0%{background-image:url('https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg')}
-33%{background-image:url('https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg')}
-66%{background-image:url('https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg')}
-}
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
+    img { width: 100%; display: block; }
 
-/* GRID */
-.section-wrap{padding:50px 5%}
-.section-title{
-text-align:center;font-family:'Playfair Display';
-font-size:32px;margin-bottom:30px;
-}
-.section-title::after{
-content:"";width:50px;height:2px;
-background:var(--gold);display:block;margin:10px auto;
-}
-.mega-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-gap:22px;
-}
-.product-card{position:relative}
-.img-holder{overflow:hidden;border-radius:6px}
-.product-card img{
-width:100%;height:340px;object-fit:cover;
-transition:.4s;
-}
-.product-card:hover img{transform:scale(1.08)}
-.product-card h3{margin-top:10px;font-size:16px}
-.product-card p{font-size:13px;color:var(--gold)}
-.design-tag{
-position:absolute;top:15px;left:15px;
-background:#000;color:#fff;
-font-size:11px;padding:4px 10px;
-border-radius:20px;
-}
-.price-tag{
-position:absolute;top:15px;right:15px;
-background:var(--gold);color:#fff;
-padding:5px 10px;font-size:12px;
-border-radius:4px;
-}
-.enquiry-btn{
-position:absolute;bottom:15px;left:50%;
-transform:translateX(-50%);
-background:#25D366;color:#fff;
-padding:8px 18px;font-size:12px;
-border-radius:20px;text-decoration:none;
-opacity:0;transition:.3s;
-}
-.product-card:hover .enquiry-btn{opacity:1}
+    /* ================= HEADER ================= */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-/* NAV + FLOAT */
-.nav-bottom{
-position:fixed;bottom:0;width:100%;
-display:flex;justify-content:space-around;
-background:#fff;border-top:1px solid #eee;
-padding:10px 0;
-}
-.nav-link{font-size:10px;color:#555;text-align:center;text-decoration:none}
-.nav-link i{display:block;font-size:20px}
-.wa-float{
-position:fixed;bottom:80px;right:20px;
-width:55px;height:55px;background:#25D366;
-border-radius:50%;display:flex;
-align-items:center;justify-content:center;
-font-size:28px;color:#fff;
-}
+    .top-bar {
+        background: var(--primary);
+        color: var(--secondary);
+        text-align: center;
+        font-size: 12px;
+        padding: 8px 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .logo span { color: var(--secondary); }
+
+    /* Desktop Nav */
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a {
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+    .nav-links a::after {
+        content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+        background: var(--secondary); transition: 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Search Bar */
+    .search-box-wrapper {
+        position: relative;
+        width: 300px;
+        display: none; /* Hidden on small mobile initially */
+    }
+    @media(min-width: 768px) { .search-box-wrapper { display: block; } }
+
+    .search-input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        font-family: 'Jost', sans-serif;
+        outline: none;
+        background: var(--light);
+    }
+    .search-icon-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-gray);
+        cursor: pointer;
+    }
+
+    .nav-icons { display: flex; gap: 20px; font-size: 18px; align-items: center; }
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle { display: none; font-size: 24px; cursor: pointer; }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+        height: 85vh;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1596203175896-745a3089d476?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--white);
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        animation: fadeUp 1s ease;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        animation: fadeUp 1.2s ease;
+    }
+    .cta-btn {
+        padding: 15px 40px;
+        background: var(--secondary);
+        color: var(--white);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-radius: 0; /* Boxy luxury look */
+        transition: 0.3s;
+        display: inline-block;
+        animation: fadeUp 1.4s ease;
+    }
+    .cta-btn:hover { background: var(--white); color: var(--primary); }
+
+    /* ================= FILTERS & PRODUCTS ================= */
+    .section-padding { padding: 60px 5%; }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .section-header p { color: var(--text-gray); }
+
+    .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    .filter-btn {
+        border: 1px solid var(--border);
+        padding: 10px 25px;
+        background: transparent;
+        cursor: pointer;
+        font-family: 'Jost', sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 30px;
+    }
+
+    .product-card {
+        background: var(--white);
+        transition: 0.4s;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+
+    .image-box {
+        position: relative;
+        overflow: hidden;
+        height: 380px;
+    }
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+    .product-card:hover .image-box img { transform: scale(1.05); }
+
+    .overlay-icons {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        transform: translateY(50px);
+        transition: 0.4s;
+        opacity: 0;
+    }
+    .product-card:hover .overlay-icons { transform: translateY(0); opacity: 1; }
+    
+    .icon-btn {
+        width: 40px; height: 40px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--primary);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .icon-btn:hover { background: var(--secondary); color: var(--white); }
+
+    .details { padding: 15px 0; text-align: center; }
+    .details h3 { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+    .details span { color: var(--text-gray); font-size: 14px; display: block; margin-bottom: 5px;}
+    .price { color: var(--secondary); font-weight: 600; font-size: 16px; }
+
+    /* ================= FEATURES ================= */
+    .features {
+        background: var(--light);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 50px 5%;
+        text-align: center;
+    }
+    .feature-box i { font-size: 30px; color: var(--secondary); margin-bottom: 15px; }
+    .feature-box h4 { margin-bottom: 10px; font-size: 16px; }
+    .feature-box p { font-size: 13px; color: var(--text-gray); }
+
+    /* ================= FOOTER ================= */
+    footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 70px 5% 30px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    .footer-col h4 { color: var(--secondary); margin-bottom: 25px; letter-spacing: 1px; }
+    .footer-col ul li { margin-bottom: 12px; font-size: 14px; color: #bbb; }
+    .footer-col ul li:hover { color: var(--secondary); cursor: pointer; }
+    
+    .newsletter input {
+        width: 100%; padding: 12px; margin-bottom: 10px;
+        background: rgba(255,255,255,0.1); border: none; color: #fff;
+    }
+    .newsletter button {
+        width: 100%; padding: 12px; background: var(--secondary);
+        border: none; color: #fff; text-transform: uppercase; cursor: pointer;
+    }
+
+    .copyright {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        text-align: center; padding-top: 30px; font-size: 13px; color: #777;
+    }
+
+    /* Floating WA */
+    .wa-float {
+        position: fixed; bottom: 30px; right: 30px;
+        width: 60px; height: 60px; background: #25D366;
+        color: #fff; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        z-index: 999; animation: pulse 2s infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .mobile-toggle { display: block; }
+        .hero-content h1 { font-size: 2.2rem; }
+        .search-box-wrapper { 
+            display: block; width: 100%; padding: 10px 5%; 
+            background: #f1f1f1; 
+        }
+        .nav-container { height: 60px; }
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    /* Search Highlight */
+    .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px;
+        color: var(--text-gray);
+        font-size: 18px;
+    }
+
 </style>
 </head>
-
 <body>
 
 <header>
-<img src="logo.png" class="main-logo">
+    <div class="top-bar">Free Shipping on Orders Above ₹5000 | Ayodhya's Best</div>
+    <div class="nav-container">
+        <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        
+        <a href="#" class="logo">SHREE SHYAM<span>.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#" onclick="filterByLink('all')">Home</a></li>
+            <li><a href="#" onclick="filterByLink('Men')">Men</a></li>
+            <li><a href="#" onclick="filterByLink('Women')">Women</a></li>
+            <li><a href="#" onclick="filterByLink('Kids')">Kids</a></li>
+            <li><a href="#collection">Collection</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <i class="fas fa-user"></i>
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+    </div>
+    
+    <div class="search-box-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search clothes (e.g., Sherwani, Saree, Tuxedo)...">
+        <i class="fas fa-search search-icon-btn"></i>
+    </div>
 </header>
 
-<div class="cat-scroll">
-<div class="cat-bubble" onclick="filterProducts('all')">All</div>
-<div class="cat-bubble" onclick="filterProducts('sherwani')">Sherwani</div>
-<div class="cat-bubble" onclick="filterProducts('lehenga')">Lehenga</div>
-<div class="cat-bubble" onclick="filterProducts('saree')">Saree</div>
-<div class="cat-bubble" onclick="filterProducts('gown')">Gown</div>
-<div class="cat-bubble" onclick="filterProducts('men')">Menswear</div>
-</div>
-
-<section class="hero-banner">
-<div class="hero-content">
-<h1>Luxury Fashion Redefined</h1>
-<p>ROYAL • TRENDY • EXCLUSIVE</p>
-</div>
+<section class="hero">
+    <div class="hero-content">
+        <p>THE ROYAL WEDDING COLLECTION 2026</p>
+        <h1>Elegance Woven <br> In Tradition</h1>
+        <a href="#collection" class="cta-btn">Explore Collection</a>
+    </div>
 </section>
 
-<div class="section-wrap">
-<h2 class="section-title">Trending Designs</h2>
-
-<div class="mega-grid">
-
-<!-- ================= SHERWANI ================= -->
-<div class="product-card" data-category="sherwani">
-<span class="design-tag">ROYAL</span><span class="price-tag">₹14,999</span>
-<div class="img-holder"><img src="images/sherwani1.jpg"></div>
-<h3>Wedding Groom Sherwani</h3><p>Heavy Embroidery</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
+<div class="features">
+    <div class="feature-box">
+        <i class="fas fa-truck"></i>
+        <h4>Free Shipping</h4>
+        <p>Across India on premium orders</p>
+    </div>
+    <div class="feature-box">
+        <i class="fas fa-sync"></i>
+        <h4>Easy Returns</h4>
+        <p>7-day hassle-free return policy</p>
+    </div>
+    <div class="feature-box">
+        <i class="fas fa-lock"></i>
+        <h4>Secure Payment</h4>
+        <p>100% authenticated transactions</p>
+    </div>
+    <div class="feature-box">
+        <i class="fas fa-headset"></i>
+        <h4>24/7 Support</h4>
+        <p>Dedicated fashion consultants</p>
+    </div>
 </div>
 
-<div class="product-card" data-category="sherwani">
-<span class="design-tag">NEW</span><span class="price-tag">₹16,999</span>
-<div class="img-holder"><img src="images/sherwani2.jpg"></div>
-<h3>Designer Royal Sherwani</h3><p>Wedding Special</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
+<section class="section-padding" id="collection">
+    <div class="section-header">
+        <h2>Curated Collection</h2>
+        <p>Handpicked styles for Men, Women & Kids</p>
+    </div>
 
-<div class="product-card" data-category="sherwani">
-<span class="design-tag">TRENDING</span><span class="price-tag">₹12,499</span>
-<div class="img-holder"><img src="images/sherwani3.jpg"></div>
-<h3>Classic Cream Sherwani</h3><p>Traditional Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
+    <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProducts('Men', this)">Men</button>
+        <button class="filter-btn" onclick="filterProducts('Women', this)">Women</button>
+        <button class="filter-btn" onclick="filterProducts('Kids', this)">Kids</button>
+        <button class="filter-btn" onclick="filterProducts('Wedding', this)">Wedding</button>
+    </div>
 
-<!-- ================= LEHENGA ================= -->
-<div class="product-card" data-category="lehenga">
-<span class="design-tag">ROYAL</span><span class="price-tag">₹19,999</span>
-<div class="img-holder"><img src="images/lehenga1.jpg"></div>
-<h3>Bridal Red Lehenga</h3><p>Wedding Collection</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
+    <div class="product-grid" id="productGrid">
+        </div>
+</section>
 
-<div class="product-card" data-category="lehenga">
-<span class="design-tag">NEW</span><span class="price-tag">₹17,499</span>
-<div class="img-holder"><img src="images/lehenga2.jpg"></div>
-<h3>Designer Bridal Lehenga</h3><p>Premium Look</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <p style="color:#bbb; font-size:14px; line-height:1.8;">Shree Shyam Collection is Ayodhya's premier fashion destination, offering a blend of traditional royalty and modern aesthetics for the whole family.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li>Men's Collection</li>
+                <li>Women's Bridal</li>
+                <li>Kid's Festive</li>
+                <li>Track Order</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Customer Care</h4>
+            <ul>
+                <li>FAQs</li>
+                <li>Shipping Policy</li>
+                <li>Return & Exchange</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+        <div class="footer-col newsletter">
+            <h4>Newsletter</h4>
+            <input type="email" placeholder="Your Email Address">
+            <button>Subscribe</button>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Shree Shyam Collection. All Rights Reserved. Designed for Excellence.
+    </div>
+</footer>
 
-<div class="product-card" data-category="lehenga">
-<span class="design-tag">TRENDING</span><span class="price-tag">₹15,999</span>
-<div class="img-holder"><img src="images/lehenga3.jpg"></div>
-<h3>Pastel Party Lehenga</h3><p>Engagement Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<!-- ================= SAREE ================= -->
-<div class="product-card" data-category="saree">
-<span class="design-tag">ROYAL</span><span class="price-tag">₹9,999</span>
-<div class="img-holder"><img src="images/saree1.jpg"></div>
-<h3>Banarasi Silk Saree</h3><p>Traditional Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<div class="product-card" data-category="saree">
-<span class="design-tag">NEW</span><span class="price-tag">₹7,999</span>
-<div class="img-holder"><img src="images/saree2.jpg"></div>
-<h3>Designer Party Saree</h3><p>Modern Look</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<div class="product-card" data-category="saree">
-<span class="design-tag">TRENDING</span><span class="price-tag">₹11,499</span>
-<div class="img-holder"><img src="images/saree3.jpg"></div>
-<h3>Kanjivaram Silk Saree</h3><p>Wedding Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<!-- ================= GOWN ================= -->
-<div class="product-card" data-category="gown">
-<span class="design-tag">ROYAL</span><span class="price-tag">₹12,499</span>
-<div class="img-holder"><img src="images/gown1.jpg"></div>
-<h3>Designer Party Gown</h3><p>Luxury Collection</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<div class="product-card" data-category="gown">
-<span class="design-tag">TRENDING</span><span class="price-tag">₹10,999</span>
-<div class="img-holder"><img src="images/gown2.jpg"></div>
-<h3>Evening Long Gown</h3><p>Party Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<!-- ================= MENSWEAR ================= -->
-<div class="product-card" data-category="men">
-<span class="design-tag">NEW</span><span class="price-tag">₹6,999</span>
-<div class="img-holder"><img src="images/men1.jpg"></div>
-<h3>Premium Men Formal Suit</h3><p>Office Wear</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-
-<div class="product-card" data-category="men">
-<span class="design-tag">TRENDING</span><span class="price-tag">₹7,999</span>
-<div class="img-holder"><img src="images/men2.jpg"></div>
-<h3>Indo-Western Men Suit</h3><p>Festive Collection</p>
-<a class="enquiry-btn" href="https://wa.me/919919717645">Enquiry Now</a>
-</div>
-  
-</div>
-</div>
-
-<nav class="nav-bottom">
-<a class="nav-link"><i class="fas fa-home"></i>Home</a>
-<a class="nav-link"><i class="fas fa-search"></i>Search</a>
-<a class="nav-link"><i class="fas fa-heart"></i>Wishlist</a>
-<a class="nav-link"><i class="fas fa-user"></i>Account</a>
-</nav>
-
-<a class="wa-float" href="https://wa.me/919919717645" target="_blank">
-<i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/919919717645" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-function filterProducts(category){
-document.querySelectorAll('.product-card').forEach(p=>{
-p.style.display=(category==='all'||p.dataset.category===category)?'block':'none';
-});
-}
+    // 1. THE DATABASE (Array of Objects)
+    // This makes the search engine possible. You can add as many items as you want here.
+    const products = [
+        // MEN
+        {
+            id: 1,
+            name: "Royal Golden Sherwani",
+            category: "Men",
+            tags: "wedding groom traditional",
+            price: "₹14,999",
+            image: "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            id: 2,
+            name: "Classic Black Tuxedo",
+            category: "Men",
+            tags: "suit formal office party",
+            price: "₹8,999",
+            image: "https://images.unsplash.com/photo-1594938298603-c8148c472f29?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            id: 3,
+            name: "Navy Blue Kurta Set",
+            category: "Men",
+            tags: "festival diwali casual",
+            price: "₹2,499",
+            image: "https://images.unsplash.com/photo-1619623067888-251f08cb326c?auto=format&fit=crop&w=600&q=80"
+        },
+        
+        // WOMEN
+        {
+            id: 4,
+            name: "Bridal Red Lehenga",
+            category: "Women",
+            tags: "wedding heavy embroidery",
+            price: "₹24,999",
+            image: "https://images.unsplash.com/photo-1583391733958-e029f626a579?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            id: 5,
+            name: "Banarasi Silk Saree",
+            category: "Women",
+            tags: "saree traditional south indian",
+            price: "₹11,500",
+            image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            id: 6,
+            name: "Evening Party Gown",
+            category: "Women",
+            tags: "western gown party",
+            price: "₹7,999",
+            image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80"
+        },
+
+        // KIDS
+        {
+            id: 7,
+            name: "Kids Festive Kurta",
+            category: "Kids",
+            tags: "boy children ethnic",
+            price: "₹1,999",
+            image: "https://plus.unsplash.com/premium_photo-1682090793675-9e320d7d79b6?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            id: 8,
+            name: "Princess Frock",
+            category: "Kids",
+            tags: "girl birthday dress",
+            price: "₹2,599",
+            image: "https://images.unsplash.com/photo-1621452773781-0f992fd0f5d0?auto=format&fit=crop&w=600&q=80"
+        },
+        // WEDDING SPECIAL
+        {
+            id: 9,
+            name: "Couple Wedding Set",
+            category: "Wedding",
+            tags: "combo bride groom",
+            price: "₹45,999",
+            image: "https://images.unsplash.com/photo-1588665792900-534a706b8bd0?auto=format&fit=crop&w=600&q=80"
+        }
+    ];
+
+    const grid = document.getElementById('productGrid');
+    const searchInput = document.getElementById('searchInput');
+
+    // 2. RENDER FUNCTION (Display Products)
+    function displayProducts(items) {
+        grid.innerHTML = ""; // Clear current grid
+
+        if(items.length === 0){
+            grid.innerHTML = `<div class="no-results">No products found matching your search.</div>`;
+            return;
+        }
+
+        items.forEach(product => {
+            const card = `
+                <div class="product-card">
+                    <div class="image-box">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="overlay-icons">
+                            <a href="https://wa.me/919919717645?text=I am interested in ${product.name}" target="_blank" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            <a href="#" class="icon-btn"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <span>${product.category}</span>
+                        <h3>${product.name}</h3>
+                        <div class="price">${product.price}</div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+    }
+
+    // 3. INITIAL LOAD
+    displayProducts(products);
+
+    // 4. FILTER FUNCTION (Category Tabs)
+    function filterProducts(category, btnElement) {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        if(btnElement) btnElement.classList.add('active');
+
+        if (category === 'all') {
+            displayProducts(products);
+        } else {
+            const filtered = products.filter(p => p.category === category || p.tags.includes(category.toLowerCase()));
+            displayProducts(filtered);
+        }
+    }
+
+    // Helper for Nav Links to trigger filter
+    function filterByLink(cat) {
+        // Scroll to collection
+        document.getElementById('collection').scrollIntoView({behavior: 'smooth'});
+        // Trigger filter
+        filterProducts(cat, null);
+    }
+
+    // 5. SEARCH ENGINE FUNCTION
+    searchInput.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        
+        const filteredProducts = products.filter(product => {
+            return (
+                product.name.toLowerCase().includes(searchString) || 
+                product.category.toLowerCase().includes(searchString) ||
+                product.tags.toLowerCase().includes(searchString)
+            );
+        });
+
+        displayProducts(filteredProducts);
+    });
+
 </script>
 
 </body>
