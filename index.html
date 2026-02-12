@@ -451,4 +451,56 @@
                     cartList.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;"><span>${item.name}</span><span>₹${item.price}</span></div>`;
                 });
                 cartTotalDisplay.innerText = "₹" + total;
-                document.getElementById('payTotal').innerTe
+                document.getElementById('payTotal').innerText = total;
+                document.getElementById('checkoutBtn').style.display = 'block';
+            }
+        }
+
+        function goToStep(step) {
+            document.getElementById('cartStep1').style.display = step === 1 ? 'block' : 'none';
+            document.getElementById('cartStep2').style.display = step === 2 ? 'block' : 'none';
+            document.getElementById('cartStep3').style.display = step === 3 ? 'block' : 'none';
+            document.getElementById('cartStep4').style.display = step === 4 ? 'block' : 'none';
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const addr = document.getElementById('custAddress').value;
+
+            if(!name || !phone || !addr) {
+                alert("Please fill all address details!");
+                return;
+            }
+            // All good! Show Success
+            goToStep(4);
+            cart = []; // Reset cart
+            updateCartUI();
+        }
+
+        function filterProducts() {
+            const val = document.getElementById('searchInput').value.toLowerCase();
+            renderProducts(products.filter(p => p.name.toLowerCase().includes(val)));
+        }
+
+        function openModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            if(id === 'cartModal') goToStep(1); // Reset to first step when opening cart
+        }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; }
+
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            if(slides[slideIndex - 1]) slides[slideIndex - 1].style.display = "flex";
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+    </script>
+</body>
+</html>
