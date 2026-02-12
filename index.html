@@ -9,9 +9,9 @@
     
     <style>
         :root {
-            --primary: #ff3f6c; /* Pink */
-            --secondary: #f4b41a; /* Gold */
-            --accent: #14213d; /* Navy */
+            --primary: #ff3f6c;
+            --secondary: #f4b41a;
+            --accent: #14213d;
             --light: #ffffff;
             --bg-gray: #f5f5f6;
         }
@@ -174,11 +174,10 @@
         .p-details { padding: 8px; flex-grow: 1; }
         .p-brand { font-size: 0.65rem; color: #888; font-weight: 700; }
         .p-name { font-size: 0.85rem; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        
         .p-price { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; font-weight: 600; margin: 3px 0; }
         .p-old { text-decoration: line-through; color: #aaa; font-size: 0.75rem; }
 
-        /* --- Small Service Highlights --- */
+        /* --- Service Highlights --- */
         .features-small {
             background: white;
             padding: 15px 3%;
@@ -186,14 +185,11 @@
             justify-content: space-around;
             border-top: 1px solid #eee;
         }
-        .feat-item {
-            text-align: center;
-            color: #555;
-        }
+        .feat-item { text-align: center; color: #555; }
         .feat-item i { font-size: 1.2rem; color: var(--primary); margin-bottom: 3px; }
         .feat-item p { font-size: 0.65rem; font-weight: 600; }
 
-        /* --- Modals --- */
+        /* --- Modals & PDP --- */
         .modal {
             display: none;
             position: fixed; z-index: 2000;
@@ -209,10 +205,7 @@
             text-align: center;
             position: relative;
         }
-        .close-btn {
-            position: absolute; top: 10px; right: 15px;
-            font-size: 24px; cursor: pointer; color: #aaa;
-        }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #aaa; }
         .modal-btn {
             background: var(--primary); color: white;
             border: none; padding: 10px 20px;
@@ -228,15 +221,13 @@
             width: 50px; height: 50px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
             font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            text-decoration: none;
-            z-index: 999;
+            text-decoration: none; z-index: 999;
         }
 
         @media (max-width: 768px) {
             body { padding-top: 150px; }
             .header-main { gap: 5px; }
             .search-container { order: 3; margin: 5px 0 0; min-width: 100%; }
-            .logo { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -249,23 +240,13 @@
         </div>
 
         <div class="header-main">
-            <a href="#" class="logo">
-                Shree Shyam
-                <span>COLLECTION</span>
-            </a>
+            <a href="#" class="logo">Shree Shyam<span>COLLECTION</span></a>
 
             <div class="nav-icons">
-                <div class="nav-icon" onclick="openModal('profileModal')">
-                    <i class="far fa-user"></i>
-                    <span>Profile</span>
-                </div>
-                <div class="nav-icon" onclick="openModal('wishlistModal')">
-                    <i class="far fa-heart"></i>
-                    <span>Wishlist</span>
-                </div>
+                <div class="nav-icon" onclick="openModal('profileModal')"><i class="far fa-user"></i><span>Profile</span></div>
+                <div class="nav-icon" onclick="openModal('wishlistModal')"><i class="far fa-heart"></i><span>Wishlist</span></div>
                 <div class="nav-icon" onclick="openModal('cartModal')">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Bag</span>
+                    <i class="fas fa-shopping-bag"></i><span>Bag</span>
                     <div class="badge" id="cartCount">0</div>
                 </div>
             </div>
@@ -295,7 +276,6 @@
     </div>
 
     <div style="padding: 10px 3%; font-weight: 700; color: #444;">Fresh Collection</div>
-    
     <div class="product-grid" id="productGrid"></div>
 
     <div class="features-small">
@@ -311,7 +291,7 @@
 
     <div id="pdpPage" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; overflow-y:auto;">
         <div onclick="closePdp()" style="padding:15px; background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; font-weight:bold; cursor:pointer;">
-           <i class="fas fa-arrow-left"></i> Wapas Jayein
+           <i class="fas fa-arrow-left"></i> Back to Shop
         </div>
         <div id="pdpContent"></div>
         <div style="position:fixed; bottom:0; width:100%; height:60px; display:flex;">
@@ -320,9 +300,7 @@
         </div>
     </div>
 
-    <a href="https://wa.me/917905539844" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/917905539844" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <div id="profileModal" class="modal">
         <div class="modal-content">
@@ -341,8 +319,7 @@
                 <p style="color:#888; text-align:center;">Your bag is empty.</p>
             </div>
             <div style="border-top:1px solid #eee; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold;">
-                <span>Total:</span>
-                <span id="cartTotal">₹0</span>
+                <span>Total:</span><span id="cartTotal">₹0</span>
             </div>
             <button class="modal-btn" onclick="alert('Proceeding to Checkout...')">Checkout Now</button>
         </div>
@@ -358,7 +335,6 @@
     </div>
 
     <script>
-        /* --- 1. Product Data --- */
         const products = [
             { id: 1, name: "Exquisite Bridal Lehenga", price: 10999, old: 15999, img: "https://images.unsplash.com/photo-1767955694884-d4bf352c23c2?auto=format&fit=crop&fm=jpg&q=60&w=500" },
             { id: 7, name: "Banarasi Silk Saree", price: 4500, old: 6500, img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400" },
@@ -371,23 +347,17 @@
 
         let cart = [];
 
-        /* --- 2. Render Products --- */
         function renderProducts(list) {
             const grid = document.getElementById('productGrid');
             grid.innerHTML = "";
             list.forEach(p => {
                 grid.innerHTML += `
                     <div class="product-card" onclick="openPdp(${p.id})">
-                        <div class="p-img-container">
-                            <img src="${p.img}" alt="${p.name}">
-                        </div>
+                        <div class="p-img-container"><img src="${p.img}" alt="${p.name}"></div>
                         <div class="p-details">
                             <div class="p-brand">Shree Shyam</div>
                             <h4 class="p-name">${p.name}</h4>
-                            <div class="p-price">
-                                <span>₹${p.price}</span> 
-                                <span class="p-old">₹${p.old}</span>
-                            </div>
+                            <div class="p-price"><span>₹${p.price}</span><span class="p-old">₹${p.old}</span></div>
                         </div>
                     </div>
                 `;
@@ -395,12 +365,10 @@
         }
         renderProducts(products);
 
-        /* --- 3. PDP Page Logic --- */
         function openPdp(id) {
             const p = products.find(item => item.id === id);
             document.getElementById('pdpPage').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
-            
             document.getElementById('pdpContent').innerHTML = `
                 <img src="${p.img}" style="width:100%; height:400px; object-fit:cover;">
                 <div style="padding:15px; padding-bottom:80px;">
@@ -414,9 +382,8 @@
                     <p><b>Pattern:</b> Traditional Handwork</p>
                 </div>
             `;
-            
             document.getElementById('pdpAddBtn').onclick = () => addToCart(p.name, p.price);
-            document.getElementById('pdpBuyBtn').onclick = () => { alert("Buying " + p.name); };
+            document.getElementById('pdpBuyBtn').onclick = () => { alert("Redirecting to secure checkout for " + p.name); };
         }
 
         function closePdp() {
@@ -424,62 +391,45 @@
             document.body.style.overflow = 'auto';
         }
 
-        /* --- 4. Search --- */
-        function filterProducts() {
-            const val = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(val));
-            renderProducts(filtered);
-        }
-
-        /* --- 5. Cart Logic --- */
         function addToCart(name, price) {
             cart.push({ name, price });
             updateCartUI();
-            alert(name + " added to Bag!");
+            alert(name + " added to Cart!");
         }
 
         function updateCartUI() {
             const badge = document.getElementById('cartCount');
             const cartList = document.getElementById('cartItemsList');
             const cartTotalDisplay = document.getElementById('cartTotal');
-
             badge.innerText = cart.length;
             badge.style.display = cart.length > 0 ? 'flex' : 'none';
-            
             if(cart.length === 0) {
                 cartList.innerHTML = '<p style="color:#888; text-align:center;">Your bag is empty.</p>';
                 cartTotalDisplay.innerText = "₹0";
             } else {
                 cartList.innerHTML = "";
                 let total = 0;
-                cart.forEach((item) => {
+                cart.forEach(item => {
                     total += item.price;
-                    cartList.innerHTML += `
-                        <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;">
-                            <span>${item.name}</span>
-                            <span>₹${item.price}</span>
-                        </div>
-                    `;
+                    cartList.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;"><span>${item.name}</span><span>₹${item.price}</span></div>`;
                 });
                 cartTotalDisplay.innerText = "₹" + total;
             }
         }
 
-        /* --- 6. Modal & Slider --- */
+        function filterProducts() {
+            const val = document.getElementById('searchInput').value.toLowerCase();
+            renderProducts(products.filter(p => p.name.toLowerCase().includes(val)));
+        }
+
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        
-        window.onclick = function(e) {
-            if (e.target.classList.contains('modal')) e.target.style.display = 'none';
-        }
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; }
 
         let slideIndex = 0;
         function showSlides() {
             let slides = document.getElementsByClassName("slide");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                slides[i].classList.remove('active');
-            }
+            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
             slideIndex++;
             if (slideIndex > slides.length) slideIndex = 1;
             slides[slideIndex - 1].style.display = "flex";
@@ -490,4 +440,3 @@
     </script>
 </body>
 </html>
-
