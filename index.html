@@ -420,23 +420,25 @@
         const grid = document.getElementById('productGrid');
         
         function renderProducts(list) {
-            grid.innerHTML = "";
-            list.forEach(p => {
-                grid.innerHTML += `
-    <div class="product-card" onclick="openPdp(${p.id})"> 
-        
-                        <div class="p-img-container">
-                            <img src="${p.img}" alt="${p.name}">
-                        </div>
-                        <div class="p-details">
-                            <div class="p-brand">Shree Shyam</div>
-                            <h4 class="p-name">${p.name}</h4>
-                            <div class="p-price">
-                                <span>₹${p.price}</span>
-                                <span class="p-old">₹${p.old}</span>
-                            </div>
-                        </div>
-                        <div class="p-actions">
+    grid.innerHTML = "";
+    list.forEach(p => {
+        grid.innerHTML += `
+            <div class="product-card" onclick="openPdp(${p.id})">
+                <div class="p-img-container">
+                    <img src="${p.img}" alt="${p.name}">
+                </div>
+                <div class="p-details">
+                    <div class="p-brand">Shree Shyam</div>
+                    <h4 class="p-name">${p.name}</h4>
+                    <div class="p-price">
+                        <span>₹${p.price}</span> 
+                        <span class="p-old">₹${p.old}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
                             <button class="btn-cart" onclick="addToCart('${p.name}', ${p.price})">Add Cart</button>
                             <button class="btn-buy" onclick="buyNow('${p.name}')">Buy Now</button>
                         </div>
@@ -497,7 +499,7 @@
         /* --- 5. Modal Logic --- */
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        
+                
         // Close modal when clicking outside
         window.onclick = function(e) {
             if (e.target.classList.contains('modal')) {
@@ -510,4 +512,7 @@
         function showSlides() {
             let slides = document.getElementsByClassName("slide");
             for (let i = 0; i < slides.length; i++) {
-       
+                slides[i].style.display = "none";
+                slides[i].classList.remove('active');
+            }
+  
