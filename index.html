@@ -14,6 +14,7 @@
             --accent: #14213d;
             --light: #ffffff;
             --bg-gray: #f5f5f6;
+            --success: #4caf50;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -177,19 +178,7 @@
         .p-price { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; font-weight: 600; margin: 3px 0; }
         .p-old { text-decoration: line-through; color: #aaa; font-size: 0.75rem; }
 
-        /* --- Service Highlights --- */
-        .features-small {
-            background: white;
-            padding: 15px 3%;
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid #eee;
-        }
-        .feat-item { text-align: center; color: #555; }
-        .feat-item i { font-size: 1.2rem; color: var(--primary); margin-bottom: 3px; }
-        .feat-item p { font-size: 0.65rem; font-weight: 600; }
-
-        /* --- Modals & PDP --- */
+        /* --- Modals --- */
         .modal {
             display: none;
             position: fixed; z-index: 2000;
@@ -201,17 +190,32 @@
             background: white;
             padding: 20px;
             border-radius: 8px;
-            width: 85%; max-width: 350px;
+            width: 90%; max-width: 400px;
             text-align: center;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #aaa; }
         .modal-btn {
             background: var(--primary); color: white;
-            border: none; padding: 10px 20px;
+            border: none; padding: 12px 20px;
             width: 100%; border-radius: 4px;
             font-weight: 600; margin-top: 15px; cursor: pointer;
         }
+
+        .input-field {
+            width: 100%; padding: 10px; margin-top: 10px; 
+            border: 1px solid #ddd; border-radius: 4px; outline: none;
+        }
+
+        /* --- Tracking Styles --- */
+        .track-container {
+            text-align: left; background: #f9f9f9; padding: 15px;
+            border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--success);
+        }
+        .track-item { margin-bottom: 10px; font-size: 0.85rem; display: flex; align-items: center; }
+        .track-item i { color: var(--success); margin-right: 10px; }
 
         footer { background: #222; color: #fff; padding: 20px; font-size: 0.8rem; text-align: center; }
 
@@ -278,12 +282,6 @@
     <div style="padding: 10px 3%; font-weight: 700; color: #444;">Fresh Collection</div>
     <div class="product-grid" id="productGrid"></div>
 
-    <div class="features-small">
-        <div class="feat-item"><i class="fas fa-truck"></i><p>Fast Delivery</p></div>
-        <div class="feat-item"><i class="fas fa-check-circle"></i><p>100% Original</p></div>
-        <div class="feat-item"><i class="fas fa-undo"></i><p>Easy Return</p></div>
-    </div>
-
     <footer>
         <p>&copy; 2024 Shree Shyam Collection - Ayodhya</p>
         <p>Call: 7905539844</p>
@@ -306,7 +304,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('profileModal')">&times;</span>
             <h3>Login</h3>
-            <input type="tel" placeholder="Mobile Number" style="width:100%; padding:10px; margin-top:15px; border:1px solid #ddd;">
+            <input type="tel" class="input-field" placeholder="Mobile Number">
             <button class="modal-btn">Send OTP</button>
         </div>
     </div>
@@ -314,14 +312,52 @@
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
-            <h3>Your Shopping Bag</h3>
-            <div id="cartItemsList" style="text-align: left; margin: 15px 0; max-height: 200px; overflow-y: auto;">
-                <p style="color:#888; text-align:center;">Your bag is empty.</p>
+            
+            <div id="cartStep1">
+                <h3>Your Shopping Bag</h3>
+                <div id="cartItemsList" style="text-align: left; margin: 15px 0; max-height: 200px; overflow-y: auto;">
+                    <p style="color:#888; text-align:center;">Your bag is empty.</p>
+                </div>
+                <div style="border-top:1px solid #eee; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold;">
+                    <span>Total:</span><span id="cartTotal">₹0</span>
+                </div>
+                <button class="modal-btn" id="checkoutBtn" onclick="goToStep(2)">Proceed to Checkout</button>
             </div>
-            <div style="border-top:1px solid #eee; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold;">
-                <span>Total:</span><span id="cartTotal">₹0</span>
+
+            <div id="cartStep2" style="display:none;">
+                <h3>Delivery Address</h3>
+                <input type="text" id="custName" class="input-field" placeholder="Full Name">
+                <input type="tel" id="custPhone" class="input-field" placeholder="Phone Number">
+                <textarea id="custAddress" class="input-field" placeholder="Full Address (House No, Area, Landmark, Ayodhya)" style="height:80px;"></textarea>
+                <button class="modal-btn" onclick="goToStep(3)">Next: Payment</button>
+                <p style="margin-top:10px; font-size:0.8rem; cursor:pointer; color:var(--primary);" onclick="goToStep(1)">← Back to Bag</p>
             </div>
-            <button class="modal-btn" onclick="alert('Proceeding to Checkout...')">Checkout Now</button>
+
+            <div id="cartStep3" style="display:none;">
+                <h3>Payment Method</h3>
+                <div style="text-align:left; margin:20px 0; border:1px solid #ddd; padding:15px; border-radius:5px;">
+                    <input type="radio" id="cod" name="pay" checked>
+                    <label for="cod"><b>Cash on Delivery (COD)</b></label>
+                    <p style="font-size:0.75rem; color:#666; margin-left:20px;">Pay ₹<span id="payTotal"></span> when you receive the order.</p>
+                </div>
+                <button class="modal-btn" onclick="placeOrder()">Place Order</button>
+            </div>
+
+            <div id="cartStep4" style="display:none;">
+                <i class="fas fa-check-circle" style="font-size: 3.5rem; color: var(--success); margin-bottom: 10px;"></i>
+                <h2 style="color:#333;">Order Placed!</h2>
+                <p style="font-size:0.9rem; color:#666;">ID: #SS-AYD-2026</p>
+                
+                <div class="track-container">
+                    <p style="font-weight:700; margin-bottom:8px;">Track Your Order:</p>
+                    <div class="track-item"><i class="fas fa-circle"></i> <b>Order Confirmed</b> - Just now</div>
+                    <div class="track-item" style="color:#aaa;"><i class="far fa-circle"></i> Out for delivery</div>
+                    <div class="track-item" style="color:#aaa;"><i class="far fa-circle"></i> Delivered</div>
+                </div>
+                
+                <button class="modal-btn" style="background:#333;" onclick="location.reload()">Continue Shopping</button>
+            </div>
+
         </div>
     </div>
 
@@ -383,7 +419,7 @@
                 </div>
             `;
             document.getElementById('pdpAddBtn').onclick = () => addToCart(p.name, p.price);
-            document.getElementById('pdpBuyBtn').onclick = () => { alert("Redirecting to secure checkout for " + p.name); };
+            document.getElementById('pdpBuyBtn').onclick = () => { addToCart(p.name, p.price); openModal('cartModal'); closePdp(); };
         }
 
         function closePdp() {
@@ -394,7 +430,6 @@
         function addToCart(name, price) {
             cart.push({ name, price });
             updateCartUI();
-            alert(name + " added to Cart!");
         }
 
         function updateCartUI() {
@@ -403,9 +438,11 @@
             const cartTotalDisplay = document.getElementById('cartTotal');
             badge.innerText = cart.length;
             badge.style.display = cart.length > 0 ? 'flex' : 'none';
+            
             if(cart.length === 0) {
                 cartList.innerHTML = '<p style="color:#888; text-align:center;">Your bag is empty.</p>';
                 cartTotalDisplay.innerText = "₹0";
+                document.getElementById('checkoutBtn').style.display = 'none';
             } else {
                 cartList.innerHTML = "";
                 let total = 0;
@@ -414,29 +451,4 @@
                     cartList.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;"><span>${item.name}</span><span>₹${item.price}</span></div>`;
                 });
                 cartTotalDisplay.innerText = "₹" + total;
-            }
-        }
-
-        function filterProducts() {
-            const val = document.getElementById('searchInput').value.toLowerCase();
-            renderProducts(products.filter(p => p.name.toLowerCase().includes(val)));
-        }
-
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; }
-
-        let slideIndex = 0;
-        function showSlides() {
-            let slides = document.getElementsByClassName("slide");
-            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-            slideIndex++;
-            if (slideIndex > slides.length) slideIndex = 1;
-            slides[slideIndex - 1].style.display = "flex";
-            slides[slideIndex - 1].classList.add('active');
-            setTimeout(showSlides, 3000);
-        }
-        showSlides();
-    </script>
-</body>
-</html>
+                document.getElementById('payTotal').innerTe
