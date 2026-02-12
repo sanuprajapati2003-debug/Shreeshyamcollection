@@ -3,87 +3,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Shyam Collection - Ayodhya | Premium Fashion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Shree Shyam Collection - Ayodhya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        .brand-font { font-family: 'Playfair Display', serif; }
-        body { font-family: 'Poppins', sans-serif; }
-        .premium-gradient { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); }
-        .product-card:hover img { transform: scale(1.05); }
+        :root {
+            --primary: #ff3f6c; /* Pink */
+            --secondary: #f4b41a; /* Gold */
+            --accent: #14213d; /* Navy */
+            --light: #ffffff;
+            --bg-gray: #f5f5f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-gray); padding-top: 130px; }
+
+        /* --- Header --- */
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: var(--accent);
+            color: white;
+            padding: 4px 15px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-main {
+            padding: 8px 3%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            line-height: 1;
+        }
+        .logo span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: -5px;
+            margin-left: 5px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            flex: 1;
+            margin: 0 15px;
+            position: relative;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 8px 35px 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.85rem;
+            background: #f0f0f0;
+        }
+        .search-container i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+
+        /* Nav Icons (Interactive) */
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-icon {
+            text-align: center;
+            cursor: pointer;
+            color: #333;
+            position: relative;
+        }
+        .nav-icon i { font-size: 1.1rem; }
+        .nav-icon span { display: block; font-size: 0.65rem; font-weight: 600; }
+        
+        .badge {
+            position: absolute;
+            top: -5px; right: 0;
+            background: var(--primary);
+            color: white;
+            font-size: 0.6rem;
+            width: 15px; height: 15px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            display: none; /* Hidden until items added */
+        }
+
+        /* --- Sliding Banner --- */
+        .slider-container {
+            position: relative;
+            width: 94%;
+            margin: 10px 3%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            display: none; /* Hidden by default */
+            align-items: center;
+            padding-left: 30px;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide.active { display: flex; animation: fade 1s; }
+        
+        .slide-text {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .slide-text h2 { font-size: 2rem; font-family: 'Great Vibes', cursive; margin-bottom: 5px; }
+        .slide-text h1 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        .btn-banner {
+            background: white; color: var(--primary);
+            padding: 8px 20px; border: none; font-weight: 700;
+            cursor: pointer; border-radius: 3px;
+        }
+
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            padding: 10px 3% 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p-img-container {
+            height: 200px;
+            width: 100%;
+            position: relative;
+        }
+        .p-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .p-details { padding: 8px; flex-grow: 1; }
+        .p-brand { font-size: 0.65rem; color: #888; font-weight: 700; }
+        .p-name { font-size: 0.85rem; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        .p-price { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; font-weight: 600; margin: 3px 0; }
+        .p-old { text-decoration: line-through; color: #aaa; font-size: 0.75rem; }
+        .p-off { color: #03a685; font-size: 0.7rem; }
+
+        /* Buttons Section */
+        .p-actions {
+            padding: 0 8px 8px;
+            display: flex;
+            gap: 5px;
+        }
+        .btn-cart, .btn-buy {
+            flex: 1;
+            padding: 6px 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            transition: 0.2s;
+        }
+        .btn-buy {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-cart:active, .btn-buy:active { transform: scale(0.95); }
+
+        /* --- Small Service Highlights --- */
+        .features-small {
+            background: white;
+            padding: 15px 3%;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #eee;
+        }
+        .feat-item {
+            text-align: center;
+            color: #555;
+        }
+        .feat-item i { font-size: 1.2rem; color: var(--primary); margin-bottom: 3px; }
+        .feat-item p { font-size: 0.65rem; font-weight: 600; }
+
+        /* --- Modals (Popups) --- */
+        .modal {
+            display: none;
+            position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 85%; max-width: 350px;
+            text-align: center;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute; top: 10px; right: 15px;
+            font-size: 24px; cursor: pointer; color: #aaa;
+        }
+        .modal-btn {
+            background: var(--primary); color: white;
+            border: none; padding: 10px 20px;
+            width: 100%; border-radius: 4px;
+            font-weight: 600; margin-top: 15px; cursor: pointer;
+        }
+
+        /* Footer */
+        footer { background: #222; color: #fff; padding: 20px; font-size: 0.8rem; text-align: center; }
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 70px; right: 15px;
+            background: #25d366; color: white;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            body { padding-top: 150px; }
+            .header-main { gap: 5px; }
+            .search-container { order: 3; margin: 5px 0 0; min-width: 100%; }
+            .logo { font-size: 1.8rem; }
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="bg-black text-white text-center text-xs py-2">
-            ✨ Special Opening Offer: 20% Off on Banarasi Sarees in Ayodhya! ✨
+    <header>
+        <div class="top-bar">
+            <span><i class="fas fa-truck"></i> Fast Delivery in Ayodhya</span>
+            <span><i class="fas fa-tag"></i> 10% Off on First Order</span>
         </div>
-        <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
-            <div class="flex-shrink-0">
-                <h1 class="brand-font text-3xl text-purple-700 leading-none">
-                    Shree Shyam <span class="text-orange-500">Collection</span>
-                    <span class="block text-[10px] tracking-[0.3em] text-gray-400 uppercase font-sans mt-1">Ayodhya</span>
-                </h1>
+
+        <div class="header-main">
+            <a href="#" class="logo">
+                Shree Shyam
+                <span>COLLECTION</span>
+            </a>
+
+            <div class="nav-icons">
+                <div class="nav-icon" onclick="openModal('profileModal')">
+                    <i class="far fa-user"></i>
+                    <span>Profile</span>
+                </div>
+                <div class="nav-icon" onclick="openModal('wishlistModal')">
+                    <i class="far fa-heart"></i>
+                    <span>Wishlist</span>
+                </div>
+                <div class="nav-icon" onclick="openModal('cartModal')">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Bag</span>
+                    <div class="badge" id="cartCount">0</div>
+                </div>
             </div>
-            <div class="hidden lg:flex flex-grow mx-10">
-                <input type="text" placeholder="Search for Sarees, Suits, Kurtis..." class="w-full border border-gray-200 bg-gray-100 rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
-                <button class="premium-gradient text-white px-6 py-2 rounded-r-md font-bold">Search</button>
-            </div>
-            <div class="flex gap-6 font-semibold text-gray-700">
-                <span class="cursor-pointer hover:text-purple-600">Login</span>
-                <span class="cursor-pointer hover:text-purple-600 relative">Cart <span class="absolute -top-2 -right-3 bg-orange-500 text-white text-[10px] px-1.5 rounded-full">0</span></span>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search Kurtis, Sarees...">
+                <i class="fas fa-search"></i>
             </div>
         </div>
     </header>
 
-    <section class="relative h-[500px] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=1600" class="w-full h-full object-cover" alt="Fashion Banner">
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center px-10">
-            <div class="text-white max-w-xl">
-                <h2 class="text-5xl font-bold mb-4 brand-font">Festive Elegance <br>From Ayodhya</h2>
-                <p class="text-lg mb-6">Explore our exclusive Banarasi and Designer collection curated for the modern woman.</p>
-                <button class="bg-white text-purple-700 px-8 py-3 rounded-full font-bold hover:bg-purple-700 hover:text-white transition-all shadow-xl">Shop Collection</button>
+    <div class="slider-container">
+        <div class="slide active" style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), transparent), url('https://media.istockphoto.com/id/2197446423/photo/various-types-of-elegant-traditional-javanese-dresses-called-kebaya-displayed-on-mannequins.jpg?s=612x612&w=is&k=20&c=UnVIkZHFwGoscnfm2vGN19FGeDDc5nsobQ8HSLlQsuA=');">
+            <div class="slide-text">
+                <h2>Welcome to</h2>
+                <h1>Shree Shyam</h1>
+                <button class="btn-banner">Shop Now</button>
             </div>
         </div>
-    </section>
-
-    <section class="container mx-auto px-4 py-16">
-        <div class="flex justify-between items-end mb-10">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-800">New Arrivals</h2>
-                <div class="h-1 w-20 premium-gradient mt-2"></div>
+        <div class="slide" style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), transparent), url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800');">
+            <div class="slide-text">
+                <h2>Wedding</h2>
+                <h1>Sarees</h1>
+                <button class="btn-banner">View Collection</button>
             </div>
-            <a href="#" class="text-purple-600 font-bold border-b-2 border-purple-600">View All</a>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), transparent), url('https://media.istockphoto.com/id/1304421597/photo/girls-or-females-mannequin-with-golden-and-silver-bald-heads-wearing-ethnic-cultural-indian.jpg?s=612x612&w=is&k=20&c=dlVP_386RItwFUaMk8u3X1eju0P1slVS1RD3R4tZoxU=');">
+            <div class="slide-text">
+                <h2>New</h2>
+                <h1>Arrivals</h1>
+                <button class="btn-banner">Check Out</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding: 10px 3%; font-weight: 700; color: #444;">Fresh Collection</div>
+    
+    <div class="product-grid" id="productGrid">
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border group">
-                <div class="relative overflow-hidden h-80">
-                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">HOT SALE</div>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-800 mb-1">Banarasi Silk Saree</h3>
-                    <p class="text-gray-500 text-xs mb-3">Authentic Zari Work</p>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <span class="text-xl font-bold text-gray-900">₹3,999</span>
-                            <span class="text-sm text-gray-400 line-through ml-2">₹5,499</span>
-                        </div>
-                        <button class="p-2 rounded-full border border-purple-200 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            </div>
-    </section>
+    <div class="features-small">
+        <div class="feat-item">
+            <i class="fas fa-truck"></i>
+            <p>Fast Delivery</p>
+        </div>
+        <div class="feat-item">
+            <i class="fas fa-check-circle"></i>
+            <p>100% Original</p>
+        </div>
+        <div class="feat-item">
+            <i class="fas fa-undo"></i>
+            <p>Easy Return</p>
+        </div>
+    </div>
 
-    <a href="https://wa.me/917905539844" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <footer>
+        <p>&copy; 2024 Shree Shyam Collection - Ayodhya</p>
+        <p>Call: 7905539844</p>
+    </footer>
+
+    <a href="https://wa.me/917905539844" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('profileModal')">&times;</span>
+            <h3>Login</h3>
+            <input type="tel" placeholder="Mobile Number" style="width:100%; padding:10px; margin-top:15px; border:1px solid #ddd;">
+            <button class="modal-btn">Send OTP</button>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
+            <h3>Your Shopping Bag</h3>
+            <div id="cartItemsList" style="text-align: left; margin: 15px 0; max-height: 200px; overflow-y: auto;">
+                <p style="color:#888; text-align:center;">Your bag is empty.</p>
+            </div>
+            <div style="border-top:1px solid #eee; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold;">
+                <span>Total:</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="modal-btn" onclick="alert('Proceeding to Checkout...')">Checkout Now</button>
+        </div>
+    </div>
+
+    <div id="wishlistModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('wishlistModal')">&times;</span>
+            <h3>My Wishlist</h3>
+            <p style="margin:20px 0; color:#888;">No items saved yet.</p>
+            <button class="modal-btn" onclick="closeModal('wishlistModal')">Start Shopping</button>
+        </div>
+    </div>
+
+    <script>
+        /* --- 1. Product Data --- */
+        const products = [
+            { id: 1, 
+            name: "Exquisite Bridal Lehenga -             Ayodhya Special", 
+    price: 10999, 
+    old: 15999, 
+    img:  "https://images.unsplash.com/photo-1767955694884-d4bf352c23c2?auto=format&fit=crop&fm=jpg&q=60&w=500" },
+            { id: 7, name: "Banarasi Silk Saree", price: 4500, old: 6500, img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400" },
+            { id: 2, name: "Teal Sharara Set", price: 2200, old: 3000, img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400" },
+            { id: 3, name: "Yellow Daily Kurti", price: 899, old: 1499, img: "https://images.unsplash.com/photo-1589810635657-232948472d98?w=400" },
+            { id: 4, name: "Pink Anarkali Suit", price: 3500, old: 4000, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400" },
+            { id: 5, name: "Floral Maxi Dress", price: 1250, old: 1800, img: "https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400" },
+            { id: 6, name: "Chikankari Set", price: 1599, old: 2100, img: "https://media.istockphoto.com/id/179119950/photo/satin-ruched-sweetheart-bodice-belted-dress.jpg?s=1024x1024&w=is&k=20&c=NE3FwDqH2pT0l8jGpN5chBG3F9ji0NDD-K1r87HYxj8=" }
+        ];
+
+        /* --- 2. Render Products --- */
+        const grid = document.getElementById('productGrid');
+        
+        function renderProducts(list) {
+            grid.innerHTML = "";
+            list.forEach(p => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="p-img-container">
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="p-details">
+                            <div class="p-brand">Shree Shyam</div>
+                            <h4 class="p-name">${p.name}</h4>
+                            <div class="p-price">
+                                <span>₹${p.price}</span>
+                                <span class="p-old">₹${p.old}</span>
+                            </div>
+                        </div>
+                        <div class="p-actions">
+                            <button class="btn-cart" onclick="addToCart('${p.name}', ${p.price})">Add Cart</button>
+                            <button class="btn-buy" onclick="buyNow('${p.name}')">Buy Now</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        renderProducts(products);
+
+        /* --- 3. Search --- */
+        function filterProducts() {
+            const val = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(val));
+            renderProducts(filtered);
+        }
+
+        /* --- 4. Cart Logic --- */
+        let cart = [];
+        const badge = document.getElementById('cartCount');
+        const cartList = document.getElementById('cartItemsList');
+        const cartTotalDisplay = document.getElementById('cartTotal');
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            alert(name + " added to Bag!");
+        }
+
+        function updateCartUI() {
+            badge.innerText = cart.length;
+            badge.style.display = cart.length > 0 ? 'flex' : 'none';
+            
+            // Update Modal Content
+            if(cart.length === 0) {
+                cartList.innerHTML = '<p style="color:#888; text-align:center;">Your bag is empty.</p>';
+                cartTotalDisplay.innerText = "₹0";
+            } else {
+                cartList.innerHTML = "";
+                let total = 0;
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    cartList.innerHTML += `
+                        <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;">
+                            <span>${item.name}</span>
+                            <span>₹${item.price}</span>
+                        </div>
+                    `;
+                });
+                cartTotalDisplay.innerText = "₹" + total;
+            }
+        }
+
+        function buyNow(name) {
+            alert("Buying " + name + "! Redirecting to Checkout...");
+            // Here you would normally redirect to a payment page
+        }
+
+        /* --- 5. Modal Logic --- */
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
+        // Close modal when clicking outside
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        }
+
+        /* --- 6. Banner Slider --- */
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove('active');
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "flex";
+            slides[slideIndex - 1].classList.add('active');
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+        showSlides();
+
+    </script>
 </body>
 </html>
-
