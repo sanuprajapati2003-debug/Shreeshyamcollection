@@ -3,178 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Shyam Collection | Premium Luxury Fashion</title>
-    
+    <title>Shree Shyam Collection - Ayodhya | Premium Fashion</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#B8860B',
-                        goldlight: '#D4AF37',
-                        luxury: '#111111',
-                    },
-                    fontFamily: {
-                        brand: ['"Cinzel Decorative"', 'cursive'],
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Montserrat"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .hero-slide { height: 85vh; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
-        .white-theme { background-color: #ffffff; }
-        .img-container { height: 450px; overflow: hidden; background-color: #f9f9f9; }
-        .img-container img { transition: transform 0.8s ease; width: 100%; height: 100%; object-fit: cover; }
-        .img-container:hover img { transform: scale(1.1); }
-        .marquee { white-space: nowrap; overflow: hidden; background: #111; color: white; padding: 10px 0; font-size: 12px; letter-spacing: 2px; }
-        .marquee-inner { display: inline-block; animation: marquee 20s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .brand-font { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Poppins', sans-serif; }
+        .premium-gradient { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); }
+        .product-card:hover img { transform: scale(1.05); }
     </style>
 </head>
-<body class="white-theme text-luxury font-sans antialiased">
+<body class="bg-gray-50">
 
-    <div class="marquee">
-        <div class="marquee-inner">
-            <span>✨ NEW BRIDAL COLLECTION 2026 NOW LIVE ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 📦 WORLDWIDE SHIPPING AVAILABLE &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 💎 VISIT OUR AYODHYA BOUTIQUE &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; </span>
-            <span>✨ NEW BRIDAL COLLECTION 2026 NOW LIVE ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 📦 WORLDWIDE SHIPPING AVAILABLE &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 💎 VISIT OUR AYODHYA BOUTIQUE &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; </span>
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="bg-black text-white text-center text-xs py-2">
+            ✨ Special Opening Offer: 20% Off on Banarasi Sarees in Ayodhya! ✨
         </div>
-    </div>
-
-    <nav class="bg-white/95 backdrop-blur-sm sticky top-0 z-[100] border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
-            <div class="flex-1">
-                <button class="text-xs font-bold uppercase tracking-widest border-b border-black">Menu</button>
+        <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+            <div class="flex-shrink-0">
+                <h1 class="brand-font text-3xl text-purple-700 leading-none">
+                    Shree Shyam <span class="text-orange-500">Collection</span>
+                    <span class="block text-[10px] tracking-[0.3em] text-gray-400 uppercase font-sans mt-1">Ayodhya</span>
+                </h1>
             </div>
-            <div class="flex-1 text-center">
-                <h1 class="font-brand text-3xl md:text-4xl font-black">SHRI SHYAM</h1>
-                <p class="text-[9px] tracking-[0.6em] text-gold font-bold uppercase">Collection</p>
+            <div class="hidden lg:flex flex-grow mx-10">
+                <input type="text" placeholder="Search for Sarees, Suits, Kurtis..." class="w-full border border-gray-200 bg-gray-100 rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                <button class="premium-gradient text-white px-6 py-2 rounded-r-md font-bold">Search</button>
             </div>
-            <div class="flex-1 flex justify-end space-x-6 items-center">
-                <i class="fas fa-search"></i>
-                <div class="relative">
-                    <i class="fas fa-shopping-bag text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </div>
+            <div class="flex gap-6 font-semibold text-gray-700">
+                <span class="cursor-pointer hover:text-purple-600">Login</span>
+                <span class="cursor-pointer hover:text-purple-600 relative">Cart <span class="absolute -top-2 -right-3 bg-orange-500 text-white text-[10px] px-1.5 rounded-full">0</span></span>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <section class="hero-slide relative" style="background-image: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2000');">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 text-center text-white">
-            <h2 class="font-serif italic text-2xl mb-4">Timeless Elegance</h2>
-            <h1 class="font-brand text-5xl md:text-8xl mb-8">ROYAL BRIDAL</h1>
-            <a href="#shop" class="bg-white text-black px-12 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-white transition">Shop Collection</a>
+    <section class="relative h-[500px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=1600" class="w-full h-full object-cover" alt="Fashion Banner">
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center px-10">
+            <div class="text-white max-w-xl">
+                <h2 class="text-5xl font-bold mb-4 brand-font">Festive Elegance <br>From Ayodhya</h2>
+                <p class="text-lg mb-6">Explore our exclusive Banarasi and Designer collection curated for the modern woman.</p>
+                <button class="bg-white text-purple-700 px-8 py-3 rounded-full font-bold hover:bg-purple-700 hover:text-white transition-all shadow-xl">Shop Collection</button>
+            </div>
         </div>
     </section>
 
-    <main id="shop" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="text-center mb-20">
-            <h4 class="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4">Our Masterpieces</h4>
-            <h2 class="font-serif text-5xl italic">The Signature Gallery</h2>
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800">New Arrivals</h2>
+                <div class="h-1 w-20 premium-gradient mt-2"></div>
+            </div>
+            <a href="#" class="text-purple-600 font-bold border-b-2 border-purple-600">View All</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1594463750939-ebb28c3f7f75?q=80&w=1000" alt="Bridal Wear">
-                    <div class="absolute top-4 right-4 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Bridal</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border group">
+                <div class="relative overflow-hidden h-80">
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">HOT SALE</div>
                 </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Zardosi Wedding Lehenga</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Premium Silk</p>
-                </div>
-            </div>
-
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000" alt="Silk Saree">
-                    <div class="absolute top-4 right-4 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Heritage</div>
-                </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Kanchipuram Silk Saree</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Handwoven</p>
+                <div class="p-5">
+                    <h3 class="font-bold text-gray-800 mb-1">Banarasi Silk Saree</h3>
+                    <p class="text-gray-500 text-xs mb-3">Authentic Zari Work</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xl font-bold text-gray-900">₹3,999</span>
+                            <span class="text-sm text-gray-400 line-through ml-2">₹5,499</span>
+                        </div>
+                        <button class="p-2 rounded-full border border-purple-200 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=1000" alt="Groom Sherwani">
-                    <div class="absolute top-4 right-4 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Groom</div>
-                </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Royal Velvet Sherwani</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Signature Collection</p>
-                </div>
             </div>
-
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1602810318383-e6e6cb9a803f?q=80&w=1000" alt="Formal Wear">
-                </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Classic Executive Shirt</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Pure Egyptian Cotton</p>
-                </div>
-            </div>
-
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1568252542512-9fe8fe9c87bb?q=80&w=1000" alt="Designer Gown">
-                </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Designer Evening Gown</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Reception Wear</p>
-                </div>
-            </div>
-
-            <div class="group cursor-pointer">
-                <div class="img-container relative">
-                    <img src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=1000" alt="Festive Wear">
-                </div>
-                <div class="mt-6 text-center">
-                    <h3 class="font-serif text-2xl">Floral Embroidered Anarkali</h3>
-                    <p class="text-gray-500 text-sm mt-2 font-semibold tracking-widest uppercase">Festive Edit</p>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <section class="bg-gray-50 py-32 text-center px-6">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="font-brand text-4xl mb-8">Crafted in Ayodhya</h2>
-            <p class="font-serif text-xl italic text-gray-600 leading-relaxed">
-                "Shri Shyam Collection brings centuries of Indian textile tradition to the modern wardrobe. Every thread is a celebration of royalty and heritage."
-            </p>
-        </div>
     </section>
 
-    <footer class="bg-white border-t border-gray-100 py-20 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <h1 class="font-brand text-2xl mb-6">SHRI SHYAM</h1>
-            <div class="flex space-x-12 mb-10 text-xs font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-gold">Instagram</a>
-                <a href="#" class="hover:text-gold">WhatsApp</a>
-                <a href="#" class="hover:text-gold">Contact</a>
-            </div>
-            <p class="text-gray-400 text-[10px] tracking-widest uppercase">© 2026 Shri Shyam Collection Ayodhya. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/917905539844" class="fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-[200]">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <a href="https://wa.me/917905539844" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
 </body>
 </html>
+
