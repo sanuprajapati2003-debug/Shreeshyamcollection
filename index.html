@@ -353,7 +353,16 @@
         <p>&copy; 2024 Shree Shyam Collection - Ayodhya</p>
         <p>Call: 7905539844</p>
     </footer>
-
+<div id="pdpPage" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; overflow-y:auto;">
+    <div onclick="closePdp()" style="padding:15px; background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; font-weight:bold; cursor:pointer;">
+       <i class="fas fa-arrow-left"></i> Wapas Jayein
+    </div>
+    <div id="pdpContent"></div>
+    <div style="position:fixed; bottom:0; width:100%; height:60px; display:flex;">
+        <button onclick="alert('Bag mein dala gaya!')" style="flex:1; background:#fff; border:1px solid #ddd; font-weight:bold;">ADD TO CART</button>
+        <button onclick="alert('Direct Order!')" style="flex:1; background:#ff9f00; color:#fff; border:none; font-weight:bold;">BUY NOW</button>
+    </div>
+</div>
     <a href="https://wa.me/917905539844" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -414,7 +423,8 @@
             grid.innerHTML = "";
             list.forEach(p => {
                 grid.innerHTML += `
-                    <div class="product-card">
+    <div class="product-card" onclick="openPdp(${p.id})"> 
+        
                         <div class="p-img-container">
                             <img src="${p.img}" alt="${p.name}">
                         </div>
@@ -500,17 +510,4 @@
         function showSlides() {
             let slides = document.getElementsByClassName("slide");
             for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                slides[i].classList.remove('active');
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "flex";
-            slides[slideIndex - 1].classList.add('active');
-            setTimeout(showSlides, 3000); // Change image every 3 seconds
-        }
-        showSlides();
-
-    </script>
-</body>
-</html>
+       
